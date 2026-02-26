@@ -65,6 +65,7 @@ export const CopyTradingPage: React.FC = () => {
     const [totalProfit, setTotalProfit] = useState(0);
     const [message, setMessage] = useState('');
     const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
+    const [connectedTraders, setConnectedTraders] = useState<Array<{ loginid: string; balance: number; token: string }>>([]);
 
     // Advanced settings
     const [showAdvanced, setShowAdvanced] = useState(false);
@@ -72,6 +73,7 @@ export const CopyTradingPage: React.FC = () => {
     const [minStake, setMinStake] = useState<number>(0.35);
     const [maxStake, setMaxStake] = useState<number>(100);
     const [tradeTypes, setTradeTypes] = useState<string[]>([]);
+    const [copyRatio, setCopyRatio] = useState<number>(1.0);
 
     useEffect(() => {
         // Load saved tokens from localStorage
@@ -89,6 +91,18 @@ export const CopyTradingPage: React.FC = () => {
         setIsActive(status.isActive);
         setCopiedTrades(status.copiedTrades);
         setTotalProfit(status.totalProfit);
+
+        // Update status every 5 seconds when active
+        const interval = setInterval(() => {
+            if (copyTradingAPIService.isRunning()) {
+                const stats = copyTradingAPIService.getDetailedStatistics();
+                setCopiedTrades(stats.copiedTrades);
+                setTotalProfit(stats.totalProfit);
+                setConnectedTraders(copyTradingAPIService.getConnectedTraders());
+            }
+        }, 5000);
+
+        return () => clearInterval(interval);
     }, []);
 
     const showMessage = (msg: string, type: 'success' | 'error') => {
@@ -138,12 +152,15 @@ export const CopyTradingPage: React.FC = () => {
             minTradeStake: minStake,
             maxTradeStake: maxStake,
             tradeTypes: tradeTypes.length > 0 ? tradeTypes : undefined,
+            copyRatio: copyRatio,
         };
 
+        showMessage('Connecting to traders...', 'success');
         const result = await copyTradingAPIService.startCopyTrading(config);
         
         if (result.success) {
             setIsActive(true);
+            setConnectedTraders(copyTradingAPIService.getConnectedTraders());
             showMessage(result.message || 'Copy trading started', 'success');
         } else {
             showMessage(result.message || 'Failed to start copy trading', 'error');
@@ -155,6 +172,7 @@ export const CopyTradingPage: React.FC = () => {
         
         if (result.success) {
             setIsActive(false);
+            setConnectedTraders([]);
             showMessage(result.message || 'Copy trading stopped', 'success');
         } else {
             showMessage(result.message || 'Failed to stop copy trading', 'error');
@@ -191,6 +209,10 @@ export const CopyTradingPage: React.FC = () => {
                         </div>
                         <div className='stats-grid'>
                             <div className='stat-item'>
+                                <span className='stat-label'>Connected Traders</span>
+                                <span className='stat-value'>{connectedTraders.length}</span>
+                            </div>
+                            <div className='stat-item'>
                                 <span className='stat-label'>Copied Trades</span>
                                 <span className='stat-value'>{copiedTrades}</span>
                             </div>
@@ -201,6 +223,18 @@ export const CopyTradingPage: React.FC = () => {
                                 </span>
                             </div>
                         </div>
+
+                        {connectedTraders.length > 0 && (
+                            <div className='connected-traders-list'>
+                                <h3>Connected Traders:</h3>
+                                {connectedTraders.map((trader, idx) => (
+                                    <div key={idx} className='trader-info'>
+                                        <span>🟢 {trader.loginid}</span>
+                                        <span>${trader.balance.toFixed(2)}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     <div className='advanced-section'>
@@ -250,6 +284,23 @@ export const CopyTradingPage: React.FC = () => {
                                             disabled={isActive}
                                         />
                                     </div>
+                                </div>
+
+                                <div className='setting-group'>
+                                    <label>Copy Ratio (Stake Multiplier)</label>
+                                    <input
+                                        type='number'
+                                        value={copyRatio}
+                                        onChange={e => setCopyRatio(Number(e.target.value))}
+                                        min='0.1'
+                                        max='10'
+                                        step='0.1'
+                                        disabled={isActive}
+                                        placeholder='1.0 = same stake, 0.5 = half stake'
+                                    />
+                                    <small style={{ color: '#888', marginTop: '4px', display: 'block' }}>
+                                        Multiply trader's stake by this ratio (e.g., 0.5 = copy with half the stake)
+                                    </small>
                                 </div>
 
                                 <div className='setting-group'>
