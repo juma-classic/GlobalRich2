@@ -74,6 +74,8 @@ export const CopyTradingPage: React.FC = () => {
     const [maxStake, setMaxStake] = useState<number>(100);
     const [tradeTypes, setTradeTypes] = useState<string[]>([]);
     const [copyRatio, setCopyRatio] = useState<number>(1.0);
+    const [copyToReal, setCopyToReal] = useState<boolean>(false);
+    const [realAccountToken, setRealAccountToken] = useState<string>('');
 
     useEffect(() => {
         // Load saved tokens from localStorage
@@ -153,6 +155,8 @@ export const CopyTradingPage: React.FC = () => {
             maxTradeStake: maxStake,
             tradeTypes: tradeTypes.length > 0 ? tradeTypes : undefined,
             copyRatio: copyRatio,
+            copyToRealAccount: copyToReal,
+            realAccountToken: copyToReal ? realAccountToken : undefined,
         };
 
         showMessage('Connecting to traders...', 'success');
@@ -229,7 +233,7 @@ export const CopyTradingPage: React.FC = () => {
                                 <h3>Connected Traders:</h3>
                                 {connectedTraders.map((trader, idx) => (
                                     <div key={idx} className='trader-info'>
-                                        <span>🟢 {trader.loginid}</span>
+                                        <span>🟢 {trader.loginid} ({trader.accountType})</span>
                                         <span>${trader.balance.toFixed(2)}</span>
                                     </div>
                                 ))}
@@ -311,6 +315,42 @@ export const CopyTradingPage: React.FC = () => {
                                         onChange={e => setTradeTypes(e.target.value.split(',').map(s => s.trim()))}
                                         disabled={isActive}
                                     />
+                                </div>
+
+                                <div className='setting-group' style={{ marginTop: '20px', padding: '15px', background: '#f0f9ff', borderRadius: '8px', border: '2px solid #3b82f6' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                                        <input
+                                            type='checkbox'
+                                            id='copyToReal'
+                                            checked={copyToReal}
+                                            onChange={e => setCopyToReal(e.target.checked)}
+                                            disabled={isActive}
+                                            style={{ width: '20px', height: '20px', cursor: 'pointer' }}
+                                        />
+                                        <label htmlFor='copyToReal' style={{ margin: 0, fontWeight: 'bold', color: '#1e40af', cursor: 'pointer' }}>
+                                            🚀 Copy from DEMO to REAL Account
+                                        </label>
+                                    </div>
+                                    <small style={{ color: '#1e40af', display: 'block', marginBottom: '10px' }}>
+                                        Monitor demo traders and automatically copy their trades to your real account
+                                    </small>
+                                    
+                                    {copyToReal && (
+                                        <div style={{ marginTop: '10px' }}>
+                                            <label style={{ fontWeight: 'normal', color: '#1e40af' }}>Real Account API Token</label>
+                                            <input
+                                                type='text'
+                                                value={realAccountToken}
+                                                onChange={e => setRealAccountToken(e.target.value)}
+                                                placeholder='Enter your REAL account API token'
+                                                disabled={isActive}
+                                                style={{ marginTop: '5px' }}
+                                            />
+                                            <small style={{ color: '#dc2626', display: 'block', marginTop: '5px', fontWeight: 'bold' }}>
+                                                ⚠️ WARNING: This will use REAL money! Make sure you understand the risks.
+                                            </small>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         )}
