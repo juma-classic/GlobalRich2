@@ -3824,7 +3824,7 @@ const AppWrapper = observer(() => {
                                 >
                                     {[
                                         { 
-                                            name: 'Novagrid 2026',
+                                            name: 'AutoRich 2026',
                                             xmlFile: 'NOVAGRID 2026.xml',
                                             icon: (
                                                 // Supernova / Cosmic Explosion
@@ -3921,15 +3921,15 @@ const AppWrapper = observer(() => {
                                                 </svg>
                                             ), 
                                             rate: 97,
-                                            price: '$1,099',
-                                            description: 'Ultimate AI-powered trading system with neural network analysis, real-time market adaptation, and premium 24/7 support'
+                                            price: '$500',
+                                            description: 'Revolutionary automated wealth-building system with intelligent risk management, adaptive strategies, and consistent profit optimization'
                                         },
                                         { 
-                                            name: 'Novagrid Elite',
+                                            name: 'Divergent Pro',
                                             xmlFile: '🖤⚜️ 𝓣𝓱𝓮 𝓓𝓪𝓻𝓴 𝓓𝔂𝓷𝓪𝓼𝓽𝔂 ⚜️🖤2.xml',
                                             rate: 94,
-                                            price: '$499',
-                                            description: 'Elite trading strategy with advanced pattern recognition, precision execution, and professional-grade analytics',
+                                            price: '$200',
+                                            description: 'Professional divergence detection system with multi-timeframe analysis, smart entry signals, and advanced market trend identification',
                                             icon: (
                                                 // Spiral Galaxy
                                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">

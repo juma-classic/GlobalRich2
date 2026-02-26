@@ -51,8 +51,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
                 const data = await response.json();
                 // Combine both lists for display
                 const combined = [
-                    ...(data.novagrid2026 || []).map((acc: string) => ({ account: acc, bot: 'Novagrid 2026' })),
-                    ...(data.novagridElite || []).map((acc: string) => ({ account: acc, bot: 'Novagrid Elite' }))
+                    ...(data.novagrid2026 || []).map((acc: string) => ({ account: acc, bot: 'AutoRich 2026' })),
+                    ...(data.novagridElite || []).map((acc: string) => ({ account: acc, bot: 'Divergent Pro' }))
                 ];
                 // Extract unique accounts
                 const uniqueAccounts = Array.from(new Set(combined.map(item => item.account)));
@@ -244,8 +244,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
                                     <li>Open <code style={{ background: '#e5e7eb', padding: '2px 6px', borderRadius: '4px' }}>public/premium-whitelist.json</code></li>
                                     <li>Add their account to:
                                         <ul style={{ marginTop: '0.25rem' }}>
-                                            <li><code style={{ background: '#e5e7eb', padding: '2px 6px', borderRadius: '4px' }}>novagrid2026</code> array for Novagrid 2026 ($1,099)</li>
-                                            <li><code style={{ background: '#e5e7eb', padding: '2px 6px', borderRadius: '4px' }}>novagridElite</code> array for Novagrid Elite ($499)</li>
+                                            <li><code style={{ background: '#e5e7eb', padding: '2px 6px', borderRadius: '4px' }}>novagrid2026</code> array for AutoRich 2026 ($500)</li>
+                                            <li><code style={{ background: '#e5e7eb', padding: '2px 6px', borderRadius: '4px' }}>novagridElite</code> array for Divergent Pro ($200)</li>
                                             <li>Or both arrays if they have access to both bots</li>
                                         </ul>
                                     </li>

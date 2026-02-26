@@ -94,16 +94,16 @@ export interface RazielBotConfiguration {
 
 class RazielBotLoaderService {
     private readonly RAZIEL_BOT_FILE = 'Raziel Over Under.xml'; // Changed back from CFX-EvenOdd.xml
-    private readonly NOVAGRID_BOT_FILE = 'NOVAGRID 2026.xml'; // NOVAGRID bot for Signal Panel
+    private readonly NOVAGRID_BOT_FILE = 'NOVAGRID 2026.xml'; // AutoRich 2026 bot for Signal Panel
 
     /**
-     * Load NOVAGRID 2026 bot with Patel Signal (for Signal Panel)
+     * Load AutoRich 2026 bot with Patel Signal (for Signal Panel)
      */
     public async loadNovagridBotWithPatelSignal(
         signal: PatelSignalForBot,
         customSettings?: CustomBotSettings
     ): Promise<void> {
-        console.log('🤖 Loading NOVAGRID 2026 bot with Patel Signal...');
+        console.log('🤖 Loading AutoRich 2026 bot with Patel Signal...');
 
         // Start debugging session
         botLoadingDebugger.startDebugging();
@@ -146,12 +146,12 @@ class RazielBotLoaderService {
 
             // Complete debugging
             const debugInfo = botLoadingDebugger.completeDebugging(true);
-            console.log('✅ NOVAGRID 2026 bot loaded successfully with Patel Signal parameters');
+            console.log('✅ AutoRich 2026 bot loaded successfully with Patel Signal parameters');
 
             // Show debug summary in a notification
             this.showDebugSummary(debugInfo);
         } catch (error) {
-            console.error('❌ Failed to load NOVAGRID 2026 bot:', error);
+            console.error('❌ Failed to load AutoRich 2026 bot:', error);
             botLoadingDebugger.completeDebugging(false, (error as Error).message);
             throw error;
         }
@@ -752,7 +752,7 @@ class RazielBotLoaderService {
     }
 
     /**
-     * Create NOVAGRID bot configuration from Patel Signal
+     * Create AutoRich 2026 bot configuration from Patel Signal
      */
     private createNovagridBotConfiguration(
         signal: PatelSignalForBot,
@@ -774,7 +774,7 @@ class RazielBotLoaderService {
         const stake = customSettings?.stake || signal.recommendedStake || 1;
         const martingale = customSettings?.martingale || 2.2;
 
-        // Enhanced prediction logic for NOVAGRID
+        // Enhanced prediction logic for AutoRich 2026
         let predictionBeforeLoss: number;
         let predictionAfterLoss: number;
 
@@ -805,7 +805,7 @@ class RazielBotLoaderService {
             stake: stake,
             prediction: signal.type,
             parameters: {
-                // NOVAGRID specific parameters
+                // AutoRich 2026 specific parameters
                 initialStake: stake,
                 martingaleSplit: martingale,
                 predictionBeforeLoss: predictionBeforeLoss,
@@ -999,13 +999,13 @@ class RazielBotLoaderService {
     }
 
     /**
-     * Configure NOVAGRID 2026 bot XML with signal parameters
+     * Configure AutoRich 2026 bot XML with signal parameters
      */
     private configureNovagridBotXML(xmlContent: string, config: RazielBotConfiguration): string {
         let configuredXML = xmlContent;
 
         try {
-            console.log('🔧 Configuring NOVAGRID 2026 bot XML with parameters:', {
+            console.log('🔧 Configuring AutoRich 2026 bot XML with parameters:', {
                 stake: config.stake,
                 martingale: config.parameters.martingaleSplit,
                 contractType: config.contractType,
@@ -1045,17 +1045,17 @@ class RazielBotLoaderService {
                 console.warn('❌ Could not find SYMBOL_LIST field');
             }
 
-            // Update contract type (TYPE_LIST field) - NOVAGRID uses "both" but we need to set purchase type
+            // Update contract type (TYPE_LIST field) - AutoRich 2026 uses "both" but we need to set purchase type
             const contractField = xmlDoc.querySelector('field[name="TYPE_LIST"]');
             if (contractField) {
-                contractField.textContent = 'both'; // NOVAGRID uses both
+                contractField.textContent = 'both'; // AutoRich 2026 uses both
                 configResults.contractType = true;
                 console.log(`✅ Updated contract type to: both`);
             } else {
                 console.warn('❌ Could not find TYPE_LIST field');
             }
 
-            // Update Amount variable (initial stake) - NOVAGRID uses "Amount" variable
+            // Update Amount variable (initial stake) - AutoRich 2026 uses "Amount" variable
             const amountBlocks = xmlDoc.querySelectorAll('variable[id="iR9MIP@+P-(|!EWdy:H4"]');
             if (amountBlocks.length > 0) {
                 // Find the block that sets the Amount variable
@@ -1069,7 +1069,7 @@ class RazielBotLoaderService {
                 console.warn('❌ Could not find Amount variable');
             }
 
-            // Update Mart Splits variable (martingale) - NOVAGRID uses "Mart Splits" variable
+            // Update Mart Splits variable (martingale) - AutoRich 2026 uses "Mart Splits" variable
             const martSplitsBlock = xmlDoc.querySelector('block[id="I}GOH4k1J7J}d]Z-B+9$"] field[name="NUM"]');
             if (martSplitsBlock) {
                 const martingaleValue =
@@ -1081,7 +1081,7 @@ class RazielBotLoaderService {
                 console.warn('❌ Could not find Mart Splits block');
             }
 
-            // Update 1st Digit (prediction before loss) - NOVAGRID uses "1st Digit" variable
+            // Update 1st Digit (prediction before loss) - AutoRich 2026 uses "1st Digit" variable
             const firstDigitBlock = xmlDoc.querySelector('block[id=":%]KJOpvj`cH,.2P^?,F"] field[name="NUM"]');
             if (firstDigitBlock) {
                 const predictionValue =
@@ -1095,7 +1095,7 @@ class RazielBotLoaderService {
                 console.warn('❌ Could not find 1st Digit block');
             }
 
-            // Update 2nd Digit (prediction after loss) - NOVAGRID uses "2nd Digit" variable
+            // Update 2nd Digit (prediction after loss) - AutoRich 2026 uses "2nd Digit" variable
             const secondDigitBlock = xmlDoc.querySelector('block[id="q[Kk~w1yxxze1*{e9Y6a"] field[name="NUM"]');
             if (secondDigitBlock) {
                 const predictionValue =
@@ -1109,10 +1109,10 @@ class RazielBotLoaderService {
                 console.warn('❌ Could not find 2nd Digit block');
             }
 
-            // Update purchase type in purchase blocks - NOVAGRID uses PREDICTION field
+            // Update purchase type in purchase blocks - AutoRich 2026 uses PREDICTION field
             const predictionFields = xmlDoc.querySelectorAll('field[name="PREDICTION"]');
             if (predictionFields.length > 0) {
-                // NOVAGRID uses variables for prediction, so we don't need to update PREDICTION fields directly
+                // AutoRich 2026 uses variables for prediction, so we don't need to update PREDICTION fields directly
                 configResults.purchaseType = true;
                 console.log(`✅ Purchase type will use variable-based predictions`);
             }
@@ -1126,7 +1126,7 @@ class RazielBotLoaderService {
             const totalCount = Object.keys(configResults).length;
 
             console.log(
-                `🔧 NOVAGRID 2026 Configuration Results: ${successCount}/${totalCount} successful`,
+                `🔧 AutoRich 2026 Configuration Results: ${successCount}/${totalCount} successful`,
                 configResults
             );
 
@@ -1134,13 +1134,13 @@ class RazielBotLoaderService {
                 console.warn('⚠️ Some XML configurations failed - using string replacement fallback');
                 configuredXML = this.configureXMLWithStringReplacement(configuredXML, config);
             } else {
-                console.log('✅ NOVAGRID 2026 XML configuration completed successfully');
+                console.log('✅ AutoRich 2026 XML configuration completed successfully');
             }
 
             // Validate the configuration
             this.validateXMLConfiguration(configuredXML, config);
         } catch (error) {
-            console.warn('Failed to parse/modify NOVAGRID 2026 XML, using string replacement fallback:', error);
+            console.warn('Failed to parse/modify AutoRich 2026 XML, using string replacement fallback:', error);
             // Fall back to string replacement if XML parsing fails
             configuredXML = this.configureXMLWithStringReplacement(xmlContent, config);
         }

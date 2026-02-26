@@ -1550,10 +1550,10 @@ export const SignalsCenter: React.FC = () => {
         }
     };
 
-    // Load NOVAGRID 2026 Bot for OVER/UNDER signals
+    // Load AutoRich 2026 Bot for OVER/UNDER signals
     const loadNovagridBot = async (signal: SignalsCenterSignal) => {
         try {
-            console.log('🎯 Loading NOVAGRID 2026 Bot for', signal.type);
+            console.log('🎯 Loading AutoRich 2026 Bot for', signal.type);
             console.log('📋 Signal details:', {
                 type: signal.type,
                 market: signal.market,
@@ -1645,10 +1645,10 @@ export const SignalsCenter: React.FC = () => {
                 }
             }
 
-            // Fetch NOVAGRID 2026 Bot XML
+            // Fetch AutoRich 2026 Bot XML
             const response = await fetch('/NOVAGRID 2026.xml');
             if (!response.ok) {
-                throw new Error(`Failed to fetch NOVAGRID 2026 Bot: ${response.statusText}`);
+                throw new Error(`Failed to fetch AutoRich 2026 Bot: ${response.statusText}`);
             }
 
             let botXml = await response.text();
@@ -1690,12 +1690,12 @@ export const SignalsCenter: React.FC = () => {
                 console.log('💰 Set purchase type to:', contractType);
             });
 
-            // NOVAGRID 2026 Bot specific: Set search number to entry digit
-            // In NOVAGRID bot, the search number is the entry point (hot digit)
+            // AutoRich 2026 Bot specific: Set search number to entry digit
+            // In AutoRich 2026 bot, the search number is the entry point (hot digit)
             if (signal.entryDigit !== undefined) {
-                console.log('🎯 NOVAGRID 2026 Bot: Setting search number to entry digit:', signal.entryDigit);
+                console.log('🎯 AutoRich 2026 Bot: Setting search number to entry digit:', signal.entryDigit);
 
-                // Find and update search number fields in NOVAGRID bot
+                // Find and update search number fields in AutoRich 2026 bot
                 const searchNumberFields = xmlDoc.querySelectorAll('field[name="NUM"]');
                 searchNumberFields.forEach(field => {
                     const parentBlock = field.closest('block');
@@ -1805,7 +1805,7 @@ export const SignalsCenter: React.FC = () => {
 
                 // Log the distinction between barrier and entry digit
                 if (signal.entryDigit !== undefined && signal.entryDigit !== predictionDigit) {
-                    console.log('📋 NOVAGRID 2026 Bot Signal Analysis:');
+                    console.log('📋 AutoRich 2026 Bot Signal Analysis:');
                     console.log('   - Signal Type:', signal.type);
                     console.log('   - Barrier (threshold):', predictionDigit);
                     console.log('   - Search Number (Entry Digit):', signal.entryDigit);
@@ -1819,7 +1819,7 @@ export const SignalsCenter: React.FC = () => {
                     );
                 }
             } else {
-                console.log('ℹ️ No prediction digit found - NOVAGRID 2026 bot will use default or prompt user');
+                console.log('ℹ️ No prediction digit found - AutoRich 2026 bot will use default or prompt user');
             }
 
             if (predictionDigit !== undefined) {
@@ -1846,12 +1846,12 @@ export const SignalsCenter: React.FC = () => {
                     console.warn('⚠️ PREDICTION field found but could not update');
                 }
             } else {
-                console.log('ℹ️ No prediction digit to set - NOVAGRID 2026 Bot will use default behavior');
+                console.log('ℹ️ No prediction digit to set - AutoRich 2026 Bot will use default behavior');
             }
 
             // Apply Adaptive Recovery Strategy for OVER/UNDER signals
             if (recoveryStrategy && recoveryStrategy.isValid) {
-                console.log('🧠 Applying Adaptive Recovery Strategy to NOVAGRID 2026 Bot XML...');
+                console.log('🧠 Applying Adaptive Recovery Strategy to AutoRich 2026 Bot XML...');
                 console.log('🎯 Target values:', {
                     predictionBeforeLoss: recoveryStrategy.predictionBeforeLoss,
                     predictionAfterLoss: recoveryStrategy.predictionAfterLoss,
@@ -1969,7 +1969,7 @@ export const SignalsCenter: React.FC = () => {
 
                 if (!predictionBeforeLossUpdated || !predictionAfterLossUpdated) {
                     console.warn('⚠️ Some adaptive recovery values could not be set in XML');
-                    console.warn('   This might be due to different variable names in the NOVAGRID 2026 bot XML');
+                    console.warn('   This might be due to different variable names in the AutoRich 2026 bot XML');
                     console.warn('   The bot will use default values for missing fields');
 
                     // Let's try a more direct approach - find the exact field IDs from the XML
@@ -2051,7 +2051,7 @@ export const SignalsCenter: React.FC = () => {
 
             // Load the bot
             if (window.load_modal && typeof window.load_modal.loadStrategyToBuilder === 'function') {
-                console.log('📤 Loading NOVAGRID 2026 Bot to builder...');
+                console.log('📤 Loading AutoRich 2026 Bot to builder...');
                 console.log('🎯 Configuration Summary:');
                 console.log(`   Market: ${signal.market} (${signal.marketDisplay})`);
                 console.log(`   Type: ${signal.type} (${contractType})`);
@@ -2061,19 +2061,19 @@ export const SignalsCenter: React.FC = () => {
 
                 await window.load_modal.loadStrategyToBuilder({
                     id: `novagrid-${signal.id}`,
-                    name: `NOVAGRID 2026 - ${signal.marketDisplay} - ${signal.type} Entry:${signal.entryDigit}`,
+                    name: `AutoRich 2026 - ${signal.marketDisplay} - ${signal.type} Entry:${signal.entryDigit}`,
                     xml: botXml,
                     save_type: 'LOCAL',
                     timestamp: Date.now(),
                 });
 
-                console.log('✅ NOVAGRID 2026 Bot loaded successfully!');
+                console.log('✅ AutoRich 2026 Bot loaded successfully!');
                 console.log(`✅ Bot is now configured for ${signal.marketDisplay}`);
                 console.log(`🎯 Search number set to entry digit: ${signal.entryDigit}`);
 
                 // Auto-run the bot after loading (run immediately)
                 setTimeout(() => {
-                    console.log('🚀 AUTO-RUN: Starting NOVAGRID 2026 Bot after configuration...');
+                    console.log('🚀 AUTO-RUN: Starting AutoRich 2026 Bot after configuration...');
                     console.log('🎯 AUTO-RUN: Looking for run button...');
                     try {
                         // Trigger the run button click programmatically
@@ -2081,11 +2081,11 @@ export const SignalsCenter: React.FC = () => {
                         if (runButton) {
                             console.log('✅ AUTO-RUN: Run button found, clicking now...');
                             runButton.click();
-                            console.log('🎉 AUTO-RUN: NOVAGRID 2026 Bot auto-started successfully!');
+                            console.log('🎉 AUTO-RUN: AutoRich 2026 Bot auto-started successfully!');
 
                             // Show a brief success notification
                             console.log(
-                                `🎯 AUTO-RUN COMPLETE: ${signal.type} NOVAGRID 2026 bot is now running for ${signal.marketDisplay}`
+                                `🎯 AUTO-RUN COMPLETE: ${signal.type} AutoRich 2026 bot is now running for ${signal.marketDisplay}`
                             );
                         } else {
                             console.warn('⚠️ AUTO-RUN: Run button not found, trying alternative method...');
@@ -2095,19 +2095,19 @@ export const SignalsCenter: React.FC = () => {
                             console.log('🔄 AUTO-RUN: Dispatched alternative run event');
                         }
                     } catch (error) {
-                        console.error('❌ AUTO-RUN ERROR: Failed to auto-run NOVAGRID 2026 Bot:', error);
+                        console.error('❌ AUTO-RUN ERROR: Failed to auto-run AutoRich 2026 Bot:', error);
                     }
                 }, 0); // Run immediately
 
                 // Optional: Show a success notification
                 // You can uncomment this if you want a visual confirmation
-                // alert(`✅ NOVAGRID 2026 Bot loaded!\n\nMarket: ${signal.marketDisplay}\nType: ${signal.type}\nEntry: ${signal.entryDigit}`);
+                // alert(`✅ AutoRich 2026 Bot loaded!\n\nMarket: ${signal.marketDisplay}\nType: ${signal.type}\nEntry: ${signal.entryDigit}`);
             } else {
                 throw new Error('Bot loader not available');
             }
         } catch (error) {
-            console.error('❌ Failed to load NOVAGRID 2026 Bot:', error);
-            alert(`Failed to load NOVAGRID 2026 bot: ${error instanceof Error ? error.message : 'Unknown error'}`);
+            console.error('❌ Failed to load AutoRich 2026 Bot:', error);
+            alert(`Failed to load AutoRich 2026 bot: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     };
 
@@ -2151,21 +2151,21 @@ export const SignalsCenter: React.FC = () => {
 
             if (isOverUnderSignal) {
                 if (signal.entryDigit !== undefined) {
-                    // Auto-load NOVAGRID 2026 Bot for OVER/UNDER signals WITH entry point
-                    console.log('🎯 Auto-loading NOVAGRID 2026 Bot for signal with entry point:', signal.type);
-                    console.log('📋 Signal details for NOVAGRID 2026 Bot:', {
+                    // Auto-load AutoRich 2026 Bot for OVER/UNDER signals WITH entry point
+                    console.log('🎯 Auto-loading AutoRich 2026 Bot for signal with entry point:', signal.type);
+                    console.log('📋 Signal details for AutoRich 2026 Bot:', {
                         id: signal.id,
                         type: signal.type,
                         market: signal.market,
                         marketDisplay: signal.marketDisplay,
                         entryDigit: signal.entryDigit,
-                        searchNumber: signal.entryDigit, // Entry digit becomes search number in NOVAGRID 2026
+                        searchNumber: signal.entryDigit, // Entry digit becomes search number in AutoRich 2026
                         status: signal.status,
                     });
                     await loadNovagridBot(signal);
                 } else {
-                    // Auto-load NOVAGRID 2026 Bot for OVER/UNDER signals WITHOUT entry point
-                    console.log('🎯 Auto-loading NOVAGRID 2026 Bot for signal without entry point:', signal.type);
+                    // Auto-load AutoRich 2026 Bot for OVER/UNDER signals WITHOUT entry point
+                    console.log('🎯 Auto-loading AutoRich 2026 Bot for signal without entry point:', signal.type);
                     console.log('📋 Signal details (no entry point):', {
                         id: signal.id,
                         type: signal.type,

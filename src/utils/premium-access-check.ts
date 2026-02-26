@@ -23,9 +23,9 @@ export const hasPremiumAccess = async (botName: string): Promise<boolean> => {
         
         // Determine which bot's whitelist to check
         let whitelist: string[] = [];
-        if (botName === 'Novagrid 2026') {
+        if (botName === 'AutoRich 2026') {
             whitelist = data.novagrid2026 || [];
-        } else if (botName === 'Novagrid Elite') {
+        } else if (botName === 'Divergent Pro') {
             whitelist = data.novagridElite || [];
         }
         

@@ -71,13 +71,13 @@ export const SignalOverlay: React.FC = () => {
         }
     }, [isEngineRunning]);
 
-    // Load signal to NOVAGRID 2026 bot
+    // Load signal to AutoRich 2026 bot
     const handleLoadSignal = useCallback(async (signal: PatelSignalWithTimer, e: React.MouseEvent) => {
         e.stopPropagation(); // Prevent card selection
         
         try {
             setLoadingSignalId(signal.id);
-            console.log('🤖 Loading NOVAGRID 2026 bot with Patel signal:', signal);
+            console.log('🤖 Loading AutoRich 2026 bot with Patel signal:', signal);
             
             // Switch to Bot Builder tab IMMEDIATELY for instant feedback
             dashboard.setActiveTab(1);
@@ -95,7 +95,7 @@ export const SignalOverlay: React.FC = () => {
             
             // Load bot in background (non-blocking)
             razielBotLoaderService.loadNovagridBotWithPatelSignal(botSignal).then(() => {
-                console.log('✅ NOVAGRID 2026 bot loaded successfully with all parameters');
+                console.log('✅ AutoRich 2026 bot loaded successfully with all parameters');
                 setLoadingSignalId(null);
                 // Mark signal as loaded
                 setLoadedSignalIds(prev => new Set(prev).add(signal.id));
