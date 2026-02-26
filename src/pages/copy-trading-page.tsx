@@ -65,7 +65,7 @@ export const CopyTradingPage: React.FC = () => {
     const [totalProfit, setTotalProfit] = useState(0);
     const [message, setMessage] = useState('');
     const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
-    const [connectedTraders, setConnectedTraders] = useState<Array<{ loginid: string; balance: number; token: string }>>([]);
+    const [connectedTraders, setConnectedTraders] = useState<Array<{ loginid: string; balance: number; token: string; accountType: string }>>([]);
 
     // Advanced settings
     const [showAdvanced, setShowAdvanced] = useState(false);
