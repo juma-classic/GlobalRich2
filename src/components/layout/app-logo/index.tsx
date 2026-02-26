@@ -98,7 +98,7 @@ export const AppLogo = () => {
             onMouseLeave={handleMouseLeave}
             style={{ cursor: 'pointer' }}
         >
-            <span className='novaprime-text'>NOVAPRIME</span>
+            <span className='novaprime-text'>GLOBAL TRADES</span>
         </div>
     );
 };
