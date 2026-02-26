@@ -25,7 +25,7 @@ class DerivAPIInitializer {
     private connectionListeners: Set<(connected: boolean) => void> = new Set();
 
     private readonly config: DerivAPIConfig = {
-        appId: 125428,
+        appId: 129365,
         endpoint: 'wss://ws.derivws.com/websockets/v3',
         language: 'en',
         brand: 'novaprime',

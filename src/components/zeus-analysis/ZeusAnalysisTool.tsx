@@ -281,7 +281,7 @@ export const ZeusAnalysisTool: React.FC<ZeusAnalysisToolProps> = ({ onNavigateTo
         setError(null);
 
         try {
-            const ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=125428');
+            const ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=129365');
             wsRef.current = ws;
 
             // Set connection timeout - reduced for faster detection
