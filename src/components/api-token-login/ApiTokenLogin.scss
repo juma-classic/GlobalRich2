@@ -1,0 +1,107 @@
+.api-token-login-modal {
+    .modal__content {
+        max-width: 500px;
+    }
+}
+
+.api-token-login {
+    padding: 1rem;
+
+    &__info {
+        margin-bottom: 1.5rem;
+
+        p {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-general);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    }
+
+    &__info-note {
+        font-size: 13px;
+        color: var(--text-less-prominent);
+    }
+
+    &__link {
+        color: var(--brand-red-coral);
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__form {
+        margin-bottom: 1.5rem;
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-prominent);
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--border-normal);
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: monospace;
+        background: var(--general-main-1);
+        color: var(--text-prominent);
+        transition: all 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: var(--brand-red-coral);
+            box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.1);
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        &::placeholder {
+            color: var(--text-less-prominent);
+        }
+    }
+
+    &__error {
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        background: rgba(255, 68, 68, 0.1);
+        border-left: 3px solid var(--brand-red-coral);
+        color: var(--brand-red-coral);
+        font-size: 13px;
+        border-radius: 4px;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+
+        button {
+            min-width: 100px;
+        }
+    }
+
+    &__security {
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-normal);
+    }
+
+    &__security-note {
+        margin: 0;
+        font-size: 12px;
+        color: var(--text-less-prominent);
+        text-align: center;
+    }
+}

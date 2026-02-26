@@ -1,0 +1,263 @@
+/* Modern Signal Card Styles - Based on your design */
+.modern-signal-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    // Mobile: Center and limit width
+    @media (width <= 768px) {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 16px;
+    }
+}
+
+/* Market Header */
+.signal-market-header {
+    margin-bottom: 20px;
+
+    .market-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2c3e50;
+        margin: 0 0 8px 0;
+        letter-spacing: 1px;
+    }
+
+    .market-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: #7f8c8d;
+        font-size: 14px;
+
+        .market-code {
+            font-weight: 500;
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            .live-dot {
+                width: 8px;
+                height: 8px;
+                background: #27ae60;
+                border-radius: 50%;
+                animation: pulse 2s infinite;
+            }
+        }
+    }
+}
+
+/* Signal Type Circle - Updated for Digit Predictions */
+.signal-type-circle {
+    width: 160px;
+    height: 160px;
+    background: #27ae60;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(39, 174, 96, 0.3);
+    padding: 16px;
+    gap: 12px;
+
+    .digit-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+
+        .digit-label {
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        .digit-value {
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1;
+        }
+    }
+}
+
+/* Entry Now Section */
+.entry-now-section {
+    margin: 20px 0;
+
+    .entry-now-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #27ae60;
+        letter-spacing: 1px;
+
+        .entry-indicator {
+            width: 12px;
+            height: 12px;
+            background: #e74c3c;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+    }
+}
+
+/* Confidence Section */
+.confidence-section {
+    margin: 16px 0;
+
+    .confidence-text {
+        font-size: 20px;
+        font-weight: bold;
+        color: #27ae60;
+    }
+}
+
+/* Entry Strategy Box - Updated for Countdown Display */
+.entry-strategy-box {
+    background: #f8f5e4;
+    border: 1px solid #e6d7a3;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px 0;
+
+    .strategy-header {
+        font-size: 14px;
+        color: #8b7355;
+        margin-bottom: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .strategy-content {
+        .countdown-display {
+            text-align: center;
+            margin-bottom: 12px;
+
+            .countdown-number {
+                font-size: 48px;
+                font-weight: bold;
+                color: #e74c3c;
+                line-height: 1;
+                margin-bottom: 4px;
+                font-family: 'Courier New', monospace;
+            }
+
+            .countdown-label {
+                font-size: 14px;
+                color: #8b7355;
+                font-weight: 500;
+            }
+        }
+
+        .strategy-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: #d4a574;
+            margin-bottom: 8px;
+        }
+
+        .strategy-details {
+            font-size: 14px;
+            color: #8b7355;
+            
+            span {
+                &:first-child {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+/* Countdown Timer */
+.countdown-timer {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background: #f39c12;
+    color: #ffffff;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modern-signal-card {
+        margin: 0 16px 16px 16px;
+        padding: 20px;
+        max-width: none;
+    }
+
+    .signal-market-header .market-name {
+        font-size: 20px;
+    }
+
+    .signal-type-circle {
+        width: 140px;
+        height: 140px;
+        gap: 10px;
+
+        .digit-row {
+            .digit-label {
+                font-size: 12px;
+            }
+
+            .digit-value {
+                font-size: 28px;
+            }
+        }
+    }
+
+    .entry-now-section .entry-now-text {
+        font-size: 16px;
+    }
+
+    .confidence-section .confidence-text {
+        font-size: 18px;
+    }
+
+    .entry-strategy-box .strategy-content .countdown-display .countdown-number {
+        font-size: 40px;
+    }
+}

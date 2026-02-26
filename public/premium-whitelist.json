@@ -1,0 +1,33 @@
+{
+  "novagrid2026": [
+    "CR5186289",
+    "VRTC90460",
+    "CR2353483",
+    "VRTC2052214",
+    "CR7290089",
+    "CR8488294",
+    "VRTC12548379",
+    "VRTC7528369",
+    "CR7125309",
+    "CR4167582",
+    "VRTC6368710",
+    "CR5030188",
+    "VRTC7477825",
+    "VRTC123456789",
+    "CR7171142",
+    "VRTC10700844",
+    "CR7802332",
+    "CR8992648",
+    "CR2262669"
+  ],
+  "novagridElite": [
+    "CR5186289",
+    "VRTC7528369",
+    "CR7125309",
+    "CR4167582",
+    "VRTC6368710"
+    
+  ],
+  "lastUpdated": "2024-01-15T00:00:00Z",
+  "note": "Separate whitelists for each premium bot. Add CR/VRTC numbers to the specific bot array."
+}

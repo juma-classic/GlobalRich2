@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Mode Debug Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .debug-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .active { background: #d4edda; color: #155724; }
+        .inactive { background: #f8d7da; color: #721c24; }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-container">
+        <h1>🔍 Fake Mode Debug Test</h1>
+        
+        <div id="status" class="status">
+            Checking fake mode status...
+        </div>
+        
+        <div>
+            <button class="test-button" onclick="checkStatus()">🔄 Check Status</button>
+            <button class="test-button" onclick="activateFakeMode()">🎭 Activate Fake Mode</button>
+            <button class="test-button" onclick="deactivateFakeMode()">🔓 Deactivate Fake Mode</button>
+            <button class="test-button" onclick="clearLogs()">🗑️ Clear Logs</button>
+        </div>
+        
+        <h3>📋 Debug Information:</h3>
+        <div id="debug-info">
+            <p><strong>localStorage Key:</strong> <code>demo_icon_us_flag</code></p>
+            <p><strong>Expected Value:</strong> <code>"true"</code> (string)</p>
+            <p><strong>Current Value:</strong> <span id="current-value">-</span></p>
+            <p><strong>Data Type:</strong> <span id="data-type">-</span></p>
+        </div>
+        
+        <h3>📝 Test Log:</h3>
+        <div id="log" class="log">
+            Ready for testing...\n
+        </div>
+        
+        <h3>🧪 Automated Tests:</h3>
+        <div>
+            <button class="test-button" onclick="runAllTests()">🚀 Run All Tests</button>
+        </div>
+    </div>
+
+    <script>
+        function log(message) {
+            const logElement = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            logElement.innerHTML += `[${timestamp}] ${message}\n`;
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+
+        function checkStatus() {
+            const value = localStorage.getItem('demo_icon_us_flag');
+            const isActive = value === 'true';
+            
+            // Update status display
+            const statusElement = document.getElementById('status');
+            statusElement.className = `status ${isActive ? 'active' : 'inactive'}`;
+            statusElement.textContent = isActive ? 
+                '🎭 Fake Real Mode is ACTIVE' : 
+                '🔓 Fake Real Mode is INACTIVE';
+            
+            // Update debug info
+            document.getElementById('current-value').textContent = value || 'null';
+            document.getElementById('data-type').textContent = typeof value;
+            
+            log(`Status check: ${isActive ? 'ACTIVE' : 'INACTIVE'} (value: ${value}, type: ${typeof value})`);
+            
+            return isActive;
+        }
+
+        function activateFakeMode() {
+            log('🎭 Attempting to activate fake mode...');
+            localStorage.setItem('demo_icon_us_flag', 'true');
+            log('✅ localStorage.setItem("demo_icon_us_flag", "true") executed');
+            
+            setTimeout(() => {
+                const success = checkStatus();
+                log(success ? '✅ Activation successful!' : '❌ Activation failed!');
+            }, 100);
+        }
+
+        function deactivateFakeMode() {
+            log('🔓 Attempting to deactivate fake mode...');
+            localStorage.removeItem('demo_icon_us_flag');
+            log('✅ localStorage.removeItem("demo_icon_us_flag") executed');
+            
+            setTimeout(() => {
+                const success = !checkStatus();
+                log(success ? '✅ Deactivation successful!' : '❌ Deactivation failed!');
+            }, 100);
+        }
+
+        function clearLogs() {
+            document.getElementById('log').innerHTML = 'Logs cleared...\n';
+        }
+
+        function runAllTests() {
+            log('🧪 Starting automated tests...');
+            
+            // Test 1: Initial state
+            log('Test 1: Checking initial state...');
+            const initialState = checkStatus();
+            log(`Initial state: ${initialState ? 'ACTIVE' : 'INACTIVE'}`);
+            
+            // Test 2: Activation
+            setTimeout(() => {
+                log('Test 2: Testing activation...');
+                activateFakeMode();
+                
+                setTimeout(() => {
+                    const afterActivation = checkStatus();
+                    log(`After activation: ${afterActivation ? 'PASS ✅' : 'FAIL ❌'}`);
+                    
+                    // Test 3: Deactivation
+                    setTimeout(() => {
+                        log('Test 3: Testing deactivation...');
+                        deactivateFakeMode();
+                        
+                        setTimeout(() => {
+                            const afterDeactivation = !checkStatus();
+                            log(`After deactivation: ${afterDeactivation ? 'PASS ✅' : 'FAIL ❌'}`);
+                            
+                            // Test 4: Re-activation
+                            setTimeout(() => {
+                                log('Test 4: Testing re-activation...');
+                                activateFakeMode();
+                                
+                                setTimeout(() => {
+                                    const afterReactivation = checkStatus();
+                                    log(`After re-activation: ${afterReactivation ? 'PASS ✅' : 'FAIL ❌'}`);
+                                    log('🏁 All tests completed!');
+                                }, 200);
+                            }, 200);
+                        }, 200);
+                    }, 200);
+                }, 200);
+            }, 200);
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            checkStatus();
+            log('🔍 Debug tool initialized');
+            log('💡 Use the buttons above to test fake mode functionality');
+            log('💡 Check browser console for additional debug information');
+        };
+
+        // Monitor localStorage changes
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'demo_icon_us_flag') {
+                log(`📡 Storage event detected: ${e.oldValue} → ${e.newValue}`);
+                checkStatus();
+            }
+        });
+    </script>
+</body>
+</html>

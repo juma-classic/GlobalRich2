@@ -1,0 +1,138 @@
+.copy-trading-nav-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: visible;
+
+    &:hover {
+        transform: translateY(-2px);
+
+        .icon-container {
+            transform: scale(1.1);
+        }
+
+        .copy-trading-icon {
+            filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.8)) drop-shadow(0 0 20px rgba(251, 191, 36, 0.6));
+        }
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.icon-container {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.copy-trading-icon {
+    width: 40px;
+    height: 40px;
+    color: #fbbf24;
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6)) drop-shadow(0 0 15px rgba(251, 191, 36, 0.4));
+    animation: copyTradingGlow 3s ease-in-out infinite;
+
+    .chart-line {
+        animation: chartPulse 2s ease-in-out infinite;
+    }
+
+    .sync-arrow-1 {
+        animation: syncRotate1 2s ease-in-out infinite;
+        transform-origin: center;
+    }
+
+    .sync-arrow-2 {
+        animation: syncRotate2 2s ease-in-out infinite;
+        transform-origin: center;
+    }
+}
+
+.button-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fbbf24;
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+}
+
+@keyframes copyTradingGlow {
+    0%,
+    100% {
+        filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6)) drop-shadow(0 0 15px rgba(251, 191, 36, 0.4));
+    }
+    50% {
+        filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.8)) drop-shadow(0 0 20px rgba(251, 191, 36, 0.6));
+    }
+}
+
+@keyframes chartPulse {
+    0%,
+    100% {
+        opacity: 1;
+        stroke-width: 2;
+    }
+    50% {
+        opacity: 0.7;
+        stroke-width: 2.5;
+    }
+}
+
+@keyframes syncRotate1 {
+    0%,
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-2px);
+        opacity: 0.6;
+    }
+}
+
+@keyframes syncRotate2 {
+    0%,
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(2px);
+        opacity: 0.6;
+    }
+}
+
+@media (max-width: 768px) {
+    .copy-trading-nav-button {
+        padding: 10px 12px;
+        gap: 6px;
+    }
+
+    .icon-container {
+        width: 40px;
+        height: 40px;
+    }
+
+    .copy-trading-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .button-text {
+        font-size: 0.75rem;
+    }
+}

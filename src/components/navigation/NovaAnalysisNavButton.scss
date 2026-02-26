@@ -1,0 +1,167 @@
+.nova-analysis-nav-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, rgb(0 212 255 / 5%) 0%, rgb(0 153 204 / 5%) 100%);
+    border: 1px solid rgb(0 212 255 / 20%);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgb(0 212 255 / 10%), transparent);
+        transition: left 0.5s ease;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgb(0 212 255 / 10%) 0%, rgb(0 153 204 / 10%) 100%);
+        border-color: rgb(0 212 255 / 40%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgb(0 212 255 / 20%);
+
+        &:before {
+            left: 100%;
+        }
+
+        .nav-icon svg {
+            transform: scale(1.1) rotate(5deg);
+        }
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &.active {
+        background: linear-gradient(135deg, rgb(0 212 255 / 15%) 0%, rgb(0 153 204 / 15%) 100%);
+        border-color: rgb(0 212 255 / 50%);
+        box-shadow: 0 0 20px rgb(0 212 255 / 30%);
+
+        .nav-badge {
+            background: linear-gradient(135deg, #00d4ff 0%, #09c 100%);
+            color: #0a0e27;
+        }
+    }
+
+    .nav-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgb(0 212 255 / 10%);
+        border-radius: 10px;
+        flex-shrink: 0;
+
+        svg {
+            width: 24px;
+            height: 24px;
+            color: #00d4ff;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .nav-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .nav-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary, #e0e6ed);
+        margin-bottom: 0.25rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav-subtitle {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #8892b0);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav-badge {
+        padding: 0.25rem 0.75rem;
+        background: rgb(0 212 255 / 20%);
+        color: #00d4ff;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    // Mobile variant
+    &.mobile {
+        padding: 0.875rem 1rem;
+        border-radius: 8px;
+
+        .nav-icon {
+            width: 36px;
+            height: 36px;
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .nav-title {
+            font-size: 0.95rem;
+        }
+
+        .nav-subtitle {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+// Dark theme adjustments
+.theme--dark {
+    .nova-analysis-nav-button {
+        .nav-title {
+            color: #e0e6ed;
+        }
+
+        .nav-subtitle {
+            color: #8892b0;
+        }
+    }
+}
+
+// Light theme adjustments
+.theme--light {
+    .nova-analysis-nav-button {
+        background: linear-gradient(135deg, rgb(0 212 255 / 8%) 0%, rgb(0 153 204 / 8%) 100%);
+        border-color: rgb(0 212 255 / 30%);
+
+        &:hover {
+            background: linear-gradient(135deg, rgb(0 212 255 / 15%) 0%, rgb(0 153 204 / 15%) 100%);
+        }
+
+        .nav-title {
+            color: #1a1f3a;
+        }
+
+        .nav-subtitle {
+            color: #5a6b8c;
+        }
+    }
+}

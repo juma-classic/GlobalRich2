@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Nova Analysis</title>
+        <link rel="stylesheet" href="/nova/nova.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="app">
+            <!-- Header with Price -->
+            <div class="header-section">
+                <div class="price-display">
+                    <div class="current-price" id="current-price">0.000</div>
+                    <div class="price-label">Current Price</div>
+                </div>
+                <div class="market-info">
+                    <div class="market-label" id="market-label">Volatility 50 Index</div>
+                    <div class="market-tag">MARKET</div>
+                </div>
+            </div>
+
+            <!-- Market Selector -->
+            <section class="section-card market-selector-section">
+                <div class="market-selector-label">SELECT MARKET:</div>
+                <select class="market-selector" id="market-selector">
+                    <optgroup label="Volatility Indices">
+                        <option value="R_10">Volatility 10 Index</option>
+                        <option value="R_25">Volatility 25 Index</option>
+                        <option value="R_50" selected>Volatility 50 Index</option>
+                        <option value="R_75">Volatility 75 Index</option>
+                        <option value="R_100">Volatility 100 Index</option>
+                    </optgroup>
+                    <optgroup label="Volatility Indices (1s)">
+                        <option value="1HZ10V">Volatility 10 (1s) Index</option>
+                        <option value="1HZ15V">Volatility 15 (1s) Index</option>
+                        <option value="1HZ25V">Volatility 25 (1s) Index</option>
+                        <option value="1HZ30V">Volatility 30 (1s) Index</option>
+                        <option value="1HZ50V">Volatility 50 (1s) Index</option>
+                        <option value="1HZ75V">Volatility 75 (1s) Index</option>
+                        <option value="1HZ90V">Volatility 90 (1s) Index</option>
+                        <option value="1HZ100V">Volatility 100 (1s) Index</option>
+                    </optgroup>
+                </select>
+            </section>
+
+            <!-- Digit Distribution Section -->
+            <section class="section-card">
+                <h2 class="section-title">Digit Distribution</h2>
+                <div class="digit-circles" id="digit-circles">
+                    <!-- Digits 0-9 will be rendered here -->
+                </div>
+                <div class="digit-stats">
+                    <span class="stat-highlight">Highest: <span id="highest-digit">-</span></span>
+                    <span class="stat-separator">|</span>
+                    <span class="stat-highlight">Lowest: <span id="lowest-digit">-</span></span>
+                </div>
+            </section>
+
+            <!-- Digit Comparison Section -->
+            <section class="section-card">
+                <h2 class="section-title">Digit Comparison</h2>
+                <div class="comparison-label">SELECT A DIGIT TO ANALYZE:</div>
+                <div class="digit-selector" id="digit-selector">
+                    <!-- Digit buttons 0-9 will be rendered here -->
+                </div>
+                <div class="comparison-cards">
+                    <div class="comparison-card">
+                        <div class="comparison-value" id="over-value">0.0%</div>
+                        <div class="comparison-label-text">OVER <span id="selected-digit-over">3</span></div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-value" id="under-value">0.0%</div>
+                        <div class="comparison-label-text">UNDER <span id="selected-digit-under">3</span></div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-value" id="equal-value">0.0%</div>
+                        <div class="comparison-label-text">EQUAL <span id="selected-digit-equal">3</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Even/Odd Pattern Section -->
+            <section class="section-card">
+                <h2 class="section-title">Even/Odd Pattern</h2>
+                <div class="pattern-cards">
+                    <div class="pattern-card pattern-even">
+                        <div class="pattern-value" id="even-percentage">0.0%</div>
+                        <div class="pattern-label">EVEN</div>
+                    </div>
+                    <div class="pattern-card pattern-odd">
+                        <div class="pattern-value" id="odd-percentage">0.0%</div>
+                        <div class="pattern-label">ODD</div>
+                    </div>
+                </div>
+                <div class="pattern-subtitle">Last 50 Digits Pattern</div>
+                <div class="pattern-stream" id="pattern-stream">
+                    <!-- Last 50 digits E/O pattern will be rendered here -->
+                </div>
+            </section>
+
+            <!-- Market Movement Section -->
+            <section class="section-card">
+                <h2 class="section-title">Market Movement</h2>
+                <div class="pattern-cards">
+                    <div class="pattern-card pattern-rise">
+                        <div class="pattern-value" id="rise-percentage">0.0%</div>
+                        <div class="pattern-label">RISE</div>
+                    </div>
+                    <div class="pattern-card pattern-fall">
+                        <div class="pattern-value" id="fall-percentage">0.0%</div>
+                        <div class="pattern-label">FALL</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Last Digits Stream Section -->
+            <section class="section-card">
+                <h2 class="section-title">Last Digits Stream</h2>
+                <div class="stream-subtitle">LATEST DIGITS (50 SHOWING)</div>
+                <div class="digits-stream" id="digits-stream">
+                    <!-- Last 50 digits will be rendered here -->
+                </div>
+                <button class="show-more-btn" id="show-more-btn">Show More (100) →</button>
+            </section>
+        </div>
+
+        <script src="/nova/nova.js"></script>
+    </body>
+</html>

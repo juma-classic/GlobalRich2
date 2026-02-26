@@ -1,0 +1,433 @@
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap';
+
+.novaprime-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #0a1628 0%, #0f1f35 50%, #1a2942 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    overflow: hidden;
+
+    &.fade-out {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+}
+
+/* Background Circles */
+.bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    animation: float 20s ease-in-out infinite;
+
+    &.circle-1 {
+        width: 400px;
+        height: 400px;
+        top: -100px;
+        left: -100px;
+        animation-delay: 0s;
+    }
+
+    &.circle-2 {
+        width: 300px;
+        height: 300px;
+        bottom: -50px;
+        right: -50px;
+        animation-delay: 5s;
+    }
+
+    &.circle-3 {
+        width: 250px;
+        height: 250px;
+        top: 50%;
+        right: 10%;
+        animation-delay: 10s;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+.loader-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Logo Section */
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+
+    .icon-p {
+        font-family: 'Inter', sans-serif;
+        font-size: 3rem;
+        font-weight: 800;
+        color: #fff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 15px 50px rgba(0, 212, 255, 0.5);
+    }
+}
+
+.logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    margin: 0;
+    background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Trading Interface */
+.trading-interface {
+    background: rgba(15, 31, 53, 0.8);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.8s ease 0.3s both;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Chart Container */
+.chart-container {
+    width: 500px;
+    margin-bottom: 1.5rem;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.chart-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8892b0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.chart-indicators {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(136, 146, 176, 0.3);
+    
+    &.active {
+        background: #00d4ff;
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        animation: blink 1.5s ease-in-out infinite;
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.chart-area {
+    position: relative;
+    height: 150px;
+    background: rgba(10, 22, 40, 0.5);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    overflow: hidden;
+}
+
+.chart-bar {
+    flex: 1;
+    background: linear-gradient(180deg, #00d4ff 0%, #0099cc 100%);
+    border-radius: 4px 4px 0 0;
+    opacity: 0;
+    animation: barGrow 0.6s ease forwards;
+    box-shadow: 0 -2px 10px rgba(0, 212, 255, 0.3);
+}
+
+@keyframes barGrow {
+    from {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+.chart-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #00d4ff 50%, transparent 100%);
+    animation: lineScan 2s ease-in-out infinite;
+}
+
+@keyframes lineScan {
+    0%, 100% {
+        transform: translateY(-20px);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(20px);
+        opacity: 0.8;
+    }
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(10, 22, 40, 0.5);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+
+    &:nth-child(1) { animation-delay: 0.4s; }
+    &:nth-child(2) { animation-delay: 0.5s; }
+    &:nth-child(3) { animation-delay: 0.6s; }
+    &:nth-child(4) { animation-delay: 0.7s; }
+
+    .btn-icon {
+        font-size: 1.5rem;
+    }
+
+    .btn-label {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #8892b0;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    &.buy-btn {
+        border-color: rgba(77, 222, 128, 0.3);
+        .btn-icon { color: #4ade80; }
+    }
+
+    &.sell-btn {
+        border-color: rgba(239, 68, 68, 0.3);
+        .btn-icon { color: #ef4444; }
+    }
+
+    &.analyze-btn {
+        border-color: rgba(168, 85, 247, 0.3);
+        .btn-icon { color: #a855f7; }
+    }
+
+    &.bot-btn {
+        border-color: rgba(251, 191, 36, 0.3);
+        .btn-icon { color: #fbbf24; }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading Section */
+.loading-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 500px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 6px;
+    background: rgba(10, 22, 40, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+    }
+}
+
+.loading-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #8892b0;
+    letter-spacing: 0.05em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chart-container {
+        width: 350px;
+    }
+
+    .loading-section {
+        width: 350px;
+    }
+
+    .action-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logo-text {
+        font-size: 2rem;
+    }
+
+    .logo-icon {
+        width: 60px;
+        height: 60px;
+
+        .icon-p {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .chart-container {
+        width: 280px;
+    }
+
+    .loading-section {
+        width: 280px;
+    }
+
+    .chart-area {
+        height: 100px;
+    }
+
+    .action-btn {
+        padding: 0.75rem;
+
+        .btn-icon {
+            font-size: 1.2rem;
+        }
+
+        .btn-label {
+            font-size: 0.65rem;
+        }
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .trading-interface {
+        padding: 1.5rem;
+    }
+}

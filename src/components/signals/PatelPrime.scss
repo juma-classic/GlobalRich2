@@ -1,0 +1,135 @@
+@use 'components/shared/styles/mixins' as *;
+
+.patel-prime {
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 120px);
+    background: linear-gradient(135deg, #1a0b0b 0%, #2d1414 50%, #1a0b0b 100%);
+    color: #fff;
+    overflow-y: auto;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 20px;
+
+    &__header {
+        text-align: center;
+        margin-bottom: 30px;
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+    }
+
+    &__content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .signal-dashboard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .signal-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 12px;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+
+        &.premium {
+            border-color: #ef4444;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+        }
+
+        .signal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+
+            .signal-type {
+                background: linear-gradient(135deg, #ef4444, #dc2626);
+                color: #fff;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 700;
+            }
+
+            .signal-strength {
+                color: #ef4444;
+                font-weight: 700;
+                font-size: 1.1rem;
+            }
+        }
+
+        .signal-details {
+            p {
+                margin: 8px 0;
+                color: rgba(255, 255, 255, 0.8);
+            }
+        }
+    }
+
+    &--loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__loading {
+        text-align: center;
+        color: #ef4444;
+
+        &-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(239, 68, 68, 0.2);
+            border-top: 3px solid #ef4444;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+    }
+}
+
+// Animations
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// Scrollbar Styling
+.patel-prime::-webkit-scrollbar {
+    width: 8px;
+}
+
+.patel-prime::-webkit-scrollbar-track {
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 4px;
+}
+
+.patel-prime::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    border-radius: 4px;
+
+    &:hover {
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    }
+}

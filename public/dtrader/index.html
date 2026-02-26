@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTrader Manual Trading</title>
+    <link rel="stylesheet" href="dtrader.css">
+</head>
+<body>
+    <div class="dtrader-container">
+        <!-- Market Selector -->
+        <div class="market-selector">
+            <div class="market-icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect x="2" y="2" width="28" height="28" rx="4" fill="#1f2937"/>
+                    <text x="16" y="20" text-anchor="middle" fill="white" font-size="12" font-weight="bold">1s</text>
+                </svg>
+            </div>
+            <div class="market-info">
+                <div class="market-name">Volatility 100 (1s) Index</div>
+                <div class="market-price">
+                    <span class="price-value">1787.34</span>
+                    <span class="price-change negative">- 0.30 (0.02%)</span>
+                    <span class="price-arrow">▼</span>
+                </div>
+            </div>
+            <button class="market-dropdown">
+                <svg width="20" height="20" viewBox="0 0 20 20">
+                    <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Chart Area (Empty white space) -->
+        <div class="chart-area"></div>
+
+        <!-- Risk Disclaimer -->
+        <button class="risk-disclaimer">Risk Disclaimer</button>
+
+        <!-- Digit Statistics (2 rows of 5) -->
+        <div class="digit-stats">
+            <div class="digit-row">
+                <div class="digit-circle" data-digit="0">
+                    <div class="digit-number">0</div>
+                    <div class="digit-percentage">10.3%</div>
+                    <svg class="circle-progress" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-fill" stroke-dasharray="10.3, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="digit-indicator"></div>
+                </div>
+                <div class="digit-circle" data-digit="1">
+                    <div class="digit-number">1</div>
+                    <div class="digit-percentage">10%</div>
+                    <svg class="circle-progress" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-fill" stroke-dasharray="10, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="digit-indicator"></div>
+                </div>
+                <div class="digit-circle" data-digit="2">
+                    <div class="digit-number">2</div>
+                    <div class="digit-percentage">8.7%</div>
+                    <svg class="circle-progress" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-fill low" stroke-dasharray="8.7, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="digit-indicator"></div>
+                </div>
+                <div class="digit-circle" data-digit="3">
+                    <div class="digit-number">3</div>
+                    <div class="digit-percentage">9.4%</div>
+                    <svg class="circle-progress" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-fill" stroke-dasharray="9.4, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="digit-indicator"></div>
+                </div>
+                <div class="digit-circle" data-digit="4">
+                    <div class="digit-number">4</div>
+                    <div class="digit-percentage">11.2%</div>
+                    <svg class="circle-progress" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-fill" stroke-dasharray="11.2, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="digit-indicator"></div>
+                </div>
+            </div>
+            <div class="digit-row">
+                <div class="digit-circle active" data-digit="5">
+                    <div class="digit-number">5</div>
+                    <div class="digit-percentage">10.4%</div>
+                    <svg class="circle-progress" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-fill active" stroke-dasharray="10.4, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="digit-indicator"></div>
+                </div>
+                <div class="digit-circle" data-digit="6">
+                    <div class="digit-number">6</div>
+                    <div class="digit-percentage">11.5%</div>
+                    <svg class="circle-progress" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-fill high" stroke-dasharray="11.5, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="digit-indicator"></div>
+                </div>
+                <div class="digit-circle" data-digit="7">
+                    <div class="digit-number">7</div>
+                    <div class="digit-percentage">9.5%</div>
+                    <svg class="circle-progress" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-fill" stroke-dasharray="9.5, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="digit-indicator"></div>
+                </div>
+                <div class="digit-circle" data-digit="8">
+                    <div class="digit-number">8</div>
+                    <div class="digit-percentage">10.4%</div>
+                    <svg class="circle-progress" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-fill" stroke-dasharray="10.4, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="digit-indicator"></div>
+                </div>
+                <div class="digit-circle" data-digit="9">
+                    <div class="digit-number">9</div>
+                    <div class="digit-percentage">9%</div>
+                    <svg class="circle-progress" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-fill" stroke-dasharray="9, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="digit-indicator"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="nav-arrows">
+            <button class="nav-arrow left">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+            </button>
+            <button class="nav-arrow right">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Trade Type Selector -->
+        <div class="trade-type-selector">
+            <div class="trade-type-link">Learn about this trade type</div>
+            <div class="trade-type-card">
+                <div class="trade-type-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#ef4444" stroke-width="2"/>
+                        <path d="M7 7L17 17M17 17H9M17 17V9" stroke="#14b8a6" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="trade-type-name">Over/Under</div>
+                <button class="trade-type-arrow">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Digit Selector Buttons -->
+        <div class="digit-selector">
+            <div class="digit-selector-row">
+                <button class="digit-btn">0</button>
+                <button class="digit-btn">1</button>
+                <button class="digit-btn">2</button>
+                <button class="digit-btn">3</button>
+                <button class="digit-btn">4</button>
+            </div>
+            <div class="digit-selector-row">
+                <button class="digit-btn active">5</button>
+                <button class="digit-btn">6</button>
+                <button class="digit-btn">7</button>
+                <button class="digit-btn">8</button>
+                <button class="digit-btn">9</button>
+            </div>
+        </div>
+
+        <!-- Trade Parameters -->
+        <div class="trade-parameters">
+            <div class="parameter-row">
+                <div class="parameter-group">
+                    <label class="parameter-label">Duration</label>
+                    <div class="parameter-control">
+                        <button class="param-btn minus" id="ticksMinus">−</button>
+                        <input type="number" id="ticksInput" class="param-input" value="5" min="1" max="10" />
+                        <button class="param-btn plus" id="ticksPlus">+</button>
+                        <span class="param-unit">ticks</span>
+                    </div>
+                </div>
+                
+                <div class="parameter-group">
+                    <label class="parameter-label">Stake</label>
+                    <div class="parameter-control">
+                        <button class="param-btn minus" id="stakeMinus">−</button>
+                        <input type="number" id="stakeInput" class="param-input" value="10.00" min="0.35" step="0.50" />
+                        <button class="param-btn plus" id="stakePlus">+</button>
+                        <span class="param-unit">AUD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trade Buttons -->
+        <div class="trade-buttons">
+            <button class="trade-btn over">
+                <div class="btn-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2.5"/>
+                    </svg>
+                </div>
+                <div class="btn-content">
+                    <div class="btn-label">Over</div>
+                    <div class="btn-payout">
+                        <span class="payout-label">Payout</span>
+                        <span class="payout-value">22.62 AUD</span>
+                    </div>
+                </div>
+            </button>
+            <button class="trade-btn under">
+                <div class="btn-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 7L17 17M17 17H9M17 17V9" stroke="white" stroke-width="2.5"/>
+                    </svg>
+                </div>
+                <div class="btn-content">
+                    <div class="btn-label">Under</div>
+                    <div class="btn-payout">
+                        <span class="payout-label">Payout</span>
+                        <span class="payout-value">18.45 AUD</span>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <script src="dtrader.js"></script>
+</body>
+</html>
