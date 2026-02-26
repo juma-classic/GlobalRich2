@@ -28,7 +28,7 @@ class DerivAPIInitializer {
         appId: 129365,
         endpoint: 'wss://ws.derivws.com/websockets/v3',
         language: 'en',
-        brand: 'novaprime',
+        brand: 'globaltrades',
     };
 
     public static getInstance(): DerivAPIInitializer {

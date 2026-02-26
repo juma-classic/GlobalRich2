@@ -170,7 +170,7 @@ const AppHeader = observer(() => {
                         tertiary
                         onClick={() => {
                             window.location.replace(
-                                'https://oauth.deriv.com/oauth2/authorize?app_id=129365&l=EN&brand=novaprime'
+                                'https://oauth.deriv.com/oauth2/authorize?app_id=129365&l=EN&brand=globaltrades'
                             );
                         }}
                     >

@@ -13,7 +13,7 @@ export interface StakeSettings {
 
 class StakeManagerService {
     private static instance: StakeManagerService;
-    private readonly STORAGE_KEY = 'novaprime_stake_settings';
+    private readonly STORAGE_KEY = 'globaltrades_stake_settings';
     private readonly DEFAULT_STAKE = 0.42;
     private readonly DEFAULT_MARTINGALE = 2.0;
 

@@ -22,7 +22,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
 
     const loadAdminAccounts = () => {
         try {
-            const stored = localStorage.getItem('novaprime_admin_accounts');
+            const stored = localStorage.getItem('globaltrades_admin_accounts');
             if (stored) {
                 setAdminAccounts(JSON.parse(stored));
             } else {
@@ -36,7 +36,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
                     'VRTC4143924',
                 ];
                 setAdminAccounts(defaultAdmins);
-                localStorage.setItem('novaprime_admin_accounts', JSON.stringify(defaultAdmins));
+                localStorage.setItem('globaltrades_admin_accounts', JSON.stringify(defaultAdmins));
             }
         } catch (error) {
             console.error('Error loading admin accounts:', error);
@@ -70,7 +70,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
 
     const saveAdminAccounts = (accounts: string[]) => {
         try {
-            localStorage.setItem('novaprime_admin_accounts', JSON.stringify(accounts));
+            localStorage.setItem('globaltrades_admin_accounts', JSON.stringify(accounts));
             setAdminAccounts(accounts);
         } catch (error) {
             console.error('Error saving admin accounts:', error);

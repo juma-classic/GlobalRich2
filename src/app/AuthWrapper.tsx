@@ -1,5 +1,5 @@
 import React from 'react';
-import { NovaprimeLoader } from '@/components/loader/NovaprimeLoader';
+import { GlobalTradesLoader } from '@/components/loader/GlobalTradesLoader';
 import { generateDerivApiInstance } from '@/external/bot-skeleton/services/api/appId';
 import { apiTokenAuthService } from '@/services/api-token-auth.service';
 import { URLUtils } from '@deriv-com/utils';
@@ -69,7 +69,7 @@ export const AuthWrapper = () => {
     }, [loginInfo, paramsToDelete]);
 
     if (!isAuthComplete) {
-        return <NovaprimeLoader onLoadComplete={() => {}} duration={3000} />;
+        return <GlobalTradesLoader onLoadComplete={() => {}} duration={3000} />;
     }
 
     return <App />;

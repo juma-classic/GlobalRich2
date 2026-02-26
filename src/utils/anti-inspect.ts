@@ -201,7 +201,7 @@ class AntiInspect {
         console.log('%c⚠️ STOP!', warningStyle);
         console.log('%cThis is a browser feature intended for developers.', infoStyle);
         console.log('%cIf someone told you to copy-paste something here, it is a scam.', infoStyle);
-        console.log('%cNOVAPRIME - Protected Content', 'color: #0d9488; font-size: 12px;');
+        console.log('%cGLOBAL TRADES - Protected Content', 'color: #0d9488; font-size: 12px;');
     }
 
     // Show warning when inspection is attempted

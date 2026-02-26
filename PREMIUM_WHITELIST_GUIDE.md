@@ -102,7 +102,7 @@ git push
 
 ## File Location
 ```
-Novaprime/
+GlobalTrades/
 ├── public/
 │   └── premium-whitelist.json  ← Edit this file
 ```

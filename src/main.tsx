@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { AuthWrapper } from './app/AuthWrapper';
-import { NovaprimeLoader } from './components/loader/NovaprimeLoader';
+import { GlobalTradesLoader } from './components/loader/GlobalTradesLoader';
 import { derivAPIInitializer } from './services/deriv-api-initializer.service';
 import { chunkErrorHandler } from './utils/chunk-error-handler';
 import { networkTimeoutHandler } from './utils/network-timeout-handler';
@@ -89,7 +89,7 @@ function AppWrapper() {
     }, []);
 
     if (isLoading) {
-        return <NovaprimeLoader onLoadComplete={() => setIsLoading(false)} duration={3000} />;
+        return <GlobalTradesLoader onLoadComplete={() => setIsLoading(false)} duration={3000} />;
     }
 
     return <AuthWrapper />;

@@ -4,7 +4,7 @@
  */
 
 const API_BASE_URL = '/api/premium-whitelist';
-const ADMIN_PASSWORD = 'novaprime_admin_2024'; // Should match .env ADMIN_API_PASSWORD
+const ADMIN_PASSWORD = 'globaltrades_admin_2024'; // Should match .env ADMIN_API_PASSWORD
 
 export interface WhitelistResponse {
     premiumAccounts: string[];

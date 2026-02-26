@@ -9,7 +9,7 @@
  */
 const getAdminAccounts = (): string[] => {
     try {
-        const stored = localStorage.getItem('novaprime_admin_accounts');
+        const stored = localStorage.getItem('globaltrades_admin_accounts');
         if (stored) {
             return JSON.parse(stored);
         }
@@ -25,7 +25,7 @@ const getAdminAccounts = (): string[] => {
         ];
         
         // Initialize localStorage with defaults
-        localStorage.setItem('novaprime_admin_accounts', JSON.stringify(defaultAdmins));
+        localStorage.setItem('globaltrades_admin_accounts', JSON.stringify(defaultAdmins));
         return defaultAdmins;
     } catch (error) {
         console.error('Error getting admin accounts:', error);

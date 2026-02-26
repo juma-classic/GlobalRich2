@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import './NovaprimeLoader.scss';
+import './GlobalTradesLoader.scss';
 
-interface NovaprimeLoaderProps {
+interface GlobalTradesLoaderProps {
     onLoadComplete?: () => void;
     duration?: number;
 }
 
-export const NovaprimeLoader: React.FC<NovaprimeLoaderProps> = ({ onLoadComplete, duration = 6000 }) => {
+export const GlobalTradesLoader: React.FC<GlobalTradesLoaderProps> = ({ onLoadComplete, duration = 6000 }) => {
     const [progress, setProgress] = useState(0);
     const [isComplete, setIsComplete] = useState(false);
     const [chartBars, setChartBars] = useState<number[]>([]);
@@ -45,7 +45,7 @@ export const NovaprimeLoader: React.FC<NovaprimeLoaderProps> = ({ onLoadComplete
     }, [duration, onLoadComplete]);
 
     return (
-        <div className={`novaprime-loader ${isComplete ? 'fade-out' : ''}`}>
+        <div className={`globaltrades-loader ${isComplete ? 'fade-out' : ''}`}>
             {/* Background circles */}
             <div className="bg-circle circle-1"></div>
             <div className="bg-circle circle-2"></div>
@@ -57,7 +57,7 @@ export const NovaprimeLoader: React.FC<NovaprimeLoaderProps> = ({ onLoadComplete
                     <div className="logo-icon">
                         <div className="icon-p">P</div>
                     </div>
-                    <h1 className="logo-text">NOVAPRIME</h1>
+                    <h1 className="logo-text">GLOBAL TRADES</h1>
                 </div>
 
                 {/* Trading Interface Mockup */}
@@ -121,4 +121,4 @@ export const NovaprimeLoader: React.FC<NovaprimeLoaderProps> = ({ onLoadComplete
     );
 };
 
-export default NovaprimeLoader;
+export default GlobalTradesLoader;

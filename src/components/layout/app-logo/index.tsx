@@ -78,12 +78,12 @@ export const AppLogo = () => {
         // Mobile version with tap and long-press handler
         return (
             <div
-                className='app-header__logo novaprime-logo'
+                className='app-header__logo globaltrades-logo'
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
                 style={{ cursor: 'pointer' }}
             >
-                <span className='novaprime-text'>NOVAPRIME</span>
+                <span className='globaltrades-text'>GLOBAL TRADES</span>
             </div>
         );
     }

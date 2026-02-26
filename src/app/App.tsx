@@ -84,7 +84,7 @@ const router = createBrowserRouter(
             path='/'
             element={
                 <Suspense
-                    fallback={<ChunkLoader message={localize('Welcome to NOVAPRIME connecting to the server...')} />}
+                    fallback={<ChunkLoader message={localize('Welcome to GLOBAL TRADES connecting to the server...')} />}
                 >
                     <TranslationProvider defaultLang='EN' i18nInstance={i18nInstance}>
                         <StoreProvider>
