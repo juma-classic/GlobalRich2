@@ -4414,7 +4414,7 @@ const AppWrapper = observer(() => {
                             </div>
                         </div>
 
-                        {/* NOVA ANALYSIS TAB */}
+                        {/* GLOBAL ANALYSIS TAB */}
                         <div
                             label={
                                 <>
@@ -4546,7 +4546,7 @@ const AppWrapper = observer(() => {
                                             `}
                                         </style>
                                     </svg>
-                                    <Localize i18n_default_text='Nova Analysis' />
+                                    <Localize i18n_default_text='Global Analysis' />
                                 </>
                             }
                             id='id-nova-analysis'
@@ -4561,7 +4561,7 @@ const AppWrapper = observer(() => {
                             >
                                 <iframe
                                     src='/nova/index.html'
-                                    title='Nova Analysis Tool'
+                                    title='Global Analysis Tool'
                                     style={{
                                         width: '100%',
                                         height: '100%',

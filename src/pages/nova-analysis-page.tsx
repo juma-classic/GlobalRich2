@@ -6,7 +6,7 @@ const NovaAnalysisPage: React.FC = () => {
         <div className='nova-analysis-page'>
             <iframe
                 src='/nova/index.html'
-                title='Nova Analysis Tool'
+                title='Global Analysis Tool'
                 className='nova-iframe'
                 style={{
                     width: '100%',

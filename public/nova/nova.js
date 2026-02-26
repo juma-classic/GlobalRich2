@@ -1,4 +1,4 @@
-// Nova Analysis - Exact Match to Screenshot
+// Global Analysis - Exact Match to Screenshot
 let ws;
 let tickHistory = [];
 let currentSymbol = 'R_50'; // Volatility 50 Index
@@ -569,4 +569,4 @@ function updateDigitsStream(count = 50) {
     });
 }
 
-console.log('✨ Nova Analysis initialized');
+console.log('✨ Global Analysis initialized');

@@ -19,7 +19,7 @@ export const NovaAnalysisNavButton: React.FC<NovaAnalysisNavButtonProps> = ({ va
         <button
             className={`nova-analysis-nav-button ${isActive ? 'active' : ''} ${variant}`}
             onClick={handleClick}
-            title='Nova Analysis - Simple Trading Analytics'
+            title='Global Analysis - Simple Trading Analytics'
         >
             <div className='nav-icon'>
                 <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -41,7 +41,7 @@ export const NovaAnalysisNavButton: React.FC<NovaAnalysisNavButtonProps> = ({ va
                 </svg>
             </div>
             <div className='nav-content'>
-                <div className='nav-title'>✨ Nova Analysis</div>
+                <div className='nav-title'>✨ Global Analysis</div>
                 <div className='nav-subtitle'>Simple Trading Analytics</div>
             </div>
             <div className='nav-badge'>NEW</div>

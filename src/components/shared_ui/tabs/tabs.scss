@@ -205,7 +205,7 @@
     }
 
     // Custom tab ordering using CSS order property
-    // Desired order: Free Bots, Bot Builder, Dashboard, Analysis Tool, Charts, Nova Analysis, Signals, Copy Trading, DTrader, [remaining]
+    // Desired order: Free Bots, Bot Builder, Dashboard, Analysis Tool, Charts, Global Analysis, Signals, Copy Trading, DTrader, [remaining]
     #id-free-bots { order: 1; }
     #id-bot-builder { order: 2; }
     #id-dbot-dashboard { order: 3; }
