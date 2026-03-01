@@ -97,10 +97,12 @@ class CopyTradingAPIService {
             this.startMonitoring();
 
             const copyMode = config.copyToRealAccount ? 'DEMO → REAL' : 'SAME ACCOUNT TYPE';
-            console.log(`✅ Copy trading started successfully. Mode: ${copyMode}, Monitoring ${this.traderConnections.size} trader(s)`);
-            return { 
-                success: true, 
-                message: `Copy trading started (${copyMode}). Monitoring ${this.traderConnections.size} trader(s)` 
+            console.log(
+                `✅ Copy trading started successfully. Mode: ${copyMode}, Monitoring ${this.traderConnections.size} trader(s)`
+            );
+            return {
+                success: true,
+                message: `Copy trading started (${copyMode}). Monitoring ${this.traderConnections.size} trader(s)`,
             };
         } catch (error) {
             console.error('❌ Error starting copy trading:', error);
@@ -115,21 +117,23 @@ class CopyTradingAPIService {
     private async connectToTrader(token: string): Promise<boolean> {
         try {
             const ws = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=1089');
-            
-            return new Promise((resolve) => {
+
+            return new Promise(resolve => {
                 ws.onopen = () => {
                     console.log(`📡 WebSocket opened for trader token: ${token.substring(0, 10)}...`);
-                    
+
                     // Authorize with trader's token
-                    ws.send(JSON.stringify({
-                        authorize: token,
-                        req_id: Date.now()
-                    }));
+                    ws.send(
+                        JSON.stringify({
+                            authorize: token,
+                            req_id: Date.now(),
+                        })
+                    );
                 };
 
-                ws.onmessage = (event) => {
+                ws.onmessage = event => {
                     const data = JSON.parse(event.data);
-                    
+
                     if (data.msg_type === 'authorize') {
                         if (data.error) {
                             console.error('❌ Authorization failed:', data.error);
@@ -137,12 +141,13 @@ class CopyTradingAPIService {
                             resolve(false);
                         } else {
                             console.log('✅ Trader authorized:', data.authorize.loginid);
-                            
+
                             // Determine account type from loginid
-                            const accountType = data.authorize.loginid.startsWith('VRT') || data.authorize.loginid.startsWith('VRW') 
-                                ? 'demo' 
-                                : 'real';
-                            
+                            const accountType =
+                                data.authorize.loginid.startsWith('VRT') || data.authorize.loginid.startsWith('VRW')
+                                    ? 'demo'
+                                    : 'real';
+
                             // Store connection
                             this.traderConnections.set(token, {
                                 token,
@@ -150,17 +155,19 @@ class CopyTradingAPIService {
                                 authorized: true,
                                 loginid: data.authorize.loginid,
                                 balance: data.authorize.balance,
-                                accountType
+                                accountType,
                             });
 
                             console.log(`📊 Trader account type: ${accountType.toUpperCase()}`);
 
                             // Subscribe to transactions
-                            ws.send(JSON.stringify({
-                                transaction: 1,
-                                subscribe: 1,
-                                req_id: Date.now()
-                            }));
+                            ws.send(
+                                JSON.stringify({
+                                    transaction: 1,
+                                    subscribe: 1,
+                                    req_id: Date.now(),
+                                })
+                            );
 
                             resolve(true);
                         }
@@ -170,7 +177,7 @@ class CopyTradingAPIService {
                     }
                 };
 
-                ws.onerror = (error) => {
+                ws.onerror = error => {
                     console.error('❌ WebSocket error:', error);
                     resolve(false);
                 };
@@ -223,7 +230,6 @@ class CopyTradingAPIService {
 
             // Copy the trade
             await this.copyTrade(transaction);
-
         } catch (error) {
             console.error('❌ Error handling trader transaction:', error);
         }
@@ -271,7 +277,7 @@ class CopyTradingAPIService {
 
             // Determine which API to use
             const useRealAccount = this.config?.copyToRealAccount && this.realAccountAuthorized;
-            
+
             if (useRealAccount && !this.realAccountWs) {
                 console.error('❌ Real account WebSocket not available');
                 return;
@@ -283,8 +289,9 @@ class CopyTradingAPIService {
             }
 
             // Get trader account type
-            const traderConnection = Array.from(this.traderConnections.values())
-                .find(conn => conn.loginid === transaction.loginid);
+            const traderConnection = Array.from(this.traderConnections.values()).find(
+                conn => conn.loginid === transaction.loginid
+            );
             const traderAccountType = traderConnection?.accountType || 'unknown';
 
             console.log(`📊 Copy mode: ${traderAccountType.toUpperCase()} → ${useRealAccount ? 'REAL' : 'CURRENT'}`);
@@ -302,7 +309,7 @@ class CopyTradingAPIService {
                 currency: 'USD',
                 duration: transaction.duration || 5,
                 duration_unit: transaction.duration_unit || 't',
-                symbol: transaction.symbol
+                symbol: transaction.symbol,
             };
 
             // Add barrier if present
@@ -318,7 +325,7 @@ class CopyTradingAPIService {
             if (useRealAccount && this.realAccountWs) {
                 // Use real account WebSocket
                 proposalResponse = await this.sendToRealAccount(proposalPayload);
-                
+
                 if (proposalResponse.error) {
                     console.error('❌ Proposal failed:', proposalResponse.error);
                     return;
@@ -327,12 +334,11 @@ class CopyTradingAPIService {
                 // Buy the contract on real account
                 const buyPayload = {
                     buy: proposalResponse.proposal.id,
-                    price: proposalResponse.proposal.ask_price
+                    price: proposalResponse.proposal.ask_price,
                 };
 
                 console.log('📤 Buying contract on REAL account:', buyPayload);
                 buyResponse = await this.sendToRealAccount(buyPayload);
-
             } else {
                 // Use current account API
                 proposalResponse = await api_base.api.send(proposalPayload);
@@ -345,7 +351,7 @@ class CopyTradingAPIService {
                 // Buy the contract
                 const buyPayload = {
                     buy: proposalResponse.proposal.id,
-                    price: proposalResponse.proposal.ask_price
+                    price: proposalResponse.proposal.ask_price,
                 };
 
                 console.log('📤 Buying contract:', buyPayload);
@@ -358,11 +364,13 @@ class CopyTradingAPIService {
             }
 
             this.copiedTrades++;
-            console.log(`✅ Trade copied successfully (${traderAccountType.toUpperCase()} → ${useRealAccount ? 'REAL' : 'CURRENT'}):`, buyResponse.buy);
+            console.log(
+                `✅ Trade copied successfully (${traderAccountType.toUpperCase()} → ${useRealAccount ? 'REAL' : 'CURRENT'}):`,
+                buyResponse.buy
+            );
 
             // Subscribe to contract updates to track profit
             this.subscribeToContract(buyResponse.buy.contract_id, useRealAccount);
-
         } catch (error) {
             console.error('❌ Error copying trade:', error);
         }
@@ -408,7 +416,7 @@ class CopyTradingAPIService {
             const payload = {
                 proposal_open_contract: 1,
                 contract_id: contractId,
-                subscribe: 1
+                subscribe: 1,
             };
 
             if (useRealAccount && this.realAccountWs) {
@@ -423,20 +431,24 @@ class CopyTradingAPIService {
                 // Listen for updates on real account WebSocket
                 const handler = (event: MessageEvent) => {
                     const data = JSON.parse(event.data);
-                    if (data.msg_type === 'proposal_open_contract' && data.proposal_open_contract?.contract_id === contractId) {
+                    if (
+                        data.msg_type === 'proposal_open_contract' &&
+                        data.proposal_open_contract?.contract_id === contractId
+                    ) {
                         const contract = data.proposal_open_contract;
-                        
+
                         if (contract.is_sold || contract.status === 'sold') {
                             const profit = contract.profit || 0;
                             this.totalProfit += profit;
-                            console.log(`💰 REAL Account Contract closed. Profit: $${profit.toFixed(2)}, Total: $${this.totalProfit.toFixed(2)}`);
+                            console.log(
+                                `💰 REAL Account Contract closed. Profit: $${profit.toFixed(2)}, Total: $${this.totalProfit.toFixed(2)}`
+                            );
                             this.realAccountWs?.removeEventListener('message', handler);
                         }
                     }
                 };
 
                 this.realAccountWs.addEventListener('message', handler);
-
             } else if (api_base.api) {
                 // Subscribe via current account API
                 const response = await api_base.api.send(payload);
@@ -448,19 +460,23 @@ class CopyTradingAPIService {
 
                 // Handle contract updates
                 const subscription = api_base.api.onMessage().subscribe((msg: any) => {
-                    if (msg.msg_type === 'proposal_open_contract' && msg.proposal_open_contract?.contract_id === contractId) {
+                    if (
+                        msg.msg_type === 'proposal_open_contract' &&
+                        msg.proposal_open_contract?.contract_id === contractId
+                    ) {
                         const contract = msg.proposal_open_contract;
-                        
+
                         if (contract.is_sold || contract.status === 'sold') {
                             const profit = contract.profit || 0;
                             this.totalProfit += profit;
-                            console.log(`💰 Contract closed. Profit: $${profit.toFixed(2)}, Total: $${this.totalProfit.toFixed(2)}`);
+                            console.log(
+                                `💰 Contract closed. Profit: $${profit.toFixed(2)}, Total: $${this.totalProfit.toFixed(2)}`
+                            );
                             subscription.unsubscribe();
                         }
                     }
                 });
             }
-
         } catch (error) {
             console.error('❌ Error subscribing to contract:', error);
         }
@@ -477,8 +493,10 @@ class CopyTradingAPIService {
 
         // Check connection status every 30 seconds
         this.monitoringInterval = setInterval(() => {
-            console.log(`📊 Copy Trading Status: ${this.traderConnections.size} trader(s) connected, ${this.copiedTrades} trades copied`);
-            
+            console.log(
+                `📊 Copy Trading Status: ${this.traderConnections.size} trader(s) connected, ${this.copiedTrades} trades copied`
+            );
+
             // Reconnect to disconnected traders
             this.traderConnections.forEach((connection, token) => {
                 if (connection.ws?.readyState === WebSocket.CLOSED) {
@@ -510,7 +528,7 @@ class CopyTradingAPIService {
             }
 
             // Close all trader connections
-            this.traderConnections.forEach((connection) => {
+            this.traderConnections.forEach(connection => {
                 if (connection.ws && connection.ws.readyState === WebSocket.OPEN) {
                     connection.ws.close();
                 }
@@ -535,14 +553,14 @@ class CopyTradingAPIService {
      */
     getConnectedTraders(): Array<{ loginid: string; balance: number; token: string; accountType: string }> {
         const traders: Array<{ loginid: string; balance: number; token: string; accountType: string }> = [];
-        
-        this.traderConnections.forEach((connection) => {
+
+        this.traderConnections.forEach(connection => {
             if (connection.authorized) {
                 traders.push({
                     loginid: connection.loginid,
                     balance: connection.balance,
                     token: connection.token.substring(0, 10) + '...',
-                    accountType: connection.accountType.toUpperCase()
+                    accountType: connection.accountType.toUpperCase(),
                 });
             }
         });
@@ -560,7 +578,7 @@ class CopyTradingAPIService {
             copiedTrades: this.copiedTrades,
             totalProfit: this.totalProfit,
             averageProfitPerTrade: this.copiedTrades > 0 ? this.totalProfit / this.copiedTrades : 0,
-            processedTransactions: this.processedTransactions.size
+            processedTransactions: this.processedTransactions.size,
         };
     }
 
@@ -582,9 +600,6 @@ class CopyTradingAPIService {
     isRunning(): boolean {
         return this.isActive;
     }
-}
-
-export const copyTradingAPIService = new CopyTradingAPIService();
 
     /**
      * Connect to real account for demo-to-real copy trading
@@ -592,8 +607,8 @@ export const copyTradingAPIService = new CopyTradingAPIService();
     private async connectToRealAccount(token: string): Promise<boolean> {
         try {
             this.realAccountWs = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=1089');
-            
-            return new Promise((resolve) => {
+
+            return new Promise(resolve => {
                 if (!this.realAccountWs) {
                     resolve(false);
                     return;
@@ -601,17 +616,19 @@ export const copyTradingAPIService = new CopyTradingAPIService();
 
                 this.realAccountWs.onopen = () => {
                     console.log('📡 Real account WebSocket opened');
-                    
+
                     // Authorize with real account token
-                    this.realAccountWs?.send(JSON.stringify({
-                        authorize: token,
-                        req_id: Date.now()
-                    }));
+                    this.realAccountWs?.send(
+                        JSON.stringify({
+                            authorize: token,
+                            req_id: Date.now(),
+                        })
+                    );
                 };
 
-                this.realAccountWs.onmessage = (event) => {
+                this.realAccountWs.onmessage = event => {
                     const data = JSON.parse(event.data);
-                    
+
                     if (data.msg_type === 'authorize') {
                         if (data.error) {
                             console.error('❌ Real account authorization failed:', data.error);
@@ -620,7 +637,7 @@ export const copyTradingAPIService = new CopyTradingAPIService();
                         } else {
                             const loginid = data.authorize.loginid;
                             const isReal = !loginid.startsWith('VRT') && !loginid.startsWith('VRW');
-                            
+
                             if (!isReal) {
                                 console.error('❌ Provided token is not a real account');
                                 this.realAccountWs?.close();
@@ -635,7 +652,7 @@ export const copyTradingAPIService = new CopyTradingAPIService();
                     }
                 };
 
-                this.realAccountWs.onerror = (error) => {
+                this.realAccountWs.onerror = error => {
                     console.error('❌ Real account WebSocket error:', error);
                     resolve(false);
                 };
@@ -658,3 +675,6 @@ export const copyTradingAPIService = new CopyTradingAPIService();
             return false;
         }
     }
+}
+
+export const copyTradingAPIService = new CopyTradingAPIService();
