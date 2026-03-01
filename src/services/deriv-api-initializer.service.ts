@@ -25,7 +25,7 @@ class DerivAPIInitializer {
     private connectionListeners: Set<(connected: boolean) => void> = new Set();
 
     private readonly config: DerivAPIConfig = {
-        appId: 129365,
+        appId: 117918,
         endpoint: 'wss://ws.derivws.com/websockets/v3',
         language: 'en',
         brand: 'globaltrades',

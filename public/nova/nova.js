@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Re-render circles on window resize for responsive sizing
 let resizeTimeout;
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(function() {
+    resizeTimeout = setTimeout(function () {
         renderDigitCircles();
         if (tickHistory.length > 0) {
             updateUI();
@@ -35,24 +35,24 @@ function initializeUI() {
 // Setup market selector
 function setupMarketSelector() {
     const selector = document.getElementById('market-selector');
-    
+
     // Set initial value
     selector.value = currentSymbol;
-    
+
     // Handle market change
-    selector.addEventListener('change', (e) => {
+    selector.addEventListener('change', e => {
         const newSymbol = e.target.value;
         if (newSymbol !== currentSymbol) {
             currentSymbol = newSymbol;
             tickHistory = [];
             updateMarketLabel();
-            
+
             // Close existing WebSocket and start new one
             if (ws) {
                 ws.close();
             }
             startWebSocket();
-            
+
             console.log('📊 Switched to market:', currentSymbol);
         }
     });
@@ -95,7 +95,7 @@ function createDigitCircle(digit) {
     // Responsive sizing based on screen width
     const isMobile = window.innerWidth <= 768;
     const isSmallMobile = window.innerWidth <= 480;
-    
+
     let size, radius, center;
     if (isSmallMobile) {
         size = 45; // 35 * 1.3
@@ -173,11 +173,11 @@ function updateDigitSelector() {
 // Update market label
 function updateMarketLabel() {
     const marketNames = {
-        'R_10': 'Volatility 10 Index',
-        'R_25': 'Volatility 25 Index',
-        'R_50': 'Volatility 50 Index',
-        'R_75': 'Volatility 75 Index',
-        'R_100': 'Volatility 100 Index',
+        R_10: 'Volatility 10 Index',
+        R_25: 'Volatility 25 Index',
+        R_50: 'Volatility 50 Index',
+        R_75: 'Volatility 75 Index',
+        R_100: 'Volatility 100 Index',
         '1HZ10V': 'Volatility 10 (1s) Index',
         '1HZ15V': 'Volatility 15 (1s) Index',
         '1HZ25V': 'Volatility 25 (1s) Index',
@@ -193,7 +193,7 @@ function updateMarketLabel() {
 
 // WebSocket connection
 function startWebSocket() {
-    ws = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=129365');
+    ws = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=117918');
 
     ws.onopen = () => {
         console.log('✅ Connected to Deriv WebSocket');
@@ -238,9 +238,9 @@ function handleWebSocketMessage(data) {
             console.log('🔍 RAW HISTORY DATA:', {
                 firstPrice: data.history.prices[0],
                 typeOfFirstPrice: typeof data.history.prices[0],
-                last5Prices: data.history.prices.slice(-5)
+                last5Prices: data.history.prices.slice(-5),
             });
-            
+
             for (let i = 0; i < data.history.times.length; i++) {
                 const price = data.history.prices[i];
                 // Store as string to preserve format
@@ -252,21 +252,28 @@ function handleWebSocketMessage(data) {
                 });
             }
         }
-        
+
         // Detect decimal places dynamically from actual tick data
         detectDecimalPlaces();
-        
+
         console.log('📊 Loaded', tickHistory.length, 'historical ticks');
         console.log('🔍 Sample tick structure:', tickHistory[0]);
         console.log('🔍 Last tick structure:', tickHistory[tickHistory.length - 1]);
-        
+
         // Debug: Check digit distribution
         const allDigits = tickHistory.map(t => getLastDigit(t));
         const digitCounts = Array(10).fill(0);
         allDigits.forEach(d => digitCounts[d]++);
         console.log('🔢 DIGIT DISTRIBUTION:', digitCounts);
-        console.log('🔢 Digit 0 count:', digitCounts[0], 'out of', tickHistory.length, '=', ((digitCounts[0] / tickHistory.length) * 100).toFixed(1) + '%');
-        
+        console.log(
+            '🔢 Digit 0 count:',
+            digitCounts[0],
+            'out of',
+            tickHistory.length,
+            '=',
+            ((digitCounts[0] / tickHistory.length) * 100).toFixed(1) + '%'
+        );
+
         updateUI();
         subscribeToTicks();
     } else if (data.msg_type === 'tick') {
@@ -375,7 +382,9 @@ function getLastDigit(tick) {
 
     // Debug logging for digit 0
     if (lastDigit === 0 && Math.random() < 0.05) {
-        console.log(`🔍 Digit 0 found: "${priceStr}" -> decimals: "${decimals}" (padded to ${decimalPlaces}) -> lastDigit: ${lastDigit}`);
+        console.log(
+            `🔍 Digit 0 found: "${priceStr}" -> decimals: "${decimals}" (padded to ${decimalPlaces}) -> lastDigit: ${lastDigit}`
+        );
     }
 
     return lastDigit;
@@ -425,17 +434,17 @@ function updateDigitCircles(digitCounts) {
 
             // Update progress ring with color based on frequency
             const progressCircle = circle.querySelector('.circle-progress');
-            
+
             // Get radius from the actual SVG circle element
             const svgCircle = circle.querySelector('.circle-progress');
             const radius = parseFloat(svgCircle.getAttribute('r')) || 34;
-            
+
             const circumference = 2 * Math.PI * radius;
-            
+
             // Set fixed ring lengths for highest and lowest
             let displayPercentage = parseFloat(percentage);
             let ringColor;
-            
+
             if (digit === highestDigit) {
                 ringColor = '#10b981'; // Green
                 displayPercentage = 75; // Fixed at 75% of circumference
@@ -446,7 +455,7 @@ function updateDigitCircles(digitCounts) {
                 ringColor = '#a855f7'; // Purple
                 // Keep actual percentage for purple rings
             }
-            
+
             const offset = circumference - (displayPercentage / 100) * circumference;
             progressCircle.style.strokeDashoffset = offset;
             progressCircle.style.stroke = ringColor;
