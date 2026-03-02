@@ -344,7 +344,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
                                                 >
                                                     divergentPro
                                                 </code>{' '}
-                                                array for Divergent Pro ($200)
+                                                array for Divergent Pro ($500)
                                             </li>
                                             <li>Or both arrays if they have access to both bots</li>
                                         </ul>

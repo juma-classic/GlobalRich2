@@ -149,7 +149,7 @@ export const ZenUltraFastEngine = forwardRef<any, ZenUltraFastEngineProps>(
                 maxConcurrentTrades: settings.maxConcurrentTrades || 5,
                 maxDailyLoss: 100, // $100 daily loss limit
                 maxStakePerTrade: 10, // $10 max stake per trade
-                emergencyStopLoss: 200, // $200 emergency stop
+                emergencyStopLoss: 200, // $500 emergency stop
             };
             riskManagerRef.current = new RiskManager(riskLimits);
 

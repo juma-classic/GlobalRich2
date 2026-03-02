@@ -37,33 +37,35 @@ const DashboardIcon = () => (
                 <stop offset='100%' stopColor='#fbbf24' />
             </linearGradient>
             <filter id='dashGlow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+                <feGaussianBlur stdDeviation='2' result='coloredBlur' />
                 <feMerge>
-                    <feMergeNode in='coloredBlur'/>
-                    <feMergeNode in='SourceGraphic'/>
+                    <feMergeNode in='coloredBlur' />
+                    <feMergeNode in='SourceGraphic' />
                 </feMerge>
             </filter>
         </defs>
         {/* Connection lines */}
         <path d='M7 7h4M15 7h4M7 11v6M19 11v6' stroke='url(#dashGrad)' strokeWidth='1.5' opacity='0.6' />
-        
+
         {/* Top left node - green/yellow square */}
         <rect x='3' y='3' width='8' height='8' rx='2' fill='url(#dashGrad)' filter='url(#dashGlow)' opacity='0.9' />
         <circle cx='7' cy='7' r='1.5' fill='#ffffff' />
-        
+
         {/* Top right node - gray square with green dot */}
         <rect x='15' y='3' width='8' height='8' rx='2' fill='#9ca3af' opacity='0.7' />
         <circle cx='19' cy='7' r='1.2' fill='url(#dashGrad)' filter='url(#dashGlow)' />
-        <text x='20' y='9' fontSize='6' fontWeight='bold' fill='#ffffff'>F</text>
-        
+        <text x='20' y='9' fontSize='6' fontWeight='bold' fill='#ffffff'>
+            F
+        </text>
+
         {/* Bottom left node - gray square with green dot */}
         <rect x='3' y='13' width='8' height='8' rx='2' fill='#9ca3af' opacity='0.7' />
         <circle cx='7' cy='17' r='1.2' fill='url(#dashGrad)' filter='url(#dashGlow)' />
-        
+
         {/* Bottom right node - large green/yellow square */}
         <rect x='15' y='13' width='8' height='8' rx='2' fill='url(#dashGrad)' filter='url(#dashGlow)' opacity='0.9' />
         <circle cx='19' cy='17' r='1.5' fill='#ffffff' />
-        
+
         <style>
             {`
                 @keyframes dashPulse {
@@ -80,7 +82,14 @@ const DashboardIcon = () => (
 );
 
 const BotBuilderIcon = () => (
-    <svg width='40.56' height='40.56' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='bot-builder-nav-icon'>
+    <svg
+        width='40.56'
+        height='40.56'
+        viewBox='0 0 24 24'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+        className='bot-builder-nav-icon'
+    >
         <defs>
             <linearGradient id='botGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
                 <stop offset='0%' stopColor='#ffffff' />
@@ -92,65 +101,118 @@ const BotBuilderIcon = () => (
                 <stop offset='100%' stopColor='#f59e0b' stopOpacity='0.3' />
             </radialGradient>
             <filter id='botGlow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+                <feGaussianBlur stdDeviation='2' result='coloredBlur' />
                 <feMerge>
-                    <feMergeNode in='coloredBlur'/>
-                    <feMergeNode in='SourceGraphic'/>
+                    <feMergeNode in='coloredBlur' />
+                    <feMergeNode in='SourceGraphic' />
                 </feMerge>
             </filter>
         </defs>
-        
+
         {/* Central processor core */}
-        <circle cx='12' cy='12' r='4' fill='url(#botRadial)' stroke='url(#botGrad)' strokeWidth='1.5' filter='url(#botGlow)' />
-        
+        <circle
+            cx='12'
+            cy='12'
+            r='4'
+            fill='url(#botRadial)'
+            stroke='url(#botGrad)'
+            strokeWidth='1.5'
+            filter='url(#botGlow)'
+        />
+
         {/* Inner rotating gear */}
         <path d='M12 9L13 10.5L12 12L11 10.5Z' fill='#fbbf24' />
         <path d='M15 12L13.5 13L12 12L13.5 11Z' fill='#fbbf24' />
         <path d='M12 15L11 13.5L12 12L13 13.5Z' fill='#fbbf24' />
         <path d='M9 12L10.5 11L12 12L10.5 13Z' fill='#fbbf24' />
-        
+
         {/* Central AI core */}
         <circle cx='12' cy='12' r='1.5' fill='#fbbf24' filter='url(#botGlow)' />
-        
+
         {/* Outer rotating ring with nodes */}
-        <circle cx='12' cy='12' r='7' stroke='url(#botGrad)' strokeWidth='1.5' fill='none' opacity='0.6' strokeDasharray='2 3' />
-        
+        <circle
+            cx='12'
+            cy='12'
+            r='7'
+            stroke='url(#botGrad)'
+            strokeWidth='1.5'
+            fill='none'
+            opacity='0.6'
+            strokeDasharray='2 3'
+        />
+
         {/* Circuit nodes at cardinal points */}
         <circle cx='12' cy='5' r='1.2' fill='#fbbf24' filter='url(#botGlow)' />
         <circle cx='19' cy='12' r='1.2' fill='#fbbf24' filter='url(#botGlow)' />
         <circle cx='12' cy='19' r='1.2' fill='#fbbf24' filter='url(#botGlow)' />
         <circle cx='5' cy='12' r='1.2' fill='#fbbf24' filter='url(#botGlow)' />
-        
+
         {/* Connecting circuit lines */}
         <line x1='12' y1='5' x2='12' y2='8' stroke='url(#botGrad)' strokeWidth='1' opacity='0.5' />
         <line x1='19' y1='12' x2='16' y2='12' stroke='url(#botGrad)' strokeWidth='1' opacity='0.5' />
         <line x1='12' y1='19' x2='12' y2='16' stroke='url(#botGrad)' strokeWidth='1' opacity='0.5' />
         <line x1='5' y1='12' x2='8' y2='12' stroke='url(#botGrad)' strokeWidth='1' opacity='0.5' />
-        
+
         {/* Corner processors */}
         <rect x='2' y='2' width='3' height='3' rx='0.5' fill='url(#botGrad)' opacity='0.7' />
         <rect x='19' y='2' width='3' height='3' rx='0.5' fill='url(#botGrad)' opacity='0.7' />
         <rect x='2' y='19' width='3' height='3' rx='0.5' fill='url(#botGrad)' opacity='0.7' />
         <rect x='19' y='19' width='3' height='3' rx='0.5' fill='url(#botGrad)' opacity='0.7' />
-        
+
         {/* Corner processor indicators */}
         <circle cx='3.5' cy='3.5' r='0.6' fill='#fbbf24' />
         <circle cx='20.5' cy='3.5' r='0.6' fill='#fbbf24' />
         <circle cx='3.5' cy='20.5' r='0.6' fill='#fbbf24' />
         <circle cx='20.5' cy='20.5' r='0.6' fill='#fbbf24' />
-        
+
         {/* Diagonal connection lines */}
-        <line x1='5' y1='5' x2='8' y2='8' stroke='url(#botGrad)' strokeWidth='0.5' opacity='0.4' strokeDasharray='1 1' />
-        <line x1='19' y1='5' x2='16' y2='8' stroke='url(#botGrad)' strokeWidth='0.5' opacity='0.4' strokeDasharray='1 1' />
-        <line x1='5' y1='19' x2='8' y2='16' stroke='url(#botGrad)' strokeWidth='0.5' opacity='0.4' strokeDasharray='1 1' />
-        <line x1='19' y1='19' x2='16' y2='16' stroke='url(#botGrad)' strokeWidth='0.5' opacity='0.4' strokeDasharray='1 1' />
-        
+        <line
+            x1='5'
+            y1='5'
+            x2='8'
+            y2='8'
+            stroke='url(#botGrad)'
+            strokeWidth='0.5'
+            opacity='0.4'
+            strokeDasharray='1 1'
+        />
+        <line
+            x1='19'
+            y1='5'
+            x2='16'
+            y2='8'
+            stroke='url(#botGrad)'
+            strokeWidth='0.5'
+            opacity='0.4'
+            strokeDasharray='1 1'
+        />
+        <line
+            x1='5'
+            y1='19'
+            x2='8'
+            y2='16'
+            stroke='url(#botGrad)'
+            strokeWidth='0.5'
+            opacity='0.4'
+            strokeDasharray='1 1'
+        />
+        <line
+            x1='19'
+            y1='19'
+            x2='16'
+            y2='16'
+            stroke='url(#botGrad)'
+            strokeWidth='0.5'
+            opacity='0.4'
+            strokeDasharray='1 1'
+        />
+
         {/* Orbiting data particles */}
         <circle cx='12' cy='7' r='0.8' fill='#ffffff' opacity='0.9' />
         <circle cx='15' cy='9' r='0.8' fill='#ffffff' opacity='0.9' />
         <circle cx='15' cy='15' r='0.8' fill='#ffffff' opacity='0.9' />
         <circle cx='9' cy='15' r='0.8' fill='#ffffff' opacity='0.9' />
-        
+
         <style>
             {`
                 @keyframes botCoreRotate {
@@ -244,7 +306,13 @@ const ChartsIcon = () => (
             </linearGradient>
         </defs>
         {/* Charts - Trending up line chart */}
-        <path d='M3 17l6-6 4 4 8-8' stroke='url(#chartGrad)' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round' />
+        <path
+            d='M3 17l6-6 4 4 8-8'
+            stroke='url(#chartGrad)'
+            strokeWidth='2.5'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+        />
         <path d='M17 7h4v4' stroke='url(#chartGrad)' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round' />
         <style>
             {`
@@ -280,7 +348,14 @@ const TutorialsIcon = () => (
 );
 
 const AnalysisToolIcon = () => (
-    <svg width='40.56' height='40.56' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='analysis-tool-nav-icon'>
+    <svg
+        width='40.56'
+        height='40.56'
+        viewBox='0 0 24 24'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+        className='analysis-tool-nav-icon'
+    >
         <defs>
             <linearGradient id='analysisGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
                 <stop offset='0%' stopColor='#ffffff' />
@@ -292,65 +367,95 @@ const AnalysisToolIcon = () => (
                 <stop offset='100%' stopColor='#dc2626' stopOpacity='0.3' />
             </radialGradient>
             <filter id='analysisGlow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+                <feGaussianBlur stdDeviation='2' result='coloredBlur' />
                 <feMerge>
-                    <feMergeNode in='coloredBlur'/>
-                    <feMergeNode in='SourceGraphic'/>
+                    <feMergeNode in='coloredBlur' />
+                    <feMergeNode in='SourceGraphic' />
                 </feMerge>
             </filter>
         </defs>
-        
+
         {/* Avengers A - main structure - WIDER AND MORE DEFINED */}
         {/* Left leg of A */}
-        <path d='M6 21L12 3' stroke='url(#analysisGrad)' strokeWidth='3.5' strokeLinecap='round' filter='url(#analysisGlow)' />
+        <path
+            d='M6 21L12 3'
+            stroke='url(#analysisGrad)'
+            strokeWidth='3.5'
+            strokeLinecap='round'
+            filter='url(#analysisGlow)'
+        />
         {/* Right leg of A */}
-        <path d='M18 21L12 3' stroke='url(#analysisGrad)' strokeWidth='3.5' strokeLinecap='round' filter='url(#analysisGlow)' />
+        <path
+            d='M18 21L12 3'
+            stroke='url(#analysisGrad)'
+            strokeWidth='3.5'
+            strokeLinecap='round'
+            filter='url(#analysisGlow)'
+        />
         {/* Crossbar of A - lower and wider */}
-        <line x1='8' y1='15' x2='16' y2='15' stroke='url(#analysisGrad)' strokeWidth='3' strokeLinecap='round' filter='url(#analysisGlow)' />
-        
+        <line
+            x1='8'
+            y1='15'
+            x2='16'
+            y2='15'
+            stroke='url(#analysisGrad)'
+            strokeWidth='3'
+            strokeLinecap='round'
+            filter='url(#analysisGlow)'
+        />
+
         {/* Top triangle/peak */}
         <circle cx='12' cy='3' r='1.8' fill='#ef4444' filter='url(#analysisGlow)' />
-        
+
         {/* Mechanical gears on the A crossbar */}
         <circle cx='8' cy='15' r='2' fill='url(#analysisRadial)' stroke='url(#analysisGrad)' strokeWidth='0.5' />
         <circle cx='16' cy='15' r='2' fill='url(#analysisRadial)' stroke='url(#analysisGrad)' strokeWidth='0.5' />
-        
+
         {/* Gear teeth */}
         <path d='M8 13L8.6 14.5L8 16L7.4 14.5Z' fill='#ef4444' />
         <path d='M10 15L8.5 15.6L7 15L8.5 14.4Z' fill='#ef4444' />
         <path d='M16 13L16.6 14.5L16 16L15.4 14.5Z' fill='#ef4444' />
         <path d='M18 15L16.5 15.6L15 15L16.5 14.4Z' fill='#ef4444' />
-        
+
         {/* Energy nodes along the legs */}
         <circle cx='9' cy='9' r='1.2' fill='#ef4444' filter='url(#analysisGlow)' />
         <circle cx='15' cy='9' r='1.2' fill='#ef4444' filter='url(#analysisGlow)' />
         <circle cx='7' cy='18' r='1.2' fill='#ef4444' filter='url(#analysisGlow)' />
         <circle cx='17' cy='18' r='1.2' fill='#ef4444' filter='url(#analysisGlow)' />
-        
+
         {/* Arc reactor style core at crossbar center */}
         <circle cx='12' cy='15' r='2.2' fill='url(#analysisRadial)' filter='url(#analysisGlow)' />
         <circle cx='12' cy='15' r='1.4' stroke='#ef4444' strokeWidth='0.5' fill='none' />
         <circle cx='12' cy='15' r='0.7' fill='#ffffff' opacity='0.9' />
-        
+
         {/* Energy lines connecting nodes */}
         <line x1='9' y1='9' x2='12' y2='15' stroke='#ef4444' strokeWidth='0.5' opacity='0.5' strokeDasharray='1 1' />
         <line x1='15' y1='9' x2='12' y2='15' stroke='#ef4444' strokeWidth='0.5' opacity='0.5' strokeDasharray='1 1' />
-        
+
         {/* Outer shield/frame */}
-        <circle cx='12' cy='12' r='10.5' stroke='url(#analysisGrad)' strokeWidth='1.5' fill='none' opacity='0.4' strokeDasharray='3 3' />
-        
+        <circle
+            cx='12'
+            cy='12'
+            r='10.5'
+            stroke='url(#analysisGrad)'
+            strokeWidth='1.5'
+            fill='none'
+            opacity='0.4'
+            strokeDasharray='3 3'
+        />
+
         {/* Corner brackets - Avengers style */}
         <path d='M2 2L2 5M2 2L5 2' stroke='#ef4444' strokeWidth='1.5' strokeLinecap='round' opacity='0.7' />
         <path d='M22 2L22 5M22 2L19 2' stroke='#ef4444' strokeWidth='1.5' strokeLinecap='round' opacity='0.7' />
         <path d='M2 22L2 19M2 22L5 22' stroke='#ef4444' strokeWidth='1.5' strokeLinecap='round' opacity='0.7' />
         <path d='M22 22L22 19M22 22L19 22' stroke='#ef4444' strokeWidth='1.5' strokeLinecap='round' opacity='0.7' />
-        
+
         {/* Orbiting power particles */}
         <circle cx='12' cy='5' r='0.8' fill='#ffffff' opacity='0.9' />
         <circle cx='18' cy='12' r='0.8' fill='#ffffff' opacity='0.9' />
         <circle cx='12' cy='19' r='0.8' fill='#ffffff' opacity='0.9' />
         <circle cx='6' cy='12' r='0.8' fill='#ffffff' opacity='0.9' />
-        
+
         <style>
             {`
                 @keyframes analysisGearRotate1 {
@@ -449,7 +554,14 @@ const AnalysisToolIcon = () => (
 );
 
 const SignalsIcon = () => (
-    <svg width='40.56' height='40.56' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='signals-nav-icon'>
+    <svg
+        width='40.56'
+        height='40.56'
+        viewBox='0 0 24 24'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+        className='signals-nav-icon'
+    >
         <defs>
             <linearGradient id='signalGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
                 <stop offset='0%' stopColor='#ffffff' />
@@ -460,60 +572,60 @@ const SignalsIcon = () => (
                 <stop offset='100%' stopColor='#ffffff' stopOpacity='0.2' />
             </radialGradient>
             <filter id='signalGlow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+                <feGaussianBlur stdDeviation='2' result='coloredBlur' />
                 <feMerge>
-                    <feMergeNode in='coloredBlur'/>
-                    <feMergeNode in='SourceGraphic'/>
+                    <feMergeNode in='coloredBlur' />
+                    <feMergeNode in='SourceGraphic' />
                 </feMerge>
             </filter>
         </defs>
-        
+
         {/* Central antenna base - vertical tower */}
         <rect x='11' y='14' width='2' height='8' fill='url(#signalGrad)' rx='1' />
         <circle cx='12' cy='14' r='1.5' fill='#fbbf24' filter='url(#signalGlow)' />
-        
+
         {/* Antenna rings - expanding outward like alien tech */}
-        <ellipse 
-            cx='12' 
-            cy='14' 
-            rx='3' 
-            ry='1.5' 
-            stroke='url(#signalGrad)' 
-            strokeWidth='1.5' 
+        <ellipse
+            cx='12'
+            cy='14'
+            rx='3'
+            ry='1.5'
+            stroke='url(#signalGrad)'
+            strokeWidth='1.5'
             fill='none'
             opacity='0.9'
         />
-        <ellipse 
-            cx='12' 
-            cy='14' 
-            rx='5.5' 
-            ry='2.5' 
-            stroke='url(#signalGrad)' 
-            strokeWidth='1.5' 
+        <ellipse
+            cx='12'
+            cy='14'
+            rx='5.5'
+            ry='2.5'
+            stroke='url(#signalGrad)'
+            strokeWidth='1.5'
             fill='none'
             opacity='0.7'
         />
-        <ellipse 
-            cx='12' 
-            cy='14' 
-            rx='8' 
-            ry='3.5' 
-            stroke='url(#signalGrad)' 
-            strokeWidth='1.5' 
+        <ellipse
+            cx='12'
+            cy='14'
+            rx='8'
+            ry='3.5'
+            stroke='url(#signalGrad)'
+            strokeWidth='1.5'
             fill='none'
             opacity='0.5'
         />
-        <ellipse 
-            cx='12' 
-            cy='14' 
-            rx='10.5' 
-            ry='4.5' 
-            stroke='url(#signalGrad)' 
-            strokeWidth='1.5' 
+        <ellipse
+            cx='12'
+            cy='14'
+            rx='10.5'
+            ry='4.5'
+            stroke='url(#signalGrad)'
+            strokeWidth='1.5'
             fill='none'
             opacity='0.3'
         />
-        
+
         {/* Signal wave particles - floating upward */}
         <circle cx='12' cy='10' r='1' fill='#fbbf24' opacity='0.8' />
         <circle cx='9' cy='8' r='0.8' fill='#fbbf24' opacity='0.6' />
@@ -521,12 +633,12 @@ const SignalsIcon = () => (
         <circle cx='12' cy='5' r='1' fill='#fbbf24' opacity='0.4' />
         <circle cx='8' cy='4' r='0.7' fill='#fbbf24' opacity='0.3' />
         <circle cx='16' cy='4' r='0.7' fill='#fbbf24' opacity='0.3' />
-        
+
         {/* Energy beams shooting upward */}
         <line x1='12' y1='14' x2='12' y2='3' stroke='url(#signalRadial)' strokeWidth='0.5' opacity='0.4' />
         <line x1='12' y1='14' x2='9' y2='5' stroke='url(#signalRadial)' strokeWidth='0.5' opacity='0.3' />
         <line x1='12' y1='14' x2='15' y2='5' stroke='url(#signalRadial)' strokeWidth='0.5' opacity='0.3' />
-        
+
         <style>
             {`
                 @keyframes ringExpand1Sig {
@@ -608,9 +720,15 @@ const SignalsIcon = () => (
     </svg>
 );
 
-
 const XDTraderIcon = () => (
-    <svg width='40.56' height='40.56' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='dtrader-nav-icon'>
+    <svg
+        width='40.56'
+        height='40.56'
+        viewBox='0 0 24 24'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+        className='dtrader-nav-icon'
+    >
         <defs>
             <linearGradient id='dtraderGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
                 <stop offset='0%' stopColor='#ffffff' />
@@ -622,37 +740,37 @@ const XDTraderIcon = () => (
                 <stop offset='100%' stopColor='#f59e0b' stopOpacity='0.3' />
             </radialGradient>
             <filter id='dtraderGlow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+                <feGaussianBlur stdDeviation='2' result='coloredBlur' />
                 <feMerge>
-                    <feMergeNode in='coloredBlur'/>
-                    <feMergeNode in='SourceGraphic'/>
+                    <feMergeNode in='coloredBlur' />
+                    <feMergeNode in='SourceGraphic' />
                 </feMerge>
             </filter>
         </defs>
-        
+
         {/* Letter D - left vertical bar */}
         <rect x='5' y='4' width='3' height='16' rx='1' fill='url(#dtraderGrad)' filter='url(#dtraderGlow)' />
-        
+
         {/* Letter D - curved right side with segments */}
-        <path 
-            d='M8 4 Q19 4 19 12 Q19 20 8 20' 
-            stroke='url(#dtraderGrad)' 
-            strokeWidth='3' 
-            fill='none' 
+        <path
+            d='M8 4 Q19 4 19 12 Q19 20 8 20'
+            stroke='url(#dtraderGrad)'
+            strokeWidth='3'
+            fill='none'
             strokeLinecap='round'
             filter='url(#dtraderGlow)'
         />
-        
+
         {/* Mechanical gears on the D */}
         <circle cx='8' cy='7' r='1.5' fill='url(#dtraderRadial)' stroke='url(#dtraderGrad)' strokeWidth='0.5' />
         <circle cx='8' cy='12' r='2' fill='url(#dtraderRadial)' stroke='url(#dtraderGrad)' strokeWidth='0.5' />
         <circle cx='8' cy='17' r='1.5' fill='url(#dtraderRadial)' stroke='url(#dtraderGrad)' strokeWidth='0.5' />
-        
+
         {/* Gear teeth */}
         <path d='M8 5.5L8.5 6.5L8 7.5L7.5 6.5Z' fill='#fbbf24' />
         <path d='M8 10L8.7 11L8 12L7.3 11Z' fill='#fbbf24' />
         <path d='M8 15.5L8.5 16.5L8 17.5L7.5 16.5Z' fill='#fbbf24' />
-        
+
         <style>
             {`
                 .dtrader-nav-icon {
@@ -669,7 +787,14 @@ const XDTraderIcon = () => (
 );
 
 const CopyTradingIcon = () => (
-    <svg width='40.56' height='40.56' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='copy-trading-nav-icon'>
+    <svg
+        width='40.56'
+        height='40.56'
+        viewBox='0 0 24 24'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+        className='copy-trading-nav-icon'
+    >
         <defs>
             <linearGradient id='copyTradingGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
                 <stop offset='0%' stopColor='#fbbf24' />
@@ -677,14 +802,14 @@ const CopyTradingIcon = () => (
                 <stop offset='100%' stopColor='#d97706' />
             </linearGradient>
             <filter id='copyTradingGlow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+                <feGaussianBlur stdDeviation='2' result='coloredBlur' />
                 <feMerge>
-                    <feMergeNode in='coloredBlur'/>
-                    <feMergeNode in='SourceGraphic'/>
+                    <feMergeNode in='coloredBlur' />
+                    <feMergeNode in='SourceGraphic' />
                 </feMerge>
             </filter>
         </defs>
-        
+
         {/* Main clipboard */}
         <path
             d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'
@@ -705,7 +830,7 @@ const CopyTradingIcon = () => (
             fill='none'
             filter='url(#copyTradingGlow)'
         />
-        
+
         {/* Trading chart line */}
         <path
             d='M8 12l2 2 2-3 2 3 2-2'
@@ -715,7 +840,7 @@ const CopyTradingIcon = () => (
             strokeLinejoin='round'
             filter='url(#copyTradingGlow)'
         />
-        
+
         {/* Sync arrows */}
         <path
             d='M10 16l-1 1 1 1'
@@ -733,7 +858,7 @@ const CopyTradingIcon = () => (
             strokeLinejoin='round'
             filter='url(#copyTradingGlow)'
         />
-        
+
         <style>
             {`
                 .copy-trading-nav-icon {
@@ -757,33 +882,33 @@ const FreeBotsIcon = () => (
                 <stop offset='100%' stopColor='#fbbf24' />
             </linearGradient>
             <filter id='glow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+                <feGaussianBlur stdDeviation='2' result='coloredBlur' />
                 <feMerge>
-                    <feMergeNode in='coloredBlur'/>
-                    <feMergeNode in='SourceGraphic'/>
+                    <feMergeNode in='coloredBlur' />
+                    <feMergeNode in='SourceGraphic' />
                 </feMerge>
             </filter>
         </defs>
         {/* Robot head - rounded rectangle */}
         <rect x='6' y='3' width='12' height='11' rx='5' fill='#6b7280' opacity='0.8' />
-        
+
         {/* Left eye - small yellow circle */}
         <circle cx='9' cy='7' r='1.5' fill='#fbbf24' filter='url(#glow)' />
-        
+
         {/* Right eye - larger yellow circle with white center */}
         <circle cx='14' cy='8' r='2.5' fill='#fbbf24' filter='url(#glow)' />
         <circle cx='14' cy='8' r='1.2' fill='#ffffff' opacity='0.9' />
-        
+
         {/* Neck/body connector */}
         <rect x='10.5' y='13' width='3' height='3' fill='#9ca3af' />
-        
+
         {/* Base bars - 5 yellow vertical bars */}
         <rect x='4' y='17' width='2.5' height='5' rx='1' fill='url(#freeGrad)' filter='url(#glow)' />
         <rect x='7.5' y='17' width='2.5' height='5' rx='1' fill='url(#freeGrad)' filter='url(#glow)' />
         <rect x='11' y='17' width='2.5' height='5' rx='1' fill='#ffffff' opacity='0.9' />
         <rect x='14.5' y='17' width='2.5' height='5' rx='1' fill='url(#freeGrad)' filter='url(#glow)' />
         <rect x='18' y='17' width='2.5' height='5' rx='1' fill='url(#freeGrad)' filter='url(#glow)' />
-        
+
         <style>
             {`
                 @keyframes eyeBlink {
@@ -3121,11 +3246,17 @@ const AppWrapper = observer(() => {
                                         onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.1)')}
                                         onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                                     >
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                        <svg
+                                            width='24'
+                                            height='24'
+                                            viewBox='0 0 24 24'
+                                            fill='white'
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        >
+                                            <path d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z' />
                                         </svg>
                                     </a>
-                                    
+
                                     {/* Instagram */}
                                     <a
                                         href='https://www.instagram.com/bonnie_binary?igsh=cHAwNGJiNXoxNGo='
@@ -3135,7 +3266,8 @@ const AppWrapper = observer(() => {
                                             width: '40px',
                                             height: '40px',
                                             borderRadius: '50%',
-                                            background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
+                                            background:
+                                                'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -3145,11 +3277,17 @@ const AppWrapper = observer(() => {
                                         onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.1)')}
                                         onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                                     >
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                        <svg
+                                            width='22'
+                                            height='22'
+                                            viewBox='0 0 24 24'
+                                            fill='white'
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        >
+                                            <path d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z' />
                                         </svg>
                                     </a>
-                                    
+
                                     {/* WhatsApp */}
                                     <a
                                         href='https://wa.me/254799094649'
@@ -3169,11 +3307,17 @@ const AppWrapper = observer(() => {
                                         onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.1)')}
                                         onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                                     >
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                        <svg
+                                            width='22'
+                                            height='22'
+                                            viewBox='0 0 24 24'
+                                            fill='white'
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        >
+                                            <path d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z' />
                                         </svg>
                                     </a>
-                                    
+
                                     {/* TikTok */}
                                     <a
                                         href='https://tiktok.com/@bonniemurigi'
@@ -3193,11 +3337,17 @@ const AppWrapper = observer(() => {
                                         onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.1)')}
                                         onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                                     >
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                                        <svg
+                                            width='20'
+                                            height='20'
+                                            viewBox='0 0 24 24'
+                                            fill='white'
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        >
+                                            <path d='M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z' />
                                         </svg>
                                     </a>
-                                    
+
                                     {/* Telegram */}
                                     <a
                                         href='https://t.me/Binovate'
@@ -3217,8 +3367,14 @@ const AppWrapper = observer(() => {
                                         onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.1)')}
                                         onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                                     >
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                        <svg
+                                            width='22'
+                                            height='22'
+                                            viewBox='0 0 24 24'
+                                            fill='white'
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        >
+                                            <path d='M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z' />
                                         </svg>
                                     </a>
                                 </div>
@@ -3261,392 +3417,1369 @@ const AppWrapper = observer(() => {
                                             // Function to get animated SVG icon based on bot name
                                             const getBotIcon = name => {
                                                 const lowerName = name.toLowerCase();
-                                                
+
                                                 // Return animated SVG based on bot name
                                                 if (lowerName.includes('d strike') || lowerName.includes('strike')) {
                                                     // Black Panther kinetic energy / Vibranium inspired
                                                     return (
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg
+                                                            width='48'
+                                                            height='48'
+                                                            viewBox='0 0 48 48'
+                                                            fill='none'
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                        >
                                                             <defs>
-                                                                <linearGradient id={`strikeGrad${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                                                    <stop offset="0%" stopColor="#a855f7" />
-                                                                    <stop offset="50%" stopColor="#7c3aed" />
-                                                                    <stop offset="100%" stopColor="#6366f1" />
+                                                                <linearGradient
+                                                                    id={`strikeGrad${index}`}
+                                                                    x1='0%'
+                                                                    y1='0%'
+                                                                    x2='100%'
+                                                                    y2='100%'
+                                                                >
+                                                                    <stop offset='0%' stopColor='#a855f7' />
+                                                                    <stop offset='50%' stopColor='#7c3aed' />
+                                                                    <stop offset='100%' stopColor='#6366f1' />
                                                                 </linearGradient>
                                                                 <radialGradient id={`strikeRadial${index}`}>
-                                                                    <stop offset="0%" stopColor="#c4b5fd" stopOpacity="0.8" />
-                                                                    <stop offset="100%" stopColor="#7c3aed" stopOpacity="0" />
+                                                                    <stop
+                                                                        offset='0%'
+                                                                        stopColor='#c4b5fd'
+                                                                        stopOpacity='0.8'
+                                                                    />
+                                                                    <stop
+                                                                        offset='100%'
+                                                                        stopColor='#7c3aed'
+                                                                        stopOpacity='0'
+                                                                    />
                                                                 </radialGradient>
                                                             </defs>
-                                                            
+
                                                             {/* Kinetic energy field */}
-                                                            <circle cx="24" cy="24" r="20" fill={`url(#strikeRadial${index})`}>
-                                                                <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='20'
+                                                                fill={`url(#strikeRadial${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.3;0.7;0.3'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Outer vibranium ring */}
-                                                            <circle cx="24" cy="24" r="19" stroke={`url(#strikeGrad${index})`} strokeWidth="2" fill="none" opacity="0.6">
-                                                                <animate attributeName="r" values="19;20;19" dur="3s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='19'
+                                                                stroke={`url(#strikeGrad${index})`}
+                                                                strokeWidth='2'
+                                                                fill='none'
+                                                                opacity='0.6'
+                                                            >
+                                                                <animate
+                                                                    attributeName='r'
+                                                                    values='19;20;19'
+                                                                    dur='3s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Energy pulse rings */}
-                                                            <circle cx="24" cy="24" r="16" stroke={`url(#strikeGrad${index})`} strokeWidth="1.5" fill="none" strokeDasharray="6 3">
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="4s" repeatCount="indefinite" />
-                                                                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='16'
+                                                                stroke={`url(#strikeGrad${index})`}
+                                                                strokeWidth='1.5'
+                                                                fill='none'
+                                                                strokeDasharray='6 3'
+                                                            >
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='4s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.5;1;0.5'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="24" cy="24" r="13" stroke={`url(#strikeGrad${index})`} strokeWidth="1.5" fill="none" strokeDasharray="4 2">
-                                                                <animateTransform attributeName="transform" type="rotate" from="360 24 24" to="0 24 24" dur="3s" repeatCount="indefinite" />
-                                                                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" begin="0.5s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='13'
+                                                                stroke={`url(#strikeGrad${index})`}
+                                                                strokeWidth='1.5'
+                                                                fill='none'
+                                                                strokeDasharray='4 2'
+                                                            >
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='360 24 24'
+                                                                    to='0 24 24'
+                                                                    dur='3s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.5;1;0.5'
+                                                                    dur='2s'
+                                                                    begin='0.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Panther claw marks / Strike pattern */}
-                                                            <g opacity="0.8">
-                                                                <path d="M18 12 L20 16 L18 20" stroke={`url(#strikeGrad${index})`} strokeWidth="2" strokeLinecap="round">
-                                                                    <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" />
+                                                            <g opacity='0.8'>
+                                                                <path
+                                                                    d='M18 12 L20 16 L18 20'
+                                                                    stroke={`url(#strikeGrad${index})`}
+                                                                    strokeWidth='2'
+                                                                    strokeLinecap='round'
+                                                                >
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='0.6;1;0.6'
+                                                                        dur='1.5s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </path>
-                                                                <path d="M24 10 L24 18" stroke={`url(#strikeGrad${index})`} strokeWidth="2" strokeLinecap="round">
-                                                                    <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" begin="0.2s" repeatCount="indefinite" />
+                                                                <path
+                                                                    d='M24 10 L24 18'
+                                                                    stroke={`url(#strikeGrad${index})`}
+                                                                    strokeWidth='2'
+                                                                    strokeLinecap='round'
+                                                                >
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='0.6;1;0.6'
+                                                                        dur='1.5s'
+                                                                        begin='0.2s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </path>
-                                                                <path d="M30 12 L28 16 L30 20" stroke={`url(#strikeGrad${index})`} strokeWidth="2" strokeLinecap="round">
-                                                                    <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" begin="0.4s" repeatCount="indefinite" />
+                                                                <path
+                                                                    d='M30 12 L28 16 L30 20'
+                                                                    stroke={`url(#strikeGrad${index})`}
+                                                                    strokeWidth='2'
+                                                                    strokeLinecap='round'
+                                                                >
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='0.6;1;0.6'
+                                                                        dur='1.5s'
+                                                                        begin='0.4s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </path>
                                                             </g>
-                                                            
+
                                                             {/* Central vibranium core with D shape */}
                                                             <g>
-                                                                <path d="M18 18 L18 30 L24 30 C27 30 29 28 29 24 C29 20 27 18 24 18 Z" 
+                                                                <path
+                                                                    d='M18 18 L18 30 L24 30 C27 30 29 28 29 24 C29 20 27 18 24 18 Z'
                                                                     fill={`url(#strikeGrad${index})`}
                                                                 >
-                                                                    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='0.8;1;0.8'
+                                                                        dur='2s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </path>
-                                                                <path d="M20 20 L20 28 L24 28 C26 28 27 26.5 27 24 C27 21.5 26 20 24 20 Z" 
-                                                                    fill="none" 
-                                                                    stroke="#fff" 
-                                                                    strokeWidth="1"
+                                                                <path
+                                                                    d='M20 20 L20 28 L24 28 C26 28 27 26.5 27 24 C27 21.5 26 20 24 20 Z'
+                                                                    fill='none'
+                                                                    stroke='#fff'
+                                                                    strokeWidth='1'
                                                                 >
-                                                                    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" />
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='0.7;1;0.7'
+                                                                        dur='2s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </path>
                                                             </g>
-                                                            
+
                                                             {/* Energy particles */}
-                                                            <circle cx="12" cy="24" r="1.5" fill={`url(#strikeGrad${index})`}>
-                                                                <animate attributeName="cx" values="12;36;12" dur="3s" repeatCount="indefinite" />
-                                                                <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='12'
+                                                                cy='24'
+                                                                r='1.5'
+                                                                fill={`url(#strikeGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='cx'
+                                                                    values='12;36;12'
+                                                                    dur='3s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='3s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="24" cy="12" r="1.5" fill={`url(#strikeGrad${index})`}>
-                                                                <animate attributeName="cy" values="12;36;12" dur="3s" begin="0.5s" repeatCount="indefinite" />
-                                                                <animate attributeName="opacity" values="0;1;0" dur="3s" begin="0.5s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='12'
+                                                                r='1.5'
+                                                                fill={`url(#strikeGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='cy'
+                                                                    values='12;36;12'
+                                                                    dur='3s'
+                                                                    begin='0.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='3s'
+                                                                    begin='0.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="36" cy="24" r="1.5" fill={`url(#strikeGrad${index})`}>
-                                                                <animate attributeName="cx" values="36;12;36" dur="3s" begin="1s" repeatCount="indefinite" />
-                                                                <animate attributeName="opacity" values="0;1;0" dur="3s" begin="1s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='36'
+                                                                cy='24'
+                                                                r='1.5'
+                                                                fill={`url(#strikeGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='cx'
+                                                                    values='36;12;36'
+                                                                    dur='3s'
+                                                                    begin='1s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='3s'
+                                                                    begin='1s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="24" cy="36" r="1.5" fill={`url(#strikeGrad${index})`}>
-                                                                <animate attributeName="cy" values="36;12;36" dur="3s" begin="1.5s" repeatCount="indefinite" />
-                                                                <animate attributeName="opacity" values="0;1;0" dur="3s" begin="1.5s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='36'
+                                                                r='1.5'
+                                                                fill={`url(#strikeGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='cy'
+                                                                    values='36;12;36'
+                                                                    dur='3s'
+                                                                    begin='1.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='3s'
+                                                                    begin='1.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Power surge lines */}
-                                                            <line x1="24" y1="24" x2="24" y2="6" stroke={`url(#strikeGrad${index})`} strokeWidth="2" opacity="0.4">
-                                                                <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite" />
+                                                            <line
+                                                                x1='24'
+                                                                y1='24'
+                                                                x2='24'
+                                                                y2='6'
+                                                                stroke={`url(#strikeGrad${index})`}
+                                                                strokeWidth='2'
+                                                                opacity='0.4'
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.2;0.6;0.2'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </line>
-                                                            <line x1="24" y1="24" x2="42" y2="24" stroke={`url(#strikeGrad${index})`} strokeWidth="2" opacity="0.4">
-                                                                <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" begin="0.5s" repeatCount="indefinite" />
+                                                            <line
+                                                                x1='24'
+                                                                y1='24'
+                                                                x2='42'
+                                                                y2='24'
+                                                                stroke={`url(#strikeGrad${index})`}
+                                                                strokeWidth='2'
+                                                                opacity='0.4'
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.2;0.6;0.2'
+                                                                    dur='2s'
+                                                                    begin='0.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </line>
-                                                            <line x1="24" y1="24" x2="24" y2="42" stroke={`url(#strikeGrad${index})`} strokeWidth="2" opacity="0.4">
-                                                                <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" begin="1s" repeatCount="indefinite" />
+                                                            <line
+                                                                x1='24'
+                                                                y1='24'
+                                                                x2='24'
+                                                                y2='42'
+                                                                stroke={`url(#strikeGrad${index})`}
+                                                                strokeWidth='2'
+                                                                opacity='0.4'
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.2;0.6;0.2'
+                                                                    dur='2s'
+                                                                    begin='1s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </line>
-                                                            <line x1="24" y1="24" x2="6" y2="24" stroke={`url(#strikeGrad${index})`} strokeWidth="2" opacity="0.4">
-                                                                <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" begin="1.5s" repeatCount="indefinite" />
+                                                            <line
+                                                                x1='24'
+                                                                y1='24'
+                                                                x2='6'
+                                                                y2='24'
+                                                                stroke={`url(#strikeGrad${index})`}
+                                                                strokeWidth='2'
+                                                                opacity='0.4'
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.2;0.6;0.2'
+                                                                    dur='2s'
+                                                                    begin='1.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </line>
                                                         </svg>
                                                     );
-                                                } else if (lowerName.includes('magic') || lowerName.includes('recovery')) {
+                                                } else if (
+                                                    lowerName.includes('magic') ||
+                                                    lowerName.includes('recovery')
+                                                ) {
                                                     // Doctor Strange inspired - Mystic Arts symbol with rotating runes
                                                     return (
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg
+                                                            width='48'
+                                                            height='48'
+                                                            viewBox='0 0 48 48'
+                                                            fill='none'
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                        >
                                                             <defs>
-                                                                <linearGradient id={`magicGrad${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                                                    <stop offset="0%" stopColor="#f59e0b" />
-                                                                    <stop offset="50%" stopColor="#d97706" />
-                                                                    <stop offset="100%" stopColor="#b45309" />
+                                                                <linearGradient
+                                                                    id={`magicGrad${index}`}
+                                                                    x1='0%'
+                                                                    y1='0%'
+                                                                    x2='100%'
+                                                                    y2='100%'
+                                                                >
+                                                                    <stop offset='0%' stopColor='#f59e0b' />
+                                                                    <stop offset='50%' stopColor='#d97706' />
+                                                                    <stop offset='100%' stopColor='#b45309' />
                                                                 </linearGradient>
                                                                 <radialGradient id={`magicRadial${index}`}>
-                                                                    <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.8" />
-                                                                    <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
+                                                                    <stop
+                                                                        offset='0%'
+                                                                        stopColor='#fbbf24'
+                                                                        stopOpacity='0.8'
+                                                                    />
+                                                                    <stop
+                                                                        offset='100%'
+                                                                        stopColor='#f59e0b'
+                                                                        stopOpacity='0'
+                                                                    />
                                                                 </radialGradient>
                                                             </defs>
-                                                            
+
                                                             {/* Outer mystical circle */}
-                                                            <circle cx="24" cy="24" r="20" stroke={`url(#magicGrad${index})`} strokeWidth="2" fill="none" opacity="0.6">
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="8s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='20'
+                                                                stroke={`url(#magicGrad${index})`}
+                                                                strokeWidth='2'
+                                                                fill='none'
+                                                                opacity='0.6'
+                                                            >
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='8s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Inner rotating runes circle */}
-                                                            <circle cx="24" cy="24" r="15" stroke={`url(#magicGrad${index})`} strokeWidth="1.5" fill="none" opacity="0.5" strokeDasharray="3 3">
-                                                                <animateTransform attributeName="transform" type="rotate" from="360 24 24" to="0 24 24" dur="6s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='15'
+                                                                stroke={`url(#magicGrad${index})`}
+                                                                strokeWidth='1.5'
+                                                                fill='none'
+                                                                opacity='0.5'
+                                                                strokeDasharray='3 3'
+                                                            >
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='360 24 24'
+                                                                    to='0 24 24'
+                                                                    dur='6s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Mystical symbol - Eye of Agamotto inspired */}
                                                             <g>
-                                                                <ellipse cx="24" cy="24" rx="10" ry="14" stroke={`url(#magicGrad${index})`} strokeWidth="2" fill="none">
-                                                                    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+                                                                <ellipse
+                                                                    cx='24'
+                                                                    cy='24'
+                                                                    rx='10'
+                                                                    ry='14'
+                                                                    stroke={`url(#magicGrad${index})`}
+                                                                    strokeWidth='2'
+                                                                    fill='none'
+                                                                >
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='0.8;1;0.8'
+                                                                        dur='3s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </ellipse>
-                                                                <circle cx="24" cy="24" r="6" fill={`url(#magicGrad${index})`}>
-                                                                    <animate attributeName="r" values="6;7;6" dur="2s" repeatCount="indefinite" />
+                                                                <circle
+                                                                    cx='24'
+                                                                    cy='24'
+                                                                    r='6'
+                                                                    fill={`url(#magicGrad${index})`}
+                                                                >
+                                                                    <animate
+                                                                        attributeName='r'
+                                                                        values='6;7;6'
+                                                                        dur='2s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </circle>
-                                                                <circle cx="24" cy="24" r="3" fill="#fff">
-                                                                    <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite" />
+                                                                <circle cx='24' cy='24' r='3' fill='#fff'>
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='1;0.6;1'
+                                                                        dur='2s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </circle>
                                                             </g>
-                                                            
+
                                                             {/* Mystical particles */}
-                                                            <circle cx="24" cy="8" r="1.5" fill={`url(#magicGrad${index})`}>
-                                                                <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="8s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='8'
+                                                                r='1.5'
+                                                                fill={`url(#magicGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='8s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="40" cy="24" r="1.5" fill={`url(#magicGrad${index})`}>
-                                                                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite" />
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="8s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='40'
+                                                                cy='24'
+                                                                r='1.5'
+                                                                fill={`url(#magicGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='2s'
+                                                                    begin='0.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='8s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="24" cy="40" r="1.5" fill={`url(#magicGrad${index})`}>
-                                                                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite" />
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="8s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='40'
+                                                                r='1.5'
+                                                                fill={`url(#magicGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='2s'
+                                                                    begin='1s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='8s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="8" cy="24" r="1.5" fill={`url(#magicGrad${index})`}>
-                                                                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.5s" repeatCount="indefinite" />
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="8s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='8'
+                                                                cy='24'
+                                                                r='1.5'
+                                                                fill={`url(#magicGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='2s'
+                                                                    begin='1.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='8s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Energy glow */}
-                                                            <circle cx="24" cy="24" r="18" fill={`url(#magicRadial${index})`}>
-                                                                <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='18'
+                                                                fill={`url(#magicRadial${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.3;0.6;0.3'
+                                                                    dur='3s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
                                                         </svg>
                                                     );
                                                 } else if (lowerName.includes('over') && lowerName.includes('rec')) {
                                                     return (
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg
+                                                            width='48'
+                                                            height='48'
+                                                            viewBox='0 0 48 48'
+                                                            fill='none'
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                        >
                                                             <defs>
-                                                                <linearGradient id={`overGrad${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                                                    <stop offset="0%" stopColor="#10b981" />
-                                                                    <stop offset="100%" stopColor="#059669" />
+                                                                <linearGradient
+                                                                    id={`overGrad${index}`}
+                                                                    x1='0%'
+                                                                    y1='0%'
+                                                                    x2='100%'
+                                                                    y2='100%'
+                                                                >
+                                                                    <stop offset='0%' stopColor='#10b981' />
+                                                                    <stop offset='100%' stopColor='#059669' />
                                                                 </linearGradient>
                                                             </defs>
-                                                            <path d="M8 32 L16 24 L24 28 L32 16 L40 20" stroke={`url(#overGrad${index})`} strokeWidth="3" fill="none" strokeLinecap="round">
-                                                                <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="3s" repeatCount="indefinite" />
+                                                            <path
+                                                                d='M8 32 L16 24 L24 28 L32 16 L40 20'
+                                                                stroke={`url(#overGrad${index})`}
+                                                                strokeWidth='3'
+                                                                fill='none'
+                                                                strokeLinecap='round'
+                                                            >
+                                                                <animate
+                                                                    attributeName='stroke-dasharray'
+                                                                    values='0,100;100,0'
+                                                                    dur='3s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </path>
-                                                            <circle cx="16" cy="24" r="3" fill={`url(#overGrad${index})`}>
-                                                                <animate attributeName="cy" values="24;20;24" dur="2s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='16'
+                                                                cy='24'
+                                                                r='3'
+                                                                fill={`url(#overGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='cy'
+                                                                    values='24;20;24'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="24" cy="28" r="3" fill={`url(#overGrad${index})`}>
-                                                                <animate attributeName="cy" values="28;24;28" dur="2s" begin="0.3s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='28'
+                                                                r='3'
+                                                                fill={`url(#overGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='cy'
+                                                                    values='28;24;28'
+                                                                    dur='2s'
+                                                                    begin='0.3s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="32" cy="16" r="3" fill={`url(#overGrad${index})`}>
-                                                                <animate attributeName="cy" values="16;12;16" dur="2s" begin="0.6s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='32'
+                                                                cy='16'
+                                                                r='3'
+                                                                fill={`url(#overGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='cy'
+                                                                    values='16;12;16'
+                                                                    dur='2s'
+                                                                    begin='0.6s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
                                                         </svg>
                                                     );
-                                                } else if (lowerName.includes('under 7') || lowerName.includes('under 5')) {
+                                                } else if (
+                                                    lowerName.includes('under 7') ||
+                                                    lowerName.includes('under 5')
+                                                ) {
                                                     return (
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg
+                                                            width='48'
+                                                            height='48'
+                                                            viewBox='0 0 48 48'
+                                                            fill='none'
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                        >
                                                             <defs>
-                                                                <linearGradient id={`under75Grad${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                                                    <stop offset="0%" stopColor="#3b82f6" />
-                                                                    <stop offset="100%" stopColor="#1d4ed8" />
+                                                                <linearGradient
+                                                                    id={`under75Grad${index}`}
+                                                                    x1='0%'
+                                                                    y1='0%'
+                                                                    x2='100%'
+                                                                    y2='100%'
+                                                                >
+                                                                    <stop offset='0%' stopColor='#3b82f6' />
+                                                                    <stop offset='100%' stopColor='#1d4ed8' />
                                                                 </linearGradient>
                                                             </defs>
-                                                            <text x="24" y="30" fontSize="20" fontWeight="bold" fill={`url(#under75Grad${index})`} textAnchor="middle">7</text>
-                                                            <text x="24" y="30" fontSize="14" fontWeight="bold" fill={`url(#under75Grad${index})`} textAnchor="middle" opacity="0.6">
-                                                                <animate attributeName="y" values="30;26;30" dur="2s" repeatCount="indefinite" />
+                                                            <text
+                                                                x='24'
+                                                                y='30'
+                                                                fontSize='20'
+                                                                fontWeight='bold'
+                                                                fill={`url(#under75Grad${index})`}
+                                                                textAnchor='middle'
+                                                            >
+                                                                7
+                                                            </text>
+                                                            <text
+                                                                x='24'
+                                                                y='30'
+                                                                fontSize='14'
+                                                                fontWeight='bold'
+                                                                fill={`url(#under75Grad${index})`}
+                                                                textAnchor='middle'
+                                                                opacity='0.6'
+                                                            >
+                                                                <animate
+                                                                    attributeName='y'
+                                                                    values='30;26;30'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                                 5
                                                             </text>
-                                                            <path d="M12 36 L24 12 L36 36" stroke={`url(#under75Grad${index})`} strokeWidth="2" fill="none">
-                                                                <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="3s" repeatCount="indefinite" />
+                                                            <path
+                                                                d='M12 36 L24 12 L36 36'
+                                                                stroke={`url(#under75Grad${index})`}
+                                                                strokeWidth='2'
+                                                                fill='none'
+                                                            >
+                                                                <animate
+                                                                    attributeName='stroke-dasharray'
+                                                                    values='0,100;100,0'
+                                                                    dur='3s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </path>
-                                                            <circle cx="24" cy="24" r="18" stroke={`url(#under75Grad${index})`} strokeWidth="2" fill="none" opacity="0.3">
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="10s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='18'
+                                                                stroke={`url(#under75Grad${index})`}
+                                                                strokeWidth='2'
+                                                                fill='none'
+                                                                opacity='0.3'
+                                                            >
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='10s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
                                                         </svg>
                                                     );
-                                                } else if (lowerName.includes('under 8') || lowerName.includes('under 6')) {
+                                                } else if (
+                                                    lowerName.includes('under 8') ||
+                                                    lowerName.includes('under 6')
+                                                ) {
                                                     return (
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg
+                                                            width='48'
+                                                            height='48'
+                                                            viewBox='0 0 48 48'
+                                                            fill='none'
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                        >
                                                             <defs>
-                                                                <linearGradient id={`under86Grad${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                                                    <stop offset="0%" stopColor="#8b5cf6" />
-                                                                    <stop offset="100%" stopColor="#6366f1" />
+                                                                <linearGradient
+                                                                    id={`under86Grad${index}`}
+                                                                    x1='0%'
+                                                                    y1='0%'
+                                                                    x2='100%'
+                                                                    y2='100%'
+                                                                >
+                                                                    <stop offset='0%' stopColor='#8b5cf6' />
+                                                                    <stop offset='100%' stopColor='#6366f1' />
                                                                 </linearGradient>
                                                             </defs>
-                                                            <text x="24" y="30" fontSize="20" fontWeight="bold" fill={`url(#under86Grad${index})`} textAnchor="middle">8</text>
-                                                            <text x="24" y="30" fontSize="14" fontWeight="bold" fill={`url(#under86Grad${index})`} textAnchor="middle" opacity="0.6">
-                                                                <animate attributeName="y" values="30;26;30" dur="2s" repeatCount="indefinite" />
+                                                            <text
+                                                                x='24'
+                                                                y='30'
+                                                                fontSize='20'
+                                                                fontWeight='bold'
+                                                                fill={`url(#under86Grad${index})`}
+                                                                textAnchor='middle'
+                                                            >
+                                                                8
+                                                            </text>
+                                                            <text
+                                                                x='24'
+                                                                y='30'
+                                                                fontSize='14'
+                                                                fontWeight='bold'
+                                                                fill={`url(#under86Grad${index})`}
+                                                                textAnchor='middle'
+                                                                opacity='0.6'
+                                                            >
+                                                                <animate
+                                                                    attributeName='y'
+                                                                    values='30;26;30'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                                 6
                                                             </text>
-                                                            <path d="M12 36 L24 12 L36 36" stroke={`url(#under86Grad${index})`} strokeWidth="2" fill="none">
-                                                                <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="3s" repeatCount="indefinite" />
+                                                            <path
+                                                                d='M12 36 L24 12 L36 36'
+                                                                stroke={`url(#under86Grad${index})`}
+                                                                strokeWidth='2'
+                                                                fill='none'
+                                                            >
+                                                                <animate
+                                                                    attributeName='stroke-dasharray'
+                                                                    values='0,100;100,0'
+                                                                    dur='3s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </path>
-                                                            <rect x="8" y="8" width="32" height="32" rx="4" stroke={`url(#under86Grad${index})`} strokeWidth="2" fill="none" opacity="0.3">
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="12s" repeatCount="indefinite" />
+                                                            <rect
+                                                                x='8'
+                                                                y='8'
+                                                                width='32'
+                                                                height='32'
+                                                                rx='4'
+                                                                stroke={`url(#under86Grad${index})`}
+                                                                strokeWidth='2'
+                                                                fill='none'
+                                                                opacity='0.3'
+                                                            >
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='12s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </rect>
                                                         </svg>
                                                     );
                                                 } else if (lowerName.includes('patel')) {
                                                     // Iron Man Arc Reactor inspired
                                                     return (
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg
+                                                            width='48'
+                                                            height='48'
+                                                            viewBox='0 0 48 48'
+                                                            fill='none'
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                        >
                                                             <defs>
-                                                                <linearGradient id={`patelGrad${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                                                    <stop offset="0%" stopColor="#60a5fa" />
-                                                                    <stop offset="50%" stopColor="#3b82f6" />
-                                                                    <stop offset="100%" stopColor="#2563eb" />
+                                                                <linearGradient
+                                                                    id={`patelGrad${index}`}
+                                                                    x1='0%'
+                                                                    y1='0%'
+                                                                    x2='100%'
+                                                                    y2='100%'
+                                                                >
+                                                                    <stop offset='0%' stopColor='#60a5fa' />
+                                                                    <stop offset='50%' stopColor='#3b82f6' />
+                                                                    <stop offset='100%' stopColor='#2563eb' />
                                                                 </linearGradient>
                                                                 <radialGradient id={`patelGlow${index}`}>
-                                                                    <stop offset="0%" stopColor="#93c5fd" stopOpacity="0.8" />
-                                                                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                                                                    <stop
+                                                                        offset='0%'
+                                                                        stopColor='#93c5fd'
+                                                                        stopOpacity='0.8'
+                                                                    />
+                                                                    <stop
+                                                                        offset='100%'
+                                                                        stopColor='#3b82f6'
+                                                                        stopOpacity='0'
+                                                                    />
                                                                 </radialGradient>
                                                             </defs>
-                                                            
+
                                                             {/* Outer reactor ring */}
-                                                            <circle cx="24" cy="24" r="20" stroke={`url(#patelGrad${index})`} strokeWidth="2" fill="none">
-                                                                <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='20'
+                                                                stroke={`url(#patelGrad${index})`}
+                                                                strokeWidth='2'
+                                                                fill='none'
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.6;1;0.6'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Rotating energy rings */}
-                                                            <circle cx="24" cy="24" r="16" stroke={`url(#patelGrad${index})`} strokeWidth="1.5" fill="none" strokeDasharray="8 4">
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="4s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='16'
+                                                                stroke={`url(#patelGrad${index})`}
+                                                                strokeWidth='1.5'
+                                                                fill='none'
+                                                                strokeDasharray='8 4'
+                                                            >
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='4s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="24" cy="24" r="13" stroke={`url(#patelGrad${index})`} strokeWidth="1.5" fill="none" strokeDasharray="6 3">
-                                                                <animateTransform attributeName="transform" type="rotate" from="360 24 24" to="0 24 24" dur="3s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='13'
+                                                                stroke={`url(#patelGrad${index})`}
+                                                                strokeWidth='1.5'
+                                                                fill='none'
+                                                                strokeDasharray='6 3'
+                                                            >
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='360 24 24'
+                                                                    to='0 24 24'
+                                                                    dur='3s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Arc reactor core triangular pattern */}
                                                             <g>
-                                                                <path d="M24 14 L30 24 L24 34 L18 24 Z" fill={`url(#patelGrad${index})`} opacity="0.7">
-                                                                    <animate attributeName="opacity" values="0.7;1;0.7" dur="1.5s" repeatCount="indefinite" />
+                                                                <path
+                                                                    d='M24 14 L30 24 L24 34 L18 24 Z'
+                                                                    fill={`url(#patelGrad${index})`}
+                                                                    opacity='0.7'
+                                                                >
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='0.7;1;0.7'
+                                                                        dur='1.5s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </path>
-                                                                <path d="M24 16 L28 24 L24 32 L20 24 Z" fill="none" stroke="#fff" strokeWidth="1">
-                                                                    <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite" />
+                                                                <path
+                                                                    d='M24 16 L28 24 L24 32 L20 24 Z'
+                                                                    fill='none'
+                                                                    stroke='#fff'
+                                                                    strokeWidth='1'
+                                                                >
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='0.8;1;0.8'
+                                                                        dur='1.5s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </path>
                                                             </g>
-                                                            
+
                                                             {/* Central core */}
-                                                            <circle cx="24" cy="24" r="6" fill={`url(#patelGrad${index})`}>
-                                                                <animate attributeName="r" values="6;7;6" dur="2s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='6'
+                                                                fill={`url(#patelGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='r'
+                                                                    values='6;7;6'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="24" cy="24" r="3" fill="#fff">
-                                                                <animate attributeName="opacity" values="1;0.7;1" dur="1s" repeatCount="indefinite" />
+                                                            <circle cx='24' cy='24' r='3' fill='#fff'>
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='1;0.7;1'
+                                                                    dur='1s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Energy beams */}
-                                                            <line x1="24" y1="24" x2="24" y2="8" stroke={`url(#patelGrad${index})`} strokeWidth="2" opacity="0.5">
-                                                                <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite" />
+                                                            <line
+                                                                x1='24'
+                                                                y1='24'
+                                                                x2='24'
+                                                                y2='8'
+                                                                stroke={`url(#patelGrad${index})`}
+                                                                strokeWidth='2'
+                                                                opacity='0.5'
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.3;0.7;0.3'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </line>
-                                                            <line x1="24" y1="24" x2="38" y2="24" stroke={`url(#patelGrad${index})`} strokeWidth="2" opacity="0.5">
-                                                                <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" begin="0.5s" repeatCount="indefinite" />
+                                                            <line
+                                                                x1='24'
+                                                                y1='24'
+                                                                x2='38'
+                                                                y2='24'
+                                                                stroke={`url(#patelGrad${index})`}
+                                                                strokeWidth='2'
+                                                                opacity='0.5'
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.3;0.7;0.3'
+                                                                    dur='2s'
+                                                                    begin='0.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </line>
-                                                            <line x1="24" y1="24" x2="24" y2="40" stroke={`url(#patelGrad${index})`} strokeWidth="2" opacity="0.5">
-                                                                <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" begin="1s" repeatCount="indefinite" />
+                                                            <line
+                                                                x1='24'
+                                                                y1='24'
+                                                                x2='24'
+                                                                y2='40'
+                                                                stroke={`url(#patelGrad${index})`}
+                                                                strokeWidth='2'
+                                                                opacity='0.5'
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.3;0.7;0.3'
+                                                                    dur='2s'
+                                                                    begin='1s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </line>
-                                                            <line x1="24" y1="24" x2="10" y2="24" stroke={`url(#patelGrad${index})`} strokeWidth="2" opacity="0.5">
-                                                                <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" begin="1.5s" repeatCount="indefinite" />
+                                                            <line
+                                                                x1='24'
+                                                                y1='24'
+                                                                x2='10'
+                                                                y2='24'
+                                                                stroke={`url(#patelGrad${index})`}
+                                                                strokeWidth='2'
+                                                                opacity='0.5'
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.3;0.7;0.3'
+                                                                    dur='2s'
+                                                                    begin='1.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </line>
-                                                            
+
                                                             {/* Glow effect */}
-                                                            <circle cx="24" cy="24" r="18" fill={`url(#patelGlow${index})`}>
-                                                                <animate attributeName="opacity" values="0.4;0.7;0.4" dur="2s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='18'
+                                                                fill={`url(#patelGlow${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.4;0.7;0.4'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
                                                         </svg>
                                                     );
                                                 } else if (lowerName.includes('raziel')) {
                                                     // Thor's Mjolnir/Lightning inspired
                                                     return (
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg
+                                                            width='48'
+                                                            height='48'
+                                                            viewBox='0 0 48 48'
+                                                            fill='none'
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                        >
                                                             <defs>
-                                                                <linearGradient id={`razielGrad${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                                                    <stop offset="0%" stopColor="#a78bfa" />
-                                                                    <stop offset="50%" stopColor="#8b5cf6" />
-                                                                    <stop offset="100%" stopColor="#7c3aed" />
+                                                                <linearGradient
+                                                                    id={`razielGrad${index}`}
+                                                                    x1='0%'
+                                                                    y1='0%'
+                                                                    x2='100%'
+                                                                    y2='100%'
+                                                                >
+                                                                    <stop offset='0%' stopColor='#a78bfa' />
+                                                                    <stop offset='50%' stopColor='#8b5cf6' />
+                                                                    <stop offset='100%' stopColor='#7c3aed' />
                                                                 </linearGradient>
                                                                 <radialGradient id={`razielRadial${index}`}>
-                                                                    <stop offset="0%" stopColor="#c4b5fd" stopOpacity="0.8" />
-                                                                    <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
+                                                                    <stop
+                                                                        offset='0%'
+                                                                        stopColor='#c4b5fd'
+                                                                        stopOpacity='0.8'
+                                                                    />
+                                                                    <stop
+                                                                        offset='100%'
+                                                                        stopColor='#8b5cf6'
+                                                                        stopOpacity='0'
+                                                                    />
                                                                 </radialGradient>
                                                             </defs>
-                                                            
+
                                                             {/* Energy field */}
-                                                            <circle cx="24" cy="24" r="20" fill={`url(#razielRadial${index})`}>
-                                                                <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='20'
+                                                                fill={`url(#razielRadial${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.3;0.6;0.3'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Outer power ring */}
-                                                            <circle cx="24" cy="24" r="18" stroke={`url(#razielGrad${index})`} strokeWidth="2" fill="none" strokeDasharray="4 4">
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="6s" repeatCount="indefinite" />
-                                                                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='18'
+                                                                stroke={`url(#razielGrad${index})`}
+                                                                strokeWidth='2'
+                                                                fill='none'
+                                                                strokeDasharray='4 4'
+                                                            >
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='6s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.5;1;0.5'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Lightning bolt - Mjolnir power */}
                                                             <g>
-                                                                <path d="M24 8 L20 20 L26 20 L22 36 L30 22 L24 22 Z" fill={`url(#razielGrad${index})`}>
-                                                                    <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite" />
+                                                                <path
+                                                                    d='M24 8 L20 20 L26 20 L22 36 L30 22 L24 22 Z'
+                                                                    fill={`url(#razielGrad${index})`}
+                                                                >
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='0.8;1;0.8'
+                                                                        dur='1.5s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </path>
-                                                                <path d="M24 8 L20 20 L26 20 L22 36 L30 22 L24 22 Z" fill="none" stroke="#fff" strokeWidth="1.5" opacity="0.6">
-                                                                    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="1.5s" repeatCount="indefinite" />
+                                                                <path
+                                                                    d='M24 8 L20 20 L26 20 L22 36 L30 22 L24 22 Z'
+                                                                    fill='none'
+                                                                    stroke='#fff'
+                                                                    strokeWidth='1.5'
+                                                                    opacity='0.6'
+                                                                >
+                                                                    <animate
+                                                                        attributeName='opacity'
+                                                                        values='0.4;0.8;0.4'
+                                                                        dur='1.5s'
+                                                                        repeatCount='indefinite'
+                                                                    />
                                                                 </path>
                                                             </g>
-                                                            
+
                                                             {/* Energy sparks */}
-                                                            <circle cx="24" cy="12" r="2" fill={`url(#razielGrad${index})`}>
-                                                                <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" />
-                                                                <animate attributeName="r" values="2;3;2" dur="1.5s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='12'
+                                                                r='2'
+                                                                fill={`url(#razielGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='1.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
+                                                                <animate
+                                                                    attributeName='r'
+                                                                    values='2;3;2'
+                                                                    dur='1.5s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="32" cy="18" r="1.5" fill={`url(#razielGrad${index})`}>
-                                                                <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="0.3s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='32'
+                                                                cy='18'
+                                                                r='1.5'
+                                                                fill={`url(#razielGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='1.5s'
+                                                                    begin='0.3s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="16" cy="18" r="1.5" fill={`url(#razielGrad${index})`}>
-                                                                <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="0.6s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='16'
+                                                                cy='18'
+                                                                r='1.5'
+                                                                fill={`url(#razielGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='1.5s'
+                                                                    begin='0.6s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="28" cy="32" r="1.5" fill={`url(#razielGrad${index})`}>
-                                                                <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="0.9s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='28'
+                                                                cy='32'
+                                                                r='1.5'
+                                                                fill={`url(#razielGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='1.5s'
+                                                                    begin='0.9s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="20" cy="32" r="1.5" fill={`url(#razielGrad${index})`}>
-                                                                <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="1.2s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='20'
+                                                                cy='32'
+                                                                r='1.5'
+                                                                fill={`url(#razielGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0;1;0'
+                                                                    dur='1.5s'
+                                                                    begin='1.2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Power core */}
-                                                            <circle cx="24" cy="24" r="5" fill={`url(#razielGrad${index})`}>
-                                                                <animate attributeName="r" values="5;6;5" dur="2s" repeatCount="indefinite" />
+                                                            <circle
+                                                                cx='24'
+                                                                cy='24'
+                                                                r='5'
+                                                                fill={`url(#razielGrad${index})`}
+                                                            >
+                                                                <animate
+                                                                    attributeName='r'
+                                                                    values='5;6;5'
+                                                                    dur='2s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            <circle cx="24" cy="24" r="3" fill="#fff">
-                                                                <animate attributeName="opacity" values="0.8;1;0.8" dur="1s" repeatCount="indefinite" />
+                                                            <circle cx='24' cy='24' r='3' fill='#fff'>
+                                                                <animate
+                                                                    attributeName='opacity'
+                                                                    values='0.8;1;0.8'
+                                                                    dur='1s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </circle>
-                                                            
+
                                                             {/* Rotating runes */}
-                                                            <g opacity="0.6">
-                                                                <text x="24" y="6" fontSize="8" fill={`url(#razielGrad${index})`} textAnchor="middle" fontWeight="bold">⚡</text>
-                                                                <text x="42" y="26" fontSize="8" fill={`url(#razielGrad${index})`} textAnchor="middle" fontWeight="bold">⚡</text>
-                                                                <text x="24" y="46" fontSize="8" fill={`url(#razielGrad${index})`} textAnchor="middle" fontWeight="bold">⚡</text>
-                                                                <text x="6" y="26" fontSize="8" fill={`url(#razielGrad${index})`} textAnchor="middle" fontWeight="bold">⚡</text>
-                                                                <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="10s" repeatCount="indefinite" />
+                                                            <g opacity='0.6'>
+                                                                <text
+                                                                    x='24'
+                                                                    y='6'
+                                                                    fontSize='8'
+                                                                    fill={`url(#razielGrad${index})`}
+                                                                    textAnchor='middle'
+                                                                    fontWeight='bold'
+                                                                >
+                                                                    ⚡
+                                                                </text>
+                                                                <text
+                                                                    x='42'
+                                                                    y='26'
+                                                                    fontSize='8'
+                                                                    fill={`url(#razielGrad${index})`}
+                                                                    textAnchor='middle'
+                                                                    fontWeight='bold'
+                                                                >
+                                                                    ⚡
+                                                                </text>
+                                                                <text
+                                                                    x='24'
+                                                                    y='46'
+                                                                    fontSize='8'
+                                                                    fill={`url(#razielGrad${index})`}
+                                                                    textAnchor='middle'
+                                                                    fontWeight='bold'
+                                                                >
+                                                                    ⚡
+                                                                </text>
+                                                                <text
+                                                                    x='6'
+                                                                    y='26'
+                                                                    fontSize='8'
+                                                                    fill={`url(#razielGrad${index})`}
+                                                                    textAnchor='middle'
+                                                                    fontWeight='bold'
+                                                                >
+                                                                    ⚡
+                                                                </text>
+                                                                <animateTransform
+                                                                    attributeName='transform'
+                                                                    type='rotate'
+                                                                    from='0 24 24'
+                                                                    to='360 24 24'
+                                                                    dur='10s'
+                                                                    repeatCount='indefinite'
+                                                                />
                                                             </g>
                                                         </svg>
                                                     );
                                                 }
-                                                
+
                                                 // Default icon
                                                 return (
-                                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg
+                                                        width='48'
+                                                        height='48'
+                                                        viewBox='0 0 48 48'
+                                                        fill='none'
+                                                        xmlns='http://www.w3.org/2000/svg'
+                                                    >
                                                         <defs>
-                                                            <linearGradient id={`defaultGrad${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                                                <stop offset="0%" stopColor="#6366f1" />
-                                                                <stop offset="100%" stopColor="#4f46e5" />
+                                                            <linearGradient
+                                                                id={`defaultGrad${index}`}
+                                                                x1='0%'
+                                                                y1='0%'
+                                                                x2='100%'
+                                                                y2='100%'
+                                                            >
+                                                                <stop offset='0%' stopColor='#6366f1' />
+                                                                <stop offset='100%' stopColor='#4f46e5' />
                                                             </linearGradient>
                                                         </defs>
-                                                        <circle cx="24" cy="24" r="18" fill={`url(#defaultGrad${index})`} opacity="0.2">
-                                                            <animate attributeName="r" values="18;20;18" dur="2s" repeatCount="indefinite" />
+                                                        <circle
+                                                            cx='24'
+                                                            cy='24'
+                                                            r='18'
+                                                            fill={`url(#defaultGrad${index})`}
+                                                            opacity='0.2'
+                                                        >
+                                                            <animate
+                                                                attributeName='r'
+                                                                values='18;20;18'
+                                                                dur='2s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </circle>
-                                                        <rect x="16" y="16" width="16" height="16" rx="2" fill={`url(#defaultGrad${index})`}>
-                                                            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="6s" repeatCount="indefinite" />
+                                                        <rect
+                                                            x='16'
+                                                            y='16'
+                                                            width='16'
+                                                            height='16'
+                                                            rx='2'
+                                                            fill={`url(#defaultGrad${index})`}
+                                                        >
+                                                            <animateTransform
+                                                                attributeName='transform'
+                                                                type='rotate'
+                                                                from='0 24 24'
+                                                                to='360 24 24'
+                                                                dur='6s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </rect>
                                                     </svg>
                                                 );
@@ -3668,10 +4801,13 @@ const AppWrapper = observer(() => {
                                                     return 'Divine trading strategy with heavenly accuracy';
                                                 } else if (lowerName.includes('strike')) {
                                                     return 'Precision strike strategy with advanced targeting';
-                                                } else if (lowerName.includes('magic') || lowerName.includes('recovery')) {
+                                                } else if (
+                                                    lowerName.includes('magic') ||
+                                                    lowerName.includes('recovery')
+                                                ) {
                                                     return 'Magic recovery system with loss prevention';
                                                 }
-                                                
+
                                                 return 'Advanced automated trading strategy with optimized entry and exit points';
                                             };
 
@@ -3823,194 +4959,602 @@ const AppWrapper = observer(() => {
                                     }}
                                 >
                                     {[
-                                        { 
+                                        {
                                             name: 'AutoRich 2026',
                                             xmlFile: 'NOVAGRID 2026.xml',
                                             icon: (
                                                 // Supernova / Cosmic Explosion
-                                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg
+                                                    width='48'
+                                                    height='48'
+                                                    viewBox='0 0 48 48'
+                                                    fill='none'
+                                                    xmlns='http://www.w3.org/2000/svg'
+                                                >
                                                     <defs>
-                                                        <radialGradient id="supernovaCore">
-                                                            <stop offset="0%" stopColor="#fef08a" />
-                                                            <stop offset="30%" stopColor="#fbbf24" />
-                                                            <stop offset="60%" stopColor="#f97316" />
-                                                            <stop offset="100%" stopColor="#dc2626" stopOpacity="0" />
+                                                        <radialGradient id='supernovaCore'>
+                                                            <stop offset='0%' stopColor='#fef08a' />
+                                                            <stop offset='30%' stopColor='#fbbf24' />
+                                                            <stop offset='60%' stopColor='#f97316' />
+                                                            <stop offset='100%' stopColor='#dc2626' stopOpacity='0' />
                                                         </radialGradient>
-                                                        <radialGradient id="supernovaGlow">
-                                                            <stop offset="0%" stopColor="#fef08a" stopOpacity="0.8" />
-                                                            <stop offset="50%" stopColor="#f97316" stopOpacity="0.4" />
-                                                            <stop offset="100%" stopColor="#dc2626" stopOpacity="0" />
+                                                        <radialGradient id='supernovaGlow'>
+                                                            <stop offset='0%' stopColor='#fef08a' stopOpacity='0.8' />
+                                                            <stop offset='50%' stopColor='#f97316' stopOpacity='0.4' />
+                                                            <stop offset='100%' stopColor='#dc2626' stopOpacity='0' />
                                                         </radialGradient>
-                                                        <linearGradient id="supernovaRay" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                            <stop offset="0%" stopColor="#fef08a" stopOpacity="0" />
-                                                            <stop offset="50%" stopColor="#fbbf24" stopOpacity="1" />
-                                                            <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
+                                                        <linearGradient
+                                                            id='supernovaRay'
+                                                            x1='0%'
+                                                            y1='0%'
+                                                            x2='100%'
+                                                            y2='0%'
+                                                        >
+                                                            <stop offset='0%' stopColor='#fef08a' stopOpacity='0' />
+                                                            <stop offset='50%' stopColor='#fbbf24' stopOpacity='1' />
+                                                            <stop offset='100%' stopColor='#f97316' stopOpacity='0' />
                                                         </linearGradient>
                                                     </defs>
-                                                    
+
                                                     {/* Outer explosion glow */}
-                                                    <circle cx="24" cy="24" r="22" fill="url(#supernovaGlow)">
-                                                        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite" />
+                                                    <circle cx='24' cy='24' r='22' fill='url(#supernovaGlow)'>
+                                                        <animate
+                                                            attributeName='opacity'
+                                                            values='0.3;0.6;0.3'
+                                                            dur='2s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </circle>
-                                                    
+
                                                     {/* Expanding energy rings */}
-                                                    <circle cx="24" cy="24" r="16" stroke="#fbbf24" strokeWidth="2" fill="none" opacity="0.6">
-                                                        <animate attributeName="r" values="16;20;16" dur="3s" repeatCount="indefinite" />
-                                                        <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite" />
+                                                    <circle
+                                                        cx='24'
+                                                        cy='24'
+                                                        r='16'
+                                                        stroke='#fbbf24'
+                                                        strokeWidth='2'
+                                                        fill='none'
+                                                        opacity='0.6'
+                                                    >
+                                                        <animate
+                                                            attributeName='r'
+                                                            values='16;20;16'
+                                                            dur='3s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='opacity'
+                                                            values='0.6;0;0.6'
+                                                            dur='3s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </circle>
-                                                    <circle cx="24" cy="24" r="12" stroke="#f97316" strokeWidth="2" fill="none" opacity="0.6">
-                                                        <animate attributeName="r" values="12;18;12" dur="3s" begin="0.5s" repeatCount="indefinite" />
-                                                        <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" begin="0.5s" repeatCount="indefinite" />
+                                                    <circle
+                                                        cx='24'
+                                                        cy='24'
+                                                        r='12'
+                                                        stroke='#f97316'
+                                                        strokeWidth='2'
+                                                        fill='none'
+                                                        opacity='0.6'
+                                                    >
+                                                        <animate
+                                                            attributeName='r'
+                                                            values='12;18;12'
+                                                            dur='3s'
+                                                            begin='0.5s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='opacity'
+                                                            values='0.6;0;0.6'
+                                                            dur='3s'
+                                                            begin='0.5s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </circle>
-                                                    
+
                                                     {/* Explosion rays */}
-                                                    <g opacity="0.8">
-                                                        <line x1="24" y1="24" x2="24" y2="4" stroke="url(#supernovaRay)" strokeWidth="3" strokeLinecap="round">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" />
+                                                    <g opacity='0.8'>
+                                                        <line
+                                                            x1='24'
+                                                            y1='24'
+                                                            x2='24'
+                                                            y2='4'
+                                                            stroke='url(#supernovaRay)'
+                                                            strokeWidth='3'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='1.5s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </line>
-                                                        <line x1="24" y1="24" x2="41" y2="10" stroke="url(#supernovaRay)" strokeWidth="2.5" strokeLinecap="round">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" begin="0.2s" repeatCount="indefinite" />
+                                                        <line
+                                                            x1='24'
+                                                            y1='24'
+                                                            x2='41'
+                                                            y2='10'
+                                                            stroke='url(#supernovaRay)'
+                                                            strokeWidth='2.5'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='1.5s'
+                                                                begin='0.2s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </line>
-                                                        <line x1="24" y1="24" x2="44" y2="24" stroke="url(#supernovaRay)" strokeWidth="3" strokeLinecap="round">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" begin="0.4s" repeatCount="indefinite" />
+                                                        <line
+                                                            x1='24'
+                                                            y1='24'
+                                                            x2='44'
+                                                            y2='24'
+                                                            stroke='url(#supernovaRay)'
+                                                            strokeWidth='3'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='1.5s'
+                                                                begin='0.4s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </line>
-                                                        <line x1="24" y1="24" x2="41" y2="38" stroke="url(#supernovaRay)" strokeWidth="2.5" strokeLinecap="round">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" begin="0.6s" repeatCount="indefinite" />
+                                                        <line
+                                                            x1='24'
+                                                            y1='24'
+                                                            x2='41'
+                                                            y2='38'
+                                                            stroke='url(#supernovaRay)'
+                                                            strokeWidth='2.5'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='1.5s'
+                                                                begin='0.6s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </line>
-                                                        <line x1="24" y1="24" x2="24" y2="44" stroke="url(#supernovaRay)" strokeWidth="3" strokeLinecap="round">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" begin="0.8s" repeatCount="indefinite" />
+                                                        <line
+                                                            x1='24'
+                                                            y1='24'
+                                                            x2='24'
+                                                            y2='44'
+                                                            stroke='url(#supernovaRay)'
+                                                            strokeWidth='3'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='1.5s'
+                                                                begin='0.8s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </line>
-                                                        <line x1="24" y1="24" x2="7" y2="38" stroke="url(#supernovaRay)" strokeWidth="2.5" strokeLinecap="round">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" begin="1s" repeatCount="indefinite" />
+                                                        <line
+                                                            x1='24'
+                                                            y1='24'
+                                                            x2='7'
+                                                            y2='38'
+                                                            stroke='url(#supernovaRay)'
+                                                            strokeWidth='2.5'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='1.5s'
+                                                                begin='1s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </line>
-                                                        <line x1="24" y1="24" x2="4" y2="24" stroke="url(#supernovaRay)" strokeWidth="3" strokeLinecap="round">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" begin="1.2s" repeatCount="indefinite" />
+                                                        <line
+                                                            x1='24'
+                                                            y1='24'
+                                                            x2='4'
+                                                            y2='24'
+                                                            stroke='url(#supernovaRay)'
+                                                            strokeWidth='3'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='1.5s'
+                                                                begin='1.2s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </line>
-                                                        <line x1="24" y1="24" x2="7" y2="10" stroke="url(#supernovaRay)" strokeWidth="2.5" strokeLinecap="round">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" begin="1.4s" repeatCount="indefinite" />
+                                                        <line
+                                                            x1='24'
+                                                            y1='24'
+                                                            x2='7'
+                                                            y2='10'
+                                                            stroke='url(#supernovaRay)'
+                                                            strokeWidth='2.5'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='1.5s'
+                                                                begin='1.4s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </line>
                                                     </g>
-                                                    
+
                                                     {/* Core star */}
-                                                    <circle cx="24" cy="24" r="10" fill="url(#supernovaCore)">
-                                                        <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" />
+                                                    <circle cx='24' cy='24' r='10' fill='url(#supernovaCore)'>
+                                                        <animate
+                                                            attributeName='r'
+                                                            values='10;12;10'
+                                                            dur='2s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </circle>
-                                                    
+
                                                     {/* Bright center */}
-                                                    <circle cx="24" cy="24" r="6" fill="#fef08a">
-                                                        <animate attributeName="r" values="6;8;6" dur="1.5s" repeatCount="indefinite" />
-                                                        <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite" />
+                                                    <circle cx='24' cy='24' r='6' fill='#fef08a'>
+                                                        <animate
+                                                            attributeName='r'
+                                                            values='6;8;6'
+                                                            dur='1.5s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='opacity'
+                                                            values='0.8;1;0.8'
+                                                            dur='1.5s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </circle>
-                                                    
+
                                                     {/* Energy particles */}
-                                                    <circle cx="30" cy="18" r="1.5" fill="#fbbf24">
-                                                        <animate attributeName="cx" values="30;36;30" dur="2s" repeatCount="indefinite" />
-                                                        <animate attributeName="cy" values="18;12;18" dur="2s" repeatCount="indefinite" />
-                                                        <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite" />
+                                                    <circle cx='30' cy='18' r='1.5' fill='#fbbf24'>
+                                                        <animate
+                                                            attributeName='cx'
+                                                            values='30;36;30'
+                                                            dur='2s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='cy'
+                                                            values='18;12;18'
+                                                            dur='2s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='opacity'
+                                                            values='1;0;1'
+                                                            dur='2s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </circle>
-                                                    <circle cx="18" cy="30" r="1.5" fill="#f97316">
-                                                        <animate attributeName="cx" values="18;12;18" dur="2s" begin="0.5s" repeatCount="indefinite" />
-                                                        <animate attributeName="cy" values="30;36;30" dur="2s" begin="0.5s" repeatCount="indefinite" />
-                                                        <animate attributeName="opacity" values="1;0;1" dur="2s" begin="0.5s" repeatCount="indefinite" />
+                                                    <circle cx='18' cy='30' r='1.5' fill='#f97316'>
+                                                        <animate
+                                                            attributeName='cx'
+                                                            values='18;12;18'
+                                                            dur='2s'
+                                                            begin='0.5s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='cy'
+                                                            values='30;36;30'
+                                                            dur='2s'
+                                                            begin='0.5s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='opacity'
+                                                            values='1;0;1'
+                                                            dur='2s'
+                                                            begin='0.5s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </circle>
-                                                    <circle cx="30" cy="30" r="1.5" fill="#fbbf24">
-                                                        <animate attributeName="cx" values="30;38;30" dur="2s" begin="1s" repeatCount="indefinite" />
-                                                        <animate attributeName="cy" values="30;38;30" dur="2s" begin="1s" repeatCount="indefinite" />
-                                                        <animate attributeName="opacity" values="1;0;1" dur="2s" begin="1s" repeatCount="indefinite" />
+                                                    <circle cx='30' cy='30' r='1.5' fill='#fbbf24'>
+                                                        <animate
+                                                            attributeName='cx'
+                                                            values='30;38;30'
+                                                            dur='2s'
+                                                            begin='1s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='cy'
+                                                            values='30;38;30'
+                                                            dur='2s'
+                                                            begin='1s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='opacity'
+                                                            values='1;0;1'
+                                                            dur='2s'
+                                                            begin='1s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </circle>
                                                 </svg>
-                                            ), 
+                                            ),
                                             rate: 97,
-                                            price: '$500',
-                                            description: 'Revolutionary automated wealth-building system with intelligent risk management, adaptive strategies, and consistent profit optimization'
+                                            price: '$800',
+                                            description:
+                                                'Revolutionary automated wealth-building system with intelligent risk management, adaptive strategies, and consistent profit optimization',
                                         },
-                                        { 
+                                        {
                                             name: 'Divergent Pro',
                                             xmlFile: '🖤⚜️ 𝓣𝓱𝓮 𝓓𝓪𝓻𝓴 𝓓𝔂𝓷𝓪𝓼𝓽𝔂 ⚜️🖤2.xml',
                                             rate: 94,
-                                            price: '$200',
-                                            description: 'Professional divergence detection system with multi-timeframe analysis, smart entry signals, and advanced market trend identification',
+                                            price: '$500',
+                                            description:
+                                                'Professional divergence detection system with multi-timeframe analysis, smart entry signals, and advanced market trend identification',
                                             icon: (
                                                 // Spiral Galaxy
-                                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg
+                                                    width='48'
+                                                    height='48'
+                                                    viewBox='0 0 48 48'
+                                                    fill='none'
+                                                    xmlns='http://www.w3.org/2000/svg'
+                                                >
                                                     <defs>
-                                                        <radialGradient id="galaxyCore">
-                                                            <stop offset="0%" stopColor="#fef08a" />
-                                                            <stop offset="40%" stopColor="#a78bfa" />
-                                                            <stop offset="70%" stopColor="#6366f1" />
-                                                            <stop offset="100%" stopColor="#1e1b4b" stopOpacity="0" />
+                                                        <radialGradient id='galaxyCore'>
+                                                            <stop offset='0%' stopColor='#fef08a' />
+                                                            <stop offset='40%' stopColor='#a78bfa' />
+                                                            <stop offset='70%' stopColor='#6366f1' />
+                                                            <stop offset='100%' stopColor='#1e1b4b' stopOpacity='0' />
                                                         </radialGradient>
-                                                        <linearGradient id="galaxyArm" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                            <stop offset="0%" stopColor="#c4b5fd" stopOpacity="0" />
-                                                            <stop offset="30%" stopColor="#a78bfa" stopOpacity="0.8" />
-                                                            <stop offset="60%" stopColor="#8b5cf6" stopOpacity="0.6" />
-                                                            <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+                                                        <linearGradient
+                                                            id='galaxyArm'
+                                                            x1='0%'
+                                                            y1='0%'
+                                                            x2='100%'
+                                                            y2='100%'
+                                                        >
+                                                            <stop offset='0%' stopColor='#c4b5fd' stopOpacity='0' />
+                                                            <stop offset='30%' stopColor='#a78bfa' stopOpacity='0.8' />
+                                                            <stop offset='60%' stopColor='#8b5cf6' stopOpacity='0.6' />
+                                                            <stop offset='100%' stopColor='#6366f1' stopOpacity='0' />
                                                         </linearGradient>
                                                     </defs>
-                                                    
+
                                                     {/* Galaxy glow */}
-                                                    <ellipse cx="24" cy="24" rx="20" ry="16" fill="url(#galaxyCore)" opacity="0.6">
-                                                        <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="20s" repeatCount="indefinite" />
-                                                        <animate attributeName="opacity" values="0.4;0.7;0.4" dur="4s" repeatCount="indefinite" />
+                                                    <ellipse
+                                                        cx='24'
+                                                        cy='24'
+                                                        rx='20'
+                                                        ry='16'
+                                                        fill='url(#galaxyCore)'
+                                                        opacity='0.6'
+                                                    >
+                                                        <animateTransform
+                                                            attributeName='transform'
+                                                            type='rotate'
+                                                            from='0 24 24'
+                                                            to='360 24 24'
+                                                            dur='20s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='opacity'
+                                                            values='0.4;0.7;0.4'
+                                                            dur='4s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </ellipse>
-                                                    
+
                                                     {/* Spiral arms */}
                                                     <g>
-                                                        <path d="M24 24 Q 32 20, 40 18 Q 42 20, 42 24" stroke="url(#galaxyArm)" strokeWidth="3" fill="none" strokeLinecap="round">
-                                                            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="15s" repeatCount="indefinite" />
+                                                        <path
+                                                            d='M24 24 Q 32 20, 40 18 Q 42 20, 42 24'
+                                                            stroke='url(#galaxyArm)'
+                                                            strokeWidth='3'
+                                                            fill='none'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animateTransform
+                                                                attributeName='transform'
+                                                                type='rotate'
+                                                                from='0 24 24'
+                                                                to='360 24 24'
+                                                                dur='15s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </path>
-                                                        <path d="M24 24 Q 28 28, 36 34 Q 38 36, 40 38" stroke="url(#galaxyArm)" strokeWidth="3" fill="none" strokeLinecap="round">
-                                                            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="15s" repeatCount="indefinite" />
+                                                        <path
+                                                            d='M24 24 Q 28 28, 36 34 Q 38 36, 40 38'
+                                                            stroke='url(#galaxyArm)'
+                                                            strokeWidth='3'
+                                                            fill='none'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animateTransform
+                                                                attributeName='transform'
+                                                                type='rotate'
+                                                                from='0 24 24'
+                                                                to='360 24 24'
+                                                                dur='15s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </path>
-                                                        <path d="M24 24 Q 20 28, 12 30 Q 8 30, 6 28" stroke="url(#galaxyArm)" strokeWidth="3" fill="none" strokeLinecap="round">
-                                                            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="15s" repeatCount="indefinite" />
+                                                        <path
+                                                            d='M24 24 Q 20 28, 12 30 Q 8 30, 6 28'
+                                                            stroke='url(#galaxyArm)'
+                                                            strokeWidth='3'
+                                                            fill='none'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animateTransform
+                                                                attributeName='transform'
+                                                                type='rotate'
+                                                                from='0 24 24'
+                                                                to='360 24 24'
+                                                                dur='15s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </path>
-                                                        <path d="M24 24 Q 20 16, 14 10 Q 12 8, 10 8" stroke="url(#galaxyArm)" strokeWidth="3" fill="none" strokeLinecap="round">
-                                                            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="15s" repeatCount="indefinite" />
+                                                        <path
+                                                            d='M24 24 Q 20 16, 14 10 Q 12 8, 10 8'
+                                                            stroke='url(#galaxyArm)'
+                                                            strokeWidth='3'
+                                                            fill='none'
+                                                            strokeLinecap='round'
+                                                        >
+                                                            <animateTransform
+                                                                attributeName='transform'
+                                                                type='rotate'
+                                                                from='0 24 24'
+                                                                to='360 24 24'
+                                                                dur='15s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </path>
                                                     </g>
-                                                    
+
                                                     {/* Stars in spiral arms */}
                                                     <g>
-                                                        <circle cx="36" cy="18" r="1" fill="#fef08a">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
-                                                            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="15s" repeatCount="indefinite" />
+                                                        <circle cx='36' cy='18' r='1' fill='#fef08a'>
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='2s'
+                                                                repeatCount='indefinite'
+                                                            />
+                                                            <animateTransform
+                                                                attributeName='transform'
+                                                                type='rotate'
+                                                                from='0 24 24'
+                                                                to='360 24 24'
+                                                                dur='15s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </circle>
-                                                        <circle cx="38" cy="36" r="1.5" fill="#c4b5fd">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite" />
-                                                            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="15s" repeatCount="indefinite" />
+                                                        <circle cx='38' cy='36' r='1.5' fill='#c4b5fd'>
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='2.5s'
+                                                                repeatCount='indefinite'
+                                                            />
+                                                            <animateTransform
+                                                                attributeName='transform'
+                                                                type='rotate'
+                                                                from='0 24 24'
+                                                                to='360 24 24'
+                                                                dur='15s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </circle>
-                                                        <circle cx="10" cy="28" r="1" fill="#a78bfa">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" />
-                                                            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="15s" repeatCount="indefinite" />
+                                                        <circle cx='10' cy='28' r='1' fill='#a78bfa'>
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='3s'
+                                                                repeatCount='indefinite'
+                                                            />
+                                                            <animateTransform
+                                                                attributeName='transform'
+                                                                type='rotate'
+                                                                from='0 24 24'
+                                                                to='360 24 24'
+                                                                dur='15s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </circle>
-                                                        <circle cx="12" cy="10" r="1.5" fill="#fef08a">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite" />
-                                                            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="15s" repeatCount="indefinite" />
+                                                        <circle cx='12' cy='10' r='1.5' fill='#fef08a'>
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='2.2s'
+                                                                repeatCount='indefinite'
+                                                            />
+                                                            <animateTransform
+                                                                attributeName='transform'
+                                                                type='rotate'
+                                                                from='0 24 24'
+                                                                to='360 24 24'
+                                                                dur='15s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </circle>
-                                                        <circle cx="32" cy="14" r="1" fill="#c4b5fd">
-                                                            <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite" />
-                                                            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="15s" repeatCount="indefinite" />
+                                                        <circle cx='32' cy='14' r='1' fill='#c4b5fd'>
+                                                            <animate
+                                                                attributeName='opacity'
+                                                                values='0.5;1;0.5'
+                                                                dur='2.8s'
+                                                                repeatCount='indefinite'
+                                                            />
+                                                            <animateTransform
+                                                                attributeName='transform'
+                                                                type='rotate'
+                                                                from='0 24 24'
+                                                                to='360 24 24'
+                                                                dur='15s'
+                                                                repeatCount='indefinite'
+                                                            />
                                                         </circle>
                                                     </g>
-                                                    
+
                                                     {/* Galactic core */}
-                                                    <circle cx="24" cy="24" r="8" fill="url(#galaxyCore)">
-                                                        <animate attributeName="r" values="8;9;8" dur="3s" repeatCount="indefinite" />
+                                                    <circle cx='24' cy='24' r='8' fill='url(#galaxyCore)'>
+                                                        <animate
+                                                            attributeName='r'
+                                                            values='8;9;8'
+                                                            dur='3s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </circle>
-                                                    
+
                                                     {/* Bright center */}
-                                                    <circle cx="24" cy="24" r="4" fill="#fef08a">
-                                                        <animate attributeName="r" values="4;5;4" dur="2s" repeatCount="indefinite" />
-                                                        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
+                                                    <circle cx='24' cy='24' r='4' fill='#fef08a'>
+                                                        <animate
+                                                            attributeName='r'
+                                                            values='4;5;4'
+                                                            dur='2s'
+                                                            repeatCount='indefinite'
+                                                        />
+                                                        <animate
+                                                            attributeName='opacity'
+                                                            values='0.8;1;0.8'
+                                                            dur='2s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </circle>
-                                                    
+
                                                     {/* Accretion disk */}
-                                                    <ellipse cx="24" cy="24" rx="12" ry="3" fill="none" stroke="#a78bfa" strokeWidth="1" opacity="0.6">
-                                                        <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="8s" repeatCount="indefinite" />
+                                                    <ellipse
+                                                        cx='24'
+                                                        cy='24'
+                                                        rx='12'
+                                                        ry='3'
+                                                        fill='none'
+                                                        stroke='#a78bfa'
+                                                        strokeWidth='1'
+                                                        opacity='0.6'
+                                                    >
+                                                        <animateTransform
+                                                            attributeName='transform'
+                                                            type='rotate'
+                                                            from='0 24 24'
+                                                            to='360 24 24'
+                                                            dur='8s'
+                                                            repeatCount='indefinite'
+                                                        />
                                                     </ellipse>
                                                 </svg>
-                                            )
+                                            ),
                                         },
                                     ].map((bot, index) => (
                                         <div
@@ -4152,7 +5696,11 @@ const AppWrapper = observer(() => {
 
                                             <button
                                                 onClick={() => {
-                                                    setPremiumBotModal({ isOpen: true, botName: bot.name, xmlFile: bot.xmlFile });
+                                                    setPremiumBotModal({
+                                                        isOpen: true,
+                                                        botName: bot.name,
+                                                        xmlFile: bot.xmlFile,
+                                                    });
                                                     setPremiumPassword('');
                                                 }}
                                                 style={{
@@ -4212,21 +5760,28 @@ const AppWrapper = observer(() => {
                                                 width: '90%',
                                                 boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
                                             }}
-                                            onClick={(e) => e.stopPropagation()}
+                                            onClick={e => e.stopPropagation()}
                                         >
-                                            <h3 style={{ margin: '0 0 1rem 0', color: '#1f2937', fontSize: '1.5rem', fontWeight: '700' }}>
+                                            <h3
+                                                style={{
+                                                    margin: '0 0 1rem 0',
+                                                    color: '#1f2937',
+                                                    fontSize: '1.5rem',
+                                                    fontWeight: '700',
+                                                }}
+                                            >
                                                 Access {premiumBotModal.botName}
                                             </h3>
-                                            
+
                                             <p style={{ margin: '0 0 1.5rem 0', color: '#6b7280', fontSize: '14px' }}>
                                                 Enter your access code to unlock this premium bot
                                             </p>
 
                                             <input
-                                                type="password"
-                                                placeholder="Enter access code"
+                                                type='password'
+                                                placeholder='Enter access code'
                                                 value={premiumPassword}
-                                                onChange={(e) => setPremiumPassword(e.target.value)}
+                                                onChange={e => setPremiumPassword(e.target.value)}
                                                 style={{
                                                     width: '100%',
                                                     padding: '0.75rem',
@@ -4237,14 +5792,18 @@ const AppWrapper = observer(() => {
                                                     outline: 'none',
                                                     transition: 'border-color 0.2s',
                                                 }}
-                                                onFocus={(e) => e.currentTarget.style.borderColor = '#fbbf24'}
-                                                onBlur={(e) => e.currentTarget.style.borderColor = '#e5e7eb'}
-                                                onKeyPress={async (e) => {
+                                                onFocus={e => (e.currentTarget.style.borderColor = '#fbbf24')}
+                                                onBlur={e => (e.currentTarget.style.borderColor = '#e5e7eb')}
+                                                onKeyPress={async e => {
                                                     if (e.key === 'Enter' && premiumPassword === '6776') {
                                                         // Check if user is whitelisted for this specific bot
-                                                        const hasAccess = await hasPremiumAccess(premiumBotModal.botName);
+                                                        const hasAccess = await hasPremiumAccess(
+                                                            premiumBotModal.botName
+                                                        );
                                                         if (!hasAccess) {
-                                                            alert(`Access denied. Your account is not whitelisted for ${premiumBotModal.botName}. Please contact admin for access.`);
+                                                            alert(
+                                                                `Access denied. Your account is not whitelisted for ${premiumBotModal.botName}. Please contact admin for access.`
+                                                            );
                                                             return;
                                                         }
 
@@ -4255,7 +5814,7 @@ const AppWrapper = observer(() => {
                                                                 throw new Error('Failed to load bot file');
                                                             }
                                                             const xmlContent = await response.text();
-                                                            
+
                                                             // Create strategy object to load
                                                             const strategyToLoad = {
                                                                 id: `premium_${Date.now()}`,
@@ -4267,16 +5826,22 @@ const AppWrapper = observer(() => {
 
                                                             // Load the bot into workspace
                                                             await load_modal.loadStrategyToBuilder(strategyToLoad);
-                                                            
+
                                                             // Switch to dashboard tab
                                                             setActiveTab(DBOT_TABS.DASHBOARD);
-                                                            
+
                                                             // Close modal and reset
-                                                            setPremiumBotModal({ isOpen: false, botName: '', xmlFile: '' });
+                                                            setPremiumBotModal({
+                                                                isOpen: false,
+                                                                botName: '',
+                                                                xmlFile: '',
+                                                            });
                                                             setPremiumPassword('');
                                                         } catch (error) {
                                                             console.error('Error loading premium bot:', error);
-                                                            alert('Failed to load bot. Please try again or contact admin.');
+                                                            alert(
+                                                                'Failed to load bot. Please try again or contact admin.'
+                                                            );
                                                         }
                                                     }
                                                 }}
@@ -4286,9 +5851,13 @@ const AppWrapper = observer(() => {
                                                 onClick={async () => {
                                                     if (premiumPassword === '6776') {
                                                         // Check if user is whitelisted for this specific bot
-                                                        const hasAccess = await hasPremiumAccess(premiumBotModal.botName);
+                                                        const hasAccess = await hasPremiumAccess(
+                                                            premiumBotModal.botName
+                                                        );
                                                         if (!hasAccess) {
-                                                            alert(`Access denied. Your account is not whitelisted for ${premiumBotModal.botName}. Please contact admin for access.`);
+                                                            alert(
+                                                                `Access denied. Your account is not whitelisted for ${premiumBotModal.botName}. Please contact admin for access.`
+                                                            );
                                                             return;
                                                         }
 
@@ -4299,7 +5868,7 @@ const AppWrapper = observer(() => {
                                                                 throw new Error('Failed to load bot file');
                                                             }
                                                             const xmlContent = await response.text();
-                                                            
+
                                                             // Create strategy object to load
                                                             const strategyToLoad = {
                                                                 id: `premium_${Date.now()}`,
@@ -4311,16 +5880,22 @@ const AppWrapper = observer(() => {
 
                                                             // Load the bot into workspace
                                                             await load_modal.loadStrategyToBuilder(strategyToLoad);
-                                                            
+
                                                             // Switch to dashboard tab
                                                             setActiveTab(DBOT_TABS.DASHBOARD);
-                                                            
+
                                                             // Close modal and reset
-                                                            setPremiumBotModal({ isOpen: false, botName: '', xmlFile: '' });
+                                                            setPremiumBotModal({
+                                                                isOpen: false,
+                                                                botName: '',
+                                                                xmlFile: '',
+                                                            });
                                                             setPremiumPassword('');
                                                         } catch (error) {
                                                             console.error('Error loading premium bot:', error);
-                                                            alert('Failed to load bot. Please try again or contact admin.');
+                                                            alert(
+                                                                'Failed to load bot. Please try again or contact admin.'
+                                                            );
                                                         }
                                                     } else {
                                                         alert('Invalid access code. Please contact admin for access.');
@@ -4339,20 +5914,27 @@ const AppWrapper = observer(() => {
                                                     marginBottom: '1rem',
                                                     transition: 'transform 0.2s',
                                                 }}
-                                                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-                                                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                                onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
+                                                onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                                             >
                                                 Unlock Bot
                                             </button>
 
-                                            <div style={{ textAlign: 'center', margin: '1rem 0', color: '#9ca3af', fontSize: '12px' }}>
+                                            <div
+                                                style={{
+                                                    textAlign: 'center',
+                                                    margin: '1rem 0',
+                                                    color: '#9ca3af',
+                                                    fontSize: '12px',
+                                                }}
+                                            >
                                                 OR
                                             </div>
 
                                             <a
-                                                href="https://wa.me/254799094649"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
+                                                href='https://wa.me/254799094649'
+                                                target='_blank'
+                                                rel='noopener noreferrer'
                                                 style={{
                                                     width: '100%',
                                                     padding: '0.75rem',
@@ -4370,17 +5952,25 @@ const AppWrapper = observer(() => {
                                                     gap: '0.5rem',
                                                     transition: 'transform 0.2s',
                                                 }}
-                                                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-                                                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                                onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
+                                                onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                                             >
-                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                                <svg
+                                                    width='20'
+                                                    height='20'
+                                                    viewBox='0 0 24 24'
+                                                    fill='white'
+                                                    xmlns='http://www.w3.org/2000/svg'
+                                                >
+                                                    <path d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z' />
                                                 </svg>
                                                 Contact Admin for Access
                                             </a>
 
                                             <button
-                                                onClick={() => setPremiumBotModal({ isOpen: false, botName: '', xmlFile: '' })}
+                                                onClick={() =>
+                                                    setPremiumBotModal({ isOpen: false, botName: '', xmlFile: '' })
+                                                }
                                                 style={{
                                                     width: '100%',
                                                     padding: '0.75rem',
@@ -4437,35 +6027,35 @@ const AppWrapper = observer(() => {
                                                 <stop offset='100%' stopColor='#f59e0b' stopOpacity='0.3' />
                                             </radialGradient>
                                             <filter id='novaGlowNav'>
-                                                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+                                                <feGaussianBlur stdDeviation='2' result='coloredBlur' />
                                                 <feMerge>
-                                                    <feMergeNode in='coloredBlur'/>
-                                                    <feMergeNode in='SourceGraphic'/>
+                                                    <feMergeNode in='coloredBlur' />
+                                                    <feMergeNode in='SourceGraphic' />
                                                 </feMerge>
                                             </filter>
                                         </defs>
-                                        
+
                                         {/* Central hexagon core */}
-                                        <path 
-                                            d='M12 4L16 7L16 13L12 16L8 13L8 7Z' 
-                                            fill='url(#novaRadialNav)' 
-                                            stroke='url(#novaGradNav)' 
+                                        <path
+                                            d='M12 4L16 7L16 13L12 16L8 13L8 7Z'
+                                            fill='url(#novaRadialNav)'
+                                            stroke='url(#novaGradNav)'
                                             strokeWidth='1.5'
                                             filter='url(#novaGlowNav)'
                                         />
-                                        
+
                                         {/* Inner energy core */}
                                         <circle cx='12' cy='10' r='2' fill='#fbbf24' filter='url(#novaGlowNav)' />
-                                        
+
                                         {/* Outer hexagonal ring */}
-                                        <path 
-                                            d='M12 2L18 6L18 14L12 18L6 14L6 6Z' 
-                                            fill='none' 
-                                            stroke='url(#novaGradNav)' 
+                                        <path
+                                            d='M12 2L18 6L18 14L12 18L6 14L6 6Z'
+                                            fill='none'
+                                            stroke='url(#novaGradNav)'
                                             strokeWidth='1.5'
                                             opacity='0.7'
                                         />
-                                        
+
                                         {/* Energy nodes at hexagon corners */}
                                         <circle cx='12' cy='2' r='1.2' fill='#fbbf24' filter='url(#novaGlowNav)' />
                                         <circle cx='18' cy='6' r='1.2' fill='#fbbf24' filter='url(#novaGlowNav)' />
@@ -4473,20 +6063,68 @@ const AppWrapper = observer(() => {
                                         <circle cx='12' cy='18' r='1.2' fill='#fbbf24' filter='url(#novaGlowNav)' />
                                         <circle cx='6' cy='14' r='1.2' fill='#fbbf24' filter='url(#novaGlowNav)' />
                                         <circle cx='6' cy='6' r='1.2' fill='#fbbf24' filter='url(#novaGlowNav)' />
-                                        
+
                                         {/* Energy beams connecting to center */}
-                                        <line x1='12' y1='2' x2='12' y2='10' stroke='url(#novaGradNav)' strokeWidth='0.5' opacity='0.5' />
-                                        <line x1='18' y1='6' x2='12' y2='10' stroke='url(#novaGradNav)' strokeWidth='0.5' opacity='0.5' />
-                                        <line x1='18' y1='14' x2='12' y2='10' stroke='url(#novaGradNav)' strokeWidth='0.5' opacity='0.5' />
-                                        <line x1='12' y1='18' x2='12' y2='10' stroke='url(#novaGradNav)' strokeWidth='0.5' opacity='0.5' />
-                                        <line x1='6' y1='14' x2='12' y2='10' stroke='url(#novaGradNav)' strokeWidth='0.5' opacity='0.5' />
-                                        <line x1='6' y1='6' x2='12' y2='10' stroke='url(#novaGradNav)' strokeWidth='0.5' opacity='0.5' />
-                                        
+                                        <line
+                                            x1='12'
+                                            y1='2'
+                                            x2='12'
+                                            y2='10'
+                                            stroke='url(#novaGradNav)'
+                                            strokeWidth='0.5'
+                                            opacity='0.5'
+                                        />
+                                        <line
+                                            x1='18'
+                                            y1='6'
+                                            x2='12'
+                                            y2='10'
+                                            stroke='url(#novaGradNav)'
+                                            strokeWidth='0.5'
+                                            opacity='0.5'
+                                        />
+                                        <line
+                                            x1='18'
+                                            y1='14'
+                                            x2='12'
+                                            y2='10'
+                                            stroke='url(#novaGradNav)'
+                                            strokeWidth='0.5'
+                                            opacity='0.5'
+                                        />
+                                        <line
+                                            x1='12'
+                                            y1='18'
+                                            x2='12'
+                                            y2='10'
+                                            stroke='url(#novaGradNav)'
+                                            strokeWidth='0.5'
+                                            opacity='0.5'
+                                        />
+                                        <line
+                                            x1='6'
+                                            y1='14'
+                                            x2='12'
+                                            y2='10'
+                                            stroke='url(#novaGradNav)'
+                                            strokeWidth='0.5'
+                                            opacity='0.5'
+                                        />
+                                        <line
+                                            x1='6'
+                                            y1='6'
+                                            x2='12'
+                                            y2='10'
+                                            stroke='url(#novaGradNav)'
+                                            strokeWidth='0.5'
+                                            opacity='0.5'
+                                        />
+
                                         {/* Orbiting particles */}
                                         <circle cx='12' cy='6' r='0.8' fill='#ffffff' opacity='0.8' />
                                         <circle cx='15' cy='10' r='0.8' fill='#ffffff' opacity='0.8' />
                                         <circle cx='9' cy='10' r='0.8' fill='#ffffff' opacity='0.8' />
-                                        
+
                                         <style>
                                             {`
                                                 @keyframes novaRotateNav {
@@ -4601,12 +6239,9 @@ const AppWrapper = observer(() => {
             >
                 {message}
             </Dialog>
-            
+
             {/* Admin Panel - Hidden, accessible via secret keyboard shortcut */}
-            <AdminPanel 
-                isOpen={isAdminPanelOpen} 
-                onClose={() => setIsAdminPanelOpen(false)} 
-            />
+            <AdminPanel isOpen={isAdminPanelOpen} onClose={() => setIsAdminPanelOpen(false)} />
         </>
     );
 });
