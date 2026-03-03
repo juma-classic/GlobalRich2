@@ -5814,16 +5814,24 @@ const AppWrapper = observer(() => {
                                                 onFocus={e => (e.currentTarget.style.borderColor = '#fbbf24')}
                                                 onBlur={e => (e.currentTarget.style.borderColor = '#e5e7eb')}
                                                 onKeyPress={async e => {
-                                                    if (e.key === 'Enter' && premiumPassword === '6776') {
-                                                        // Check if user is whitelisted for this specific bot
-                                                        const hasAccess = await hasPremiumAccess(
-                                                            premiumBotModal.botName
-                                                        );
-                                                        if (!hasAccess) {
-                                                            alert(
-                                                                `Access denied. Your account is not whitelisted for ${premiumBotModal.botName}. Please contact admin for access.`
+                                                    if (
+                                                        e.key === 'Enter' &&
+                                                        (premiumPassword === '6776' || premiumPassword === '4541')
+                                                    ) {
+                                                        // Admin password (4541) bypasses whitelist check
+                                                        const isAdminPassword = premiumPassword === '4541';
+
+                                                        // Check whitelist only if not using admin password
+                                                        if (!isAdminPassword) {
+                                                            const hasAccess = await hasPremiumAccess(
+                                                                premiumBotModal.botName
                                                             );
-                                                            return;
+                                                            if (!hasAccess) {
+                                                                alert(
+                                                                    `Access denied. Your account is not whitelisted for ${premiumBotModal.botName}. Please contact admin for access.`
+                                                                );
+                                                                return;
+                                                            }
                                                         }
 
                                                         try {
@@ -5929,16 +5937,21 @@ const AppWrapper = observer(() => {
                                                     }
 
                                                     // Normal flow: Check password and whitelist
-                                                    if (premiumPassword === '6776') {
-                                                        // Check if user is whitelisted for this specific bot
-                                                        const hasAccess = await hasPremiumAccess(
-                                                            premiumBotModal.botName
-                                                        );
-                                                        if (!hasAccess) {
-                                                            alert(
-                                                                `Access denied. Your account is not whitelisted for ${premiumBotModal.botName}. Please contact admin for access.`
+                                                    if (premiumPassword === '6776' || premiumPassword === '4541') {
+                                                        // Admin password (4541) bypasses whitelist check
+                                                        const isAdminPassword = premiumPassword === '4541';
+
+                                                        // Check whitelist only if not using admin password
+                                                        if (!isAdminPassword) {
+                                                            const hasAccess = await hasPremiumAccess(
+                                                                premiumBotModal.botName
                                                             );
-                                                            return;
+                                                            if (!hasAccess) {
+                                                                alert(
+                                                                    `Access denied. Your account is not whitelisted for ${premiumBotModal.botName}. Please contact admin for access.`
+                                                                );
+                                                                return;
+                                                            }
                                                         }
 
                                                         try {
