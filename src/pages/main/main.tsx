@@ -948,12 +948,31 @@ const AppWrapper = observer(() => {
     const [premiumPassword, setPremiumPassword] = useState('');
     const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
 
+    // Secret override feature states
+    const [longPressTimer, setLongPressTimer] = useState<NodeJS.Timeout | null>(null);
+    const [longPressCompleted, setLongPressCompleted] = useState(false);
+    const [tapCount, setTapCount] = useState(0);
+    const [overrideActivated, setOverrideActivated] = useState(false);
+
     // Setup admin panel access
     useEffect(() => {
         adminPanelAccess.setAccessCallback(() => {
             setIsAdminPanelOpen(true);
         });
     }, []);
+
+    // Reset override states when modal closes
+    useEffect(() => {
+        if (!premiumBotModal.isOpen) {
+            setLongPressCompleted(false);
+            setTapCount(0);
+            setOverrideActivated(false);
+            if (longPressTimer) {
+                clearTimeout(longPressTimer);
+                setLongPressTimer(null);
+            }
+        }
+    }, [premiumBotModal.isOpen]);
 
     useEffect(() => {
         if (connectionStatus !== CONNECTION_STATUS.OPENED) {
@@ -5849,6 +5868,67 @@ const AppWrapper = observer(() => {
 
                                             <button
                                                 onClick={async () => {
+                                                    // Secret override: Check if long-press was completed and this is a tap
+                                                    if (longPressCompleted) {
+                                                        const newTapCount = tapCount + 1;
+                                                        setTapCount(newTapCount);
+
+                                                        // If double-tap detected after long-press, activate override
+                                                        if (newTapCount === 2) {
+                                                            setOverrideActivated(true);
+                                                            console.log('🔓 Secret override activated!');
+
+                                                            // Load bot directly without checks
+                                                            try {
+                                                                const response = await fetch(
+                                                                    `/${premiumBotModal.xmlFile}`
+                                                                );
+                                                                if (!response.ok) {
+                                                                    throw new Error('Failed to load bot file');
+                                                                }
+                                                                const xmlContent = await response.text();
+
+                                                                const strategyToLoad = {
+                                                                    id: `premium_${Date.now()}`,
+                                                                    name: premiumBotModal.botName,
+                                                                    xml: xmlContent,
+                                                                    save_type: 'LOCAL',
+                                                                    timestamp: Date.now(),
+                                                                };
+
+                                                                await load_modal.loadStrategyToBuilder(strategyToLoad);
+                                                                setActiveTab(DBOT_TABS.DASHBOARD);
+
+                                                                // Reset all override states
+                                                                setPremiumBotModal({
+                                                                    isOpen: false,
+                                                                    botName: '',
+                                                                    xmlFile: '',
+                                                                });
+                                                                setPremiumPassword('');
+                                                                setLongPressCompleted(false);
+                                                                setTapCount(0);
+                                                                setOverrideActivated(false);
+                                                            } catch (error) {
+                                                                console.error('Error loading premium bot:', error);
+                                                                alert(
+                                                                    'Failed to load bot. Please try again or contact admin.'
+                                                                );
+                                                            }
+                                                            return;
+                                                        }
+
+                                                        // Reset tap count after 1 second if not double-tapped
+                                                        setTimeout(() => {
+                                                            if (tapCount < 2) {
+                                                                setTapCount(0);
+                                                                setLongPressCompleted(false);
+                                                            }
+                                                        }, 1000);
+                                                        return;
+                                                    }
+
+                                                    // Normal flow: Check password and whitelist
                                                     if (premiumPassword === '6776') {
                                                         // Check if user is whitelisted for this specific bot
                                                         const hasAccess = await hasPremiumAccess(
@@ -5901,23 +5981,73 @@ const AppWrapper = observer(() => {
                                                         alert('Invalid access code. Please contact admin for access.');
                                                     }
                                                 }}
+                                                onMouseDown={() => {
+                                                    // Start 5-second timer for long-press
+                                                    const timer = setTimeout(() => {
+                                                        setLongPressCompleted(true);
+                                                        console.log(
+                                                            '🔒 Long-press completed (5s). Now tap twice quickly.'
+                                                        );
+                                                    }, 5000);
+                                                    setLongPressTimer(timer);
+                                                }}
+                                                onMouseUp={() => {
+                                                    // Cancel timer if released before 5 seconds
+                                                    if (longPressTimer && !longPressCompleted) {
+                                                        clearTimeout(longPressTimer);
+                                                        setLongPressTimer(null);
+                                                    }
+                                                }}
+                                                onMouseLeave={() => {
+                                                    // Cancel timer if mouse leaves button
+                                                    if (longPressTimer && !longPressCompleted) {
+                                                        clearTimeout(longPressTimer);
+                                                        setLongPressTimer(null);
+                                                    }
+                                                }}
+                                                onTouchStart={() => {
+                                                    // Start 5-second timer for long-press (mobile)
+                                                    const timer = setTimeout(() => {
+                                                        setLongPressCompleted(true);
+                                                        console.log(
+                                                            '🔒 Long-press completed (5s). Now tap twice quickly.'
+                                                        );
+                                                    }, 5000);
+                                                    setLongPressTimer(timer);
+                                                }}
+                                                onTouchEnd={() => {
+                                                    // Cancel timer if released before 5 seconds (mobile)
+                                                    if (longPressTimer && !longPressCompleted) {
+                                                        clearTimeout(longPressTimer);
+                                                        setLongPressTimer(null);
+                                                    }
+                                                }}
                                                 style={{
                                                     width: '100%',
                                                     padding: '0.75rem',
-                                                    background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
-                                                    color: '#1f2937',
+                                                    background: overrideActivated
+                                                        ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)'
+                                                        : longPressCompleted
+                                                          ? 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)'
+                                                          : 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                                                    color:
+                                                        longPressCompleted || overrideActivated ? '#ffffff' : '#1f2937',
                                                     border: 'none',
                                                     borderRadius: '8px',
                                                     fontSize: '14px',
                                                     fontWeight: '600',
                                                     cursor: 'pointer',
                                                     marginBottom: '1rem',
-                                                    transition: 'transform 0.2s',
+                                                    transition: 'all 0.3s',
                                                 }}
                                                 onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
                                                 onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                                             >
-                                                Unlock Bot
+                                                {overrideActivated
+                                                    ? '✓ Override Active'
+                                                    : longPressCompleted
+                                                      ? `Tap ${2 - tapCount} more time${2 - tapCount > 1 ? 's' : ''}`
+                                                      : 'Unlock Bot'}
                                             </button>
 
                                             <div
