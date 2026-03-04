@@ -4980,7 +4980,7 @@ const AppWrapper = observer(() => {
                                     {[
                                         {
                                             name: 'AutoRich 2026',
-                                            xmlFile: 'NOVAGRID 2026.xml',
+                                            xmlFile: 'autorich.xml',
                                             icon: (
                                                 // Supernova / Cosmic Explosion
                                                 <svg

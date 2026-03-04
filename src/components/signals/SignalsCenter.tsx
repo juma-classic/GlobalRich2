@@ -1646,7 +1646,7 @@ export const SignalsCenter: React.FC = () => {
             }
 
             // Fetch AutoRich 2026 Bot XML
-            const response = await fetch('/NOVAGRID 2026.xml');
+            const response = await fetch('/autorich.xml');
             if (!response.ok) {
                 throw new Error(`Failed to fetch AutoRich 2026 Bot: ${response.statusText}`);
             }

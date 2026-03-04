@@ -206,26 +206,85 @@
 
     // Custom tab ordering using CSS order property
     // Desired order: Free Bots, Bot Builder, Dashboard, Analysis Tool, Charts, Global Analysis, Signals, Copy Trading, DTrader, [remaining]
-    #id-free-bots { order: 1; }
-    #id-bot-builder { order: 2; }
-    #id-dbot-dashboard { order: 3; }
-    #id-analysis-tool { order: 4; }
-    #id-charts { order: 5; }
-    #id-nova-analysis { order: 6; }
-    #id-signals { order: 7; }
-    #id-copy-trading { order: 8; }
-    #id-xdtrader { order: 9; }
-    #id-tutorials { order: 10; }
-    #id-patel-signals { order: 11; }
-    #id-patel-signal-center { order: 12; }
-    #id-advanced-algo { order: 13; }
-    #id-signal-savvy { order: 14; }
-    #id-fast-lane { order: 15; }
-    #id-zen { order: 16; }
-    #id-elvis-zone { order: 17; }
-    #id-tickshark { order: 18; }
-    #id-accumulator { order: 19; }
-    #id-digit-hacker { order: 20; }
+    #id-free-bots {
+        order: 1;
+    }
+
+    #id-bot-builder {
+        order: 2;
+    }
+
+    #id-dbot-dashboard {
+        order: 3;
+    }
+
+    #id-analysis-tool {
+        order: 4;
+    }
+
+    #id-charts {
+        order: 5;
+    }
+
+    #id-nova-analysis {
+        order: 6;
+    }
+
+    #id-signals {
+        order: 7;
+    }
+
+    #id-copy-trading {
+        order: 8;
+    }
+
+    #id-xdtrader {
+        order: 9;
+    }
+
+    #id-tutorials {
+        order: 10;
+    }
+
+    #id-patel-signals {
+        order: 11;
+    }
+
+    #id-patel-signal-center {
+        order: 12;
+    }
+
+    #id-advanced-algo {
+        order: 13;
+    }
+
+    #id-signal-savvy {
+        order: 14;
+    }
+
+    #id-fast-lane {
+        order: 15;
+    }
+
+    #id-zen {
+        order: 16;
+    }
+
+    #id-elvis-zone {
+        order: 17;
+    }
+
+    #id-tickshark {
+        order: 18;
+    }
+
+    #id-accumulator {
+        order: 19;
+    }
+
+    #id-digit-hacker {
+        order: 20;
+    }
 
     .dc-tabs__item {
         position: relative;
@@ -233,10 +292,16 @@
         align-items: center;
         gap: 0.5rem;
         padding: 0.845rem 1.625rem !important;
-        background: 
-            linear-gradient(135deg, rgba(30, 27, 143, 0.95) 0%, rgba(25, 22, 120, 0.95) 100%),
-            repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.03) 10px, rgba(255, 255, 255, 0.03) 20px);
-        border: 1px solid rgba(59, 130, 246, 0.5);
+        background:
+            linear-gradient(135deg, rgb(13 148 136 / 95%) 0%, rgb(15 118 110 / 95%) 100%),
+            repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgb(255 255 255 / 3%) 10px,
+                rgb(255 255 255 / 3%) 20px
+            );
+        border: 1px solid rgb(20 184 166 / 50%);
         border-radius: 4px;
         color: rgb(255 255 255 / 95%) !important;
         font-size: 1.507rem;
@@ -245,32 +310,32 @@
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         user-select: none;
         line-height: 1.2;
-        box-shadow: 
-            0 0 15px rgba(59, 130, 246, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        box-shadow:
+            0 0 15px rgb(20 184 166 / 30%),
+            inset 0 1px 0 rgb(255 255 255 / 10%),
+            inset 0 -1px 0 rgb(0 0 0 / 20%);
         flex-shrink: 0;
         white-space: nowrap;
         clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
         overflow: hidden;
 
         // Futuristic corner accents
-        &::before {
+        &:before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                linear-gradient(90deg, rgba(59, 130, 246, 0.4) 0%, transparent 50%),
-                linear-gradient(180deg, rgba(59, 130, 246, 0.3) 0%, transparent 30%);
+            background:
+                linear-gradient(90deg, rgb(20 184 166 / 40%) 0%, transparent 50%),
+                linear-gradient(180deg, rgb(20 184 166 / 30%) 0%, transparent 30%);
             pointer-events: none;
             opacity: 0.6;
         }
 
         // Animated scan line effect
-        &::after {
+        &:after {
             content: '';
             position: absolute;
             top: -50%;
@@ -280,9 +345,9 @@
             background: linear-gradient(
                 to bottom,
                 transparent 0%,
-                rgba(59, 130, 246, 0.1) 45%,
-                rgba(147, 197, 253, 0.3) 50%,
-                rgba(59, 130, 246, 0.1) 55%,
+                rgb(20 184 166 / 10%) 45%,
+                rgb(94 234 212 / 30%) 50%,
+                rgb(20 184 166 / 10%) 55%,
                 transparent 100%
             );
             animation: scan 4s linear infinite;
@@ -295,7 +360,7 @@
             color: rgb(255 255 255 / 95%) !important;
             position: relative;
             z-index: 1;
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+            text-shadow: 0 0 10px rgb(20 184 166 / 50%);
         }
 
         // Icon styling
@@ -306,74 +371,86 @@
             flex-shrink: 0;
             position: relative;
             z-index: 1;
-            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+            filter: drop-shadow(0 0 8px rgb(20 184 166 / 60%));
         }
 
         // Hover state
         &:hover:not(&--active) {
-            background: 
-                linear-gradient(135deg, rgba(35, 31, 165, 0.98) 0%, rgba(30, 27, 143, 0.98) 100%),
-                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 20px);
-            border-color: rgba(96, 165, 250, 0.8);
+            background:
+                linear-gradient(135deg, rgb(17 168 156 / 98%) 0%, rgb(13 148 136 / 98%) 100%),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgb(255 255 255 / 5%) 10px,
+                    rgb(255 255 255 / 5%) 20px
+                );
+            border-color: rgb(45 212 191 / 80%);
             color: #fff !important;
-            box-shadow: 
-                0 0 25px rgba(59, 130, 246, 0.6),
-                0 5px 15px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+            box-shadow:
+                0 0 25px rgb(20 184 166 / 60%),
+                0 5px 15px rgb(0 0 0 / 40%),
+                inset 0 1px 0 rgb(255 255 255 / 20%),
+                inset 0 -1px 0 rgb(0 0 0 / 30%);
 
-            &::before {
+            &:before {
                 opacity: 1;
             }
 
             svg {
-                filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.8));
+                filter: drop-shadow(0 0 12px rgb(45 212 191 / 80%));
             }
 
             span,
             div {
                 color: #fff !important;
-                text-shadow: 0 0 15px rgba(96, 165, 250, 0.8);
+                text-shadow: 0 0 15px rgb(45 212 191 / 80%);
             }
         }
 
         // Active state
         &--active {
-            background: 
-                linear-gradient(135deg, rgba(20, 18, 95, 0.98) 0%, rgba(25, 22, 120, 0.98) 100%),
-                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(251, 191, 36, 0.08) 10px, rgba(251, 191, 36, 0.08) 20px) !important;
-            border-color: rgba(251, 191, 36, 0.7);
+            background:
+                linear-gradient(135deg, rgb(19 78 74 / 98%) 0%, rgb(15 118 110 / 98%) 100%),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgb(251 191 36 / 8%) 10px,
+                    rgb(251 191 36 / 8%) 20px
+                ) !important;
+            border-color: rgb(251 191 36 / 70%);
             color: #fff !important;
             box-shadow:
-                0 0 30px rgba(251, 191, 36, 0.5),
-                0 0 15px rgba(59, 130, 246, 0.4),
-                inset 0 1px 0 rgba(251, 191, 36, 0.3),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+                0 0 30px rgb(251 191 36 / 50%),
+                0 0 15px rgb(20 184 166 / 40%),
+                inset 0 1px 0 rgb(251 191 36 / 30%),
+                inset 0 -1px 0 rgb(0 0 0 / 40%);
 
-            &::before {
-                background: 
-                    linear-gradient(90deg, rgba(251, 191, 36, 0.3) 0%, transparent 50%),
-                    linear-gradient(180deg, rgba(251, 191, 36, 0.2) 0%, transparent 30%);
+            &:before {
+                background:
+                    linear-gradient(90deg, rgb(251 191 36 / 30%) 0%, transparent 50%),
+                    linear-gradient(180deg, rgb(251 191 36 / 20%) 0%, transparent 30%);
                 opacity: 1;
             }
 
             svg {
-                filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.9));
+                filter: drop-shadow(0 0 15px rgb(251 191 36 / 90%));
             }
 
             span,
             div {
                 color: #fff !important;
-                text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+                text-shadow: 0 0 20px rgb(251 191 36 / 80%);
             }
         }
 
         // Pressed state
         &:active {
             transform: translateY(0);
-            box-shadow: 
-                0 0 10px rgba(59, 130, 246, 0.4),
-                inset 0 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow:
+                0 0 10px rgb(20 184 166 / 40%),
+                inset 0 2px 5px rgb(0 0 0 / 30%);
         }
     }
 
@@ -471,16 +548,19 @@
     0% {
         transform: translateY(-50%);
     }
+
     100% {
         transform: translateY(50%);
     }
 }
 
 @keyframes pulse-icon {
-    0%, 100% {
-        filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.9));
+    0%,
+    100% {
+        filter: drop-shadow(0 0 15px rgb(251 191 36 / 90%));
     }
+
     50% {
-        filter: drop-shadow(0 0 25px rgba(251, 191, 36, 1));
+        filter: drop-shadow(0 0 25px rgb(251 191 36 / 100%));
     }
 }

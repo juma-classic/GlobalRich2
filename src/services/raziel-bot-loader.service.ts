@@ -94,7 +94,7 @@ export interface RazielBotConfiguration {
 
 class RazielBotLoaderService {
     private readonly RAZIEL_BOT_FILE = 'Raziel Over Under.xml'; // Changed back from CFX-EvenOdd.xml
-    private readonly NOVAGRID_BOT_FILE = 'NOVAGRID 2026.xml'; // AutoRich 2026 bot for Signal Panel
+    private readonly NOVAGRID_BOT_FILE = 'autorich.xml'; // AutoRich 2026 bot for Signal Panel
 
     /**
      * Load AutoRich 2026 bot with Patel Signal (for Signal Panel)
@@ -335,14 +335,16 @@ class RazielBotLoaderService {
             if (signal.recommendation.action === 'OVER') {
                 const barrier = signal.recommendation.barrier || 2;
                 predictionBeforeLoss = barrier;
-                
+
                 // Check for aggressive mode
                 const { stakeManager } = require('@/services/stake-manager.service');
                 const isAggressiveMode = stakeManager.getAggressiveMode();
-                
+
                 if (isAggressiveMode) {
                     predictionAfterLoss = barrier; // Same as start prediction
-                    console.log(`🔥 Fibonacci Aggressive Mode: OVER${barrier} → OVER${barrier} recovery strategy applied`);
+                    console.log(
+                        `🔥 Fibonacci Aggressive Mode: OVER${barrier} → OVER${barrier} recovery strategy applied`
+                    );
                 } else {
                     // Unified recovery: OVER 2,3,4 all recover with OVER 4
                     if (barrier >= 2 && barrier <= 4) {
@@ -355,14 +357,16 @@ class RazielBotLoaderService {
                 // UNDER
                 const barrier = signal.recommendation.barrier || 7;
                 predictionBeforeLoss = barrier;
-                
+
                 // Check for aggressive mode
                 const { stakeManager } = require('@/services/stake-manager.service');
                 const isAggressiveMode = stakeManager.getAggressiveMode();
-                
+
                 if (isAggressiveMode) {
                     predictionAfterLoss = barrier; // Same as start prediction
-                    console.log(`🔥 Fibonacci Aggressive Mode: UNDER${barrier} → UNDER${barrier} recovery strategy applied`);
+                    console.log(
+                        `🔥 Fibonacci Aggressive Mode: UNDER${barrier} → UNDER${barrier} recovery strategy applied`
+                    );
                 } else {
                     // Unified recovery: UNDER 7,6,5 all recover with UNDER 5
                     if (barrier >= 5 && barrier <= 7) {
@@ -467,14 +471,16 @@ class RazielBotLoaderService {
                 if (signal.recommendation.action === 'OVER') {
                     const barrier = signal.recommendation.barrier || 2;
                     predictionBeforeLoss = barrier;
-                    
+
                     // Check for aggressive mode
                     const { stakeManager } = require('@/services/stake-manager.service');
                     const isAggressiveMode = stakeManager.getAggressiveMode();
-                    
+
                     if (isAggressiveMode) {
                         predictionAfterLoss = barrier; // Same as start prediction
-                        console.log(`🔥 Distribution Aggressive Mode: OVER${barrier} → OVER${barrier} recovery strategy applied`);
+                        console.log(
+                            `🔥 Distribution Aggressive Mode: OVER${barrier} → OVER${barrier} recovery strategy applied`
+                        );
                     } else {
                         // Unified recovery: OVER 2,3,4 all recover with OVER 4
                         if (barrier >= 2 && barrier <= 4) {
@@ -487,14 +493,16 @@ class RazielBotLoaderService {
                     // UNDER
                     const barrier = signal.recommendation.barrier || 7;
                     predictionBeforeLoss = barrier;
-                    
+
                     // Check for aggressive mode
                     const { stakeManager } = require('@/services/stake-manager.service');
                     const isAggressiveMode = stakeManager.getAggressiveMode();
-                    
+
                     if (isAggressiveMode) {
                         predictionAfterLoss = barrier; // Same as start prediction
-                        console.log(`🔥 Distribution Aggressive Mode: UNDER${barrier} → UNDER${barrier} recovery strategy applied`);
+                        console.log(
+                            `🔥 Distribution Aggressive Mode: UNDER${barrier} → UNDER${barrier} recovery strategy applied`
+                        );
                     } else {
                         // Unified recovery: UNDER 7,6,5 all recover with UNDER 5
                         if (barrier >= 5 && barrier <= 7) {
@@ -519,14 +527,16 @@ class RazielBotLoaderService {
                 if (signal.recommendation.action === 'OVER') {
                     const barrier = signal.recommendation.barrier || 2;
                     predictionBeforeLoss = barrier;
-                    
+
                     // Check for aggressive mode
                     const { stakeManager } = require('@/services/stake-manager.service');
                     const isAggressiveMode = stakeManager.getAggressiveMode();
-                    
+
                     if (isAggressiveMode) {
                         predictionAfterLoss = barrier; // Same as start prediction
-                        console.log(`🔥 Distribution Default Aggressive Mode: OVER${barrier} → OVER${barrier} recovery strategy applied`);
+                        console.log(
+                            `🔥 Distribution Default Aggressive Mode: OVER${barrier} → OVER${barrier} recovery strategy applied`
+                        );
                     } else {
                         // Unified recovery: OVER 2,3,4 all recover with OVER 4
                         if (barrier >= 2 && barrier <= 4) {
@@ -539,14 +549,16 @@ class RazielBotLoaderService {
                     // UNDER
                     const barrier = signal.recommendation.barrier || 7;
                     predictionBeforeLoss = barrier;
-                    
+
                     // Check for aggressive mode
                     const { stakeManager } = require('@/services/stake-manager.service');
                     const isAggressiveMode = stakeManager.getAggressiveMode();
-                    
+
                     if (isAggressiveMode) {
                         predictionAfterLoss = barrier; // Same as start prediction
-                        console.log(`🔥 Distribution Default Aggressive Mode: UNDER${barrier} → UNDER${barrier} recovery strategy applied`);
+                        console.log(
+                            `🔥 Distribution Default Aggressive Mode: UNDER${barrier} → UNDER${barrier} recovery strategy applied`
+                        );
                     } else {
                         // Unified recovery: UNDER 7,6,5 all recover with UNDER 5
                         if (barrier >= 5 && barrier <= 7) {
@@ -627,14 +639,16 @@ class RazielBotLoaderService {
                 if (signal.recommendation.action === 'OVER') {
                     const barrier = signal.recommendation.barrier || 2;
                     predictionBeforeLoss = barrier;
-                    
+
                     // Check for aggressive mode
                     const { stakeManager } = require('@/services/stake-manager.service');
                     const isAggressiveMode = stakeManager.getAggressiveMode();
-                    
+
                     if (isAggressiveMode) {
                         predictionAfterLoss = barrier; // Same as start prediction
-                        console.log(`🔥 Hot/Cold Aggressive Mode: OVER${barrier} → OVER${barrier} recovery strategy applied`);
+                        console.log(
+                            `🔥 Hot/Cold Aggressive Mode: OVER${barrier} → OVER${barrier} recovery strategy applied`
+                        );
                     } else {
                         // Unified recovery: OVER 2,3,4 all recover with OVER 4
                         if (barrier >= 2 && barrier <= 4) {
@@ -647,14 +661,16 @@ class RazielBotLoaderService {
                     // UNDER
                     const barrier = signal.recommendation.barrier || 7;
                     predictionBeforeLoss = barrier;
-                    
+
                     // Check for aggressive mode
                     const { stakeManager } = require('@/services/stake-manager.service');
                     const isAggressiveMode = stakeManager.getAggressiveMode();
-                    
+
                     if (isAggressiveMode) {
                         predictionAfterLoss = barrier; // Same as start prediction
-                        console.log(`🔥 Hot/Cold Aggressive Mode: UNDER${barrier} → UNDER${barrier} recovery strategy applied`);
+                        console.log(
+                            `🔥 Hot/Cold Aggressive Mode: UNDER${barrier} → UNDER${barrier} recovery strategy applied`
+                        );
                     } else {
                         // Unified recovery: UNDER 7,6,5 all recover with UNDER 5
                         if (barrier >= 5 && barrier <= 7) {
@@ -679,14 +695,16 @@ class RazielBotLoaderService {
                 if (signal.recommendation.action === 'OVER') {
                     const barrier = signal.recommendation.barrier || 2;
                     predictionBeforeLoss = barrier;
-                    
+
                     // Check for aggressive mode
                     const { stakeManager } = require('@/services/stake-manager.service');
                     const isAggressiveMode = stakeManager.getAggressiveMode();
-                    
+
                     if (isAggressiveMode) {
                         predictionAfterLoss = barrier; // Same as start prediction
-                        console.log(`🔥 Hot/Cold Default Aggressive Mode: OVER${barrier} → OVER${barrier} recovery strategy applied`);
+                        console.log(
+                            `🔥 Hot/Cold Default Aggressive Mode: OVER${barrier} → OVER${barrier} recovery strategy applied`
+                        );
                     } else {
                         // Unified recovery: OVER 2,3,4 all recover with OVER 4
                         if (barrier >= 2 && barrier <= 4) {
@@ -699,14 +717,16 @@ class RazielBotLoaderService {
                     // UNDER
                     const barrier = signal.recommendation.barrier || 7;
                     predictionBeforeLoss = barrier;
-                    
+
                     // Check for aggressive mode
                     const { stakeManager } = require('@/services/stake-manager.service');
                     const isAggressiveMode = stakeManager.getAggressiveMode();
-                    
+
                     if (isAggressiveMode) {
                         predictionAfterLoss = barrier; // Same as start prediction
-                        console.log(`🔥 Hot/Cold Default Aggressive Mode: UNDER${barrier} → UNDER${barrier} recovery strategy applied`);
+                        console.log(
+                            `🔥 Hot/Cold Default Aggressive Mode: UNDER${barrier} → UNDER${barrier} recovery strategy applied`
+                        );
                     } else {
                         // Unified recovery: UNDER 7,6,5 all recover with UNDER 5
                         if (barrier >= 5 && barrier <= 7) {
@@ -759,7 +779,7 @@ class RazielBotLoaderService {
         customSettings?: CustomBotSettings
     ): RazielBotConfiguration {
         const contractType = signal.type === 'OVER' ? 'DIGITOVER' : 'DIGITUNDER';
-        
+
         // Determine barrier from signal type and digit
         let barrier: number;
         if (signal.type === 'OVER') {
