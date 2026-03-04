@@ -989,13 +989,22 @@ const AppWrapper = observer(() => {
         const fetchBots = async () => {
             const botFiles = [
                 // All Available Bots
+                'PATEL (with Entry).xml',
+                'Raziel Over Under.xml',
+                'CFX-EvenOdd.xml',
+                'CFX-RiseFall.xml',
+                'Random LDP Differ - Rich.xml',
+                'Flipping-Tool-2026 - Rich (1).xml',
+                'States Digit Switcher.xml',
+                'Over 3 Delirium.xml',
+                'Under-MarketSlayer v2.xml',
+                '$Dollar printer .xml',
+                'AUTO C4 VOLT 🇬🇧 2 🇬🇧 AI PREMIUM ROBOT  (2) (1).xml',
                 'D strike 2.xml',
                 'Magic Recovery.xml',
                 'Over 2 Rec Over 4.xml',
                 'UNDER 7,UNDER 5.xml',
                 'UNDER 8,UNDER 6.xml',
-                'PATEL (with Entry).xml',
-                'Raziel Over Under.xml',
             ];
             const botPromises = botFiles.map(async file => {
                 try {
